@@ -25,7 +25,7 @@ func gatherMetadata(
 	// ...wait...
 	await query.gatherResults()
 
-	// and use!
+	// ...and use!
 	return query.results.compactMap { item in
 		item as? NSMetadataItem
 	}
