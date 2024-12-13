@@ -9,9 +9,9 @@ let package = Package(
 		.macOS(.v10_15),
 		.iOS(.v13),
 		.tvOS(.v13),
-		.watchOS(.v7),
+		.watchOS(.v6),
+		.macCatalyst("13.1"),
 		.visionOS(.v1),
-		.macCatalyst(.v14),
 	],
 	products: [
 		.library(name: "AsyncNSMetadataQuery", targets: ["AsyncNSMetadataQuery"]),

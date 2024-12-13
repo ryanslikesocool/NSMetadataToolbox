@@ -1,10 +1,6 @@
 # Async NSMetadataQuery
 A simple Swift concurrency wrapper for [NSMetadataQuery](https://developer.apple.com/documentation/foundation/nsmetadataquery).
 
-## NOTICE
-**This package is under development and not considered production-ready.**<br/>
-Breaking changes are common, documentation is incomplete, and support is limited.  Use at your own risk.
-
 ## Installation (Swift Package Manager)
 Add the following entry to your package dependencies.
 ```swift
@@ -14,6 +10,24 @@ Add the following entry to your package dependencies.
 ## Usage
 ```swift
 import AsyncNSMetadataQuery
+import Foundation
+import UniformTypeIdentifiers
 
-// TODO
+func gatherMetadata(
+	forContent contentTypeIdentifier: UTType,
+	in searchScopes: [URL]
+) async -> [NSMetadataItem] {
+	// create a query...
+	let query = NSMetadataQuery()
+	query.predicate = NSPredicate(format: "\(NSMetadataItemContentTypeKey) == '\(contentTypeIdentifier.identifier)'")
+	query.searchScopes = searchScopes
+
+	// ...wait...
+	await query.gatherResults()
+
+	// and use!
+	return query.results.compactMap { item in
+		item as? NSMetadataItem
+	}
+}
 ```
