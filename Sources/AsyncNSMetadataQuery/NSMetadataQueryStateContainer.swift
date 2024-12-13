@@ -28,15 +28,13 @@ private extension NSMetadataQueryStateContainer {
 		case inactive
 		case active(query: NSMetadataQuery, observer: any NSObjectProtocol, notificationName: Notification.Name, notificationCenter: NotificationCenter, completionHandler: () -> Void)
 
-		mutating func stop() {
+		func stop() {
 			guard case let .active(query, observer, notificationName, notificationCenter, _) = self else {
 				return
 			}
 
 			query.stop()
 			notificationCenter.removeObserver(observer, name: notificationName, object: query)
-
-			self = .inactive
 		}
 	}
 }
@@ -51,6 +49,10 @@ private extension NSMetadataQueryStateContainer {
 		notificationCenter: NotificationCenter,
 		completionHandler: @escaping () -> Void
 	) throws {
+		guard case .inactive = self.state else {
+			preconditionFailure("\(#function) should not be called while the \(Self.self) is running.")
+		}
+
 		// Register the observer before starting the query
 		// so we don't miss any notifications.
 		let observer: any NSObjectProtocol = notificationCenter.addObserver(
@@ -60,7 +62,7 @@ private extension NSMetadataQueryStateContainer {
 			using: finished
 		)
 
-		var state: State = .active(
+		let state: State = .active(
 			query: query,
 			observer: observer,
 			notificationName: notificationName,
@@ -79,10 +81,9 @@ private extension NSMetadataQueryStateContainer {
 	private func finished(notification: Notification) {
 		/// # validate current state
 		guard case let .active(query, _, _, _, completionHandler) = state else {
-			preconditionFailure("Received a notification while the query was not active.")
+			preconditionFailure("\(#function) should not be called while the \(Self.self) is not running.")
 		}
 
-		/// # validate notification object
 		// TODO: Do we even need to validate the notification object?
 		guard
 			let notificationObject = notification.object as? NSMetadataQuery,
@@ -110,8 +111,8 @@ extension NSMetadataQueryStateContainer {
 		notificationCenter: NotificationCenter
 	) async throws {
 		// TODO: revisit `withTaskCancellationHandler`.
-		// i tried it out before but it never seemed to allow the primary operation to complete.
-		// maybe some isolation issue with `NSMetadataQuery`?
+		// I tried it out before, but it never seemed to allow the primary operation to complete.
+		// Maybe some isolation issue with `NSMetadataQuery`?
 
 		try await withCheckedThrowingContinuation { continuation in
 			do {
