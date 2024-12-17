@@ -18,10 +18,5 @@ let package = Package(
 	],
 	targets: [
 		.target(name: "AsyncNSMetadataQuery"),
-
-		.testTarget(
-			name: "AsyncNSMetadataQueryTests",
-			dependencies: ["AsyncNSMetadataQuery"]
-		),
 	]
 )

@@ -1,10 +1,19 @@
 # Async NSMetadataQuery
-A simple Swift concurrency wrapper for [NSMetadataQuery](https://developer.apple.com/documentation/foundation/nsmetadataquery).
+A simple Swift concurrency wrapper for [`NSMetadataQuery`](https://developer.apple.com/documentation/foundation/nsmetadataquery).
 
 ## Installation (Swift Package Manager)
-Add the following entry to your package dependencies.
+Add the following entry to your package dependencies...
 ```swift
 .package(url: "https://github.com/ryanslikesocool/AsyncNSMetadataQuery.git", from: "0.0.1"),
+```
+...and your target dependencies.
+```swift
+.target(
+	name: "MyTarget",
+	dependencies: [
+		"AsyncNSMetadataQuery",
+	]
+),
 ```
 
 ## Usage
