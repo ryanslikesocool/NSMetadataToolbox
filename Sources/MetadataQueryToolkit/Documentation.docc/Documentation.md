@@ -1,10 +1,9 @@
-# ``MetadataQueryToolkit``
+# ``MetadataQueryToolbox``
 
 ## Overview
 
-Extensions and conveniences for
-[`NSMetadataQuery`](https://developer.apple.com/documentation/foundation/nsmetadataquery)
-.
+Extensions and conveniences for [`NSMetadataQuery`](https://developer.apple.com/documentation/foundation/nsmetadataquery)\.
+
 
 ## Topics
 
@@ -12,39 +11,45 @@ Extensions and conveniences for
 
 - ``Foundation/NSMetadataQuery/gatherResults(isolation:notificationCenter:)``
 
+
 ### Declaring Attribute Keys
 
-- ``Foundation/NSMetadataItem/AttributeKey``
+- ``NSMetadataItemAttributeKey``
+
 
 ### Accessing Attribute Values
 
-- ``Foundation/NSMetadataItem/value(forAttribute:)``
-- ``Foundation/NSMetadataItem/values(forAttributes:)``
+- ``Foundation/NSMetadataItem/value(forAttribute:)-2nmqa``
+- ``Foundation/NSMetadataItem/value(forAttribute:)-8k38x``
+- ``Foundation/NSMetadataItem/values(forAttributes:)-8hvk1``
+- ``Foundation/NSMetadataItem/values(forAttributes:)-3oqmg``
+
 
 ### Attribute Keys
 
-- ``Foundation/NSMetadataItem/AttributeKey/appStoreCategory``
-- ``Foundation/NSMetadataItem/AttributeKey/appStoreCategoryType``
-- ``Foundation/NSMetadataItem/AttributeKey/attributeChangeDate``
-- ``Foundation/NSMetadataItem/AttributeKey/cfBundleIdentifier``
-- ``Foundation/NSMetadataItem/AttributeKey/contentCreationDate``
-- ``Foundation/NSMetadataItem/AttributeKey/contentModificationDate``
-- ``Foundation/NSMetadataItem/AttributeKey/contentType``
-- ``Foundation/NSMetadataItem/AttributeKey/copyright``
-- ``Foundation/NSMetadataItem/AttributeKey/dateAdded``
-- ``Foundation/NSMetadataItem/AttributeKey/displayName``
-- ``Foundation/NSMetadataItem/AttributeKey/downloadedDate``
-- ``Foundation/NSMetadataItem/AttributeKey/dueDate``
-- ``Foundation/NSMetadataItem/AttributeKey/executableArchitectures``
-- ``Foundation/NSMetadataItem/AttributeKey/executablePlatform``
-- ``Foundation/NSMetadataItem/AttributeKey/fsContentChangeDate``
-- ``Foundation/NSMetadataItem/AttributeKey/fsCreationDate``
-- ``Foundation/NSMetadataItem/AttributeKey/fsName``
-- ``Foundation/NSMetadataItem/AttributeKey/fsSize``
-- ``Foundation/NSMetadataItem/AttributeKey/lastUsedDate``
-- ``Foundation/NSMetadataItem/AttributeKey/path``
-- ``Foundation/NSMetadataItem/AttributeKey/url``
-- ``Foundation/NSMetadataItem/AttributeKey/version``
+- ``NSMetadataItemAttribute/appStoreCategory``
+- ``NSMetadataItemAttribute/appStoreCategoryType``
+- ``NSMetadataItemAttribute/attributeChangeDate``
+- ``NSMetadataItemAttribute/cfBundleIdentifier``
+- ``NSMetadataItemAttribute/contentCreationDate``
+- ``NSMetadataItemAttribute/contentModificationDate``
+- ``NSMetadataItemAttribute/contentType``
+- ``NSMetadataItemAttribute/copyright``
+- ``NSMetadataItemAttribute/dateAdded``
+- ``NSMetadataItemAttribute/displayName``
+- ``NSMetadataItemAttribute/downloadedDate``
+- ``NSMetadataItemAttribute/dueDate``
+- ``NSMetadataItemAttribute/executableArchitectures``
+- ``NSMetadataItemAttribute/executablePlatform``
+- ``NSMetadataItemAttribute/fsContentChangeDate``
+- ``NSMetadataItemAttribute/fsCreationDate``
+- ``NSMetadataItemAttribute/fsName``
+- ``NSMetadataItemAttribute/fsSize``
+- ``NSMetadataItemAttribute/lastUsedDate``
+- ``NSMetadataItemAttribute/path``
+- ``NSMetadataItemAttribute/url``
+- ``NSMetadataItemAttribute/version``
+
 
 ### Constants
 

@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-	name: "AsyncNSMetadataQuery",
+	name: "MetadataQueryToolbox",
 	defaultLocalization: "en",
 	platforms: [
 		.macOS(.v10_13),
