@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-	name: "MetadataQueryToolkit",
+	name: "AsyncNSMetadataQuery",
 	defaultLocalization: "en",
 	platforms: [
 		.macOS(.v10_13),
@@ -14,9 +14,9 @@ let package = Package(
 		.visionOS(.v1),
 	],
 	products: [
-		.library(name: "MetadataQueryToolkit", targets: ["MetadataQueryToolkit"]),
+		.library(name: "MetadataQueryToolbox", targets: ["MetadataQueryToolbox"]),
 	],
 	targets: [
-		.target(name: "MetadataQueryToolkit"),
+		.target(name: "MetadataQueryToolbox"),
 	]
 )
