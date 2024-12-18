@@ -239,3 +239,32 @@ Package consumers would still have to write boilerplate.
 All that said, there's a finite number of
 [pre-defined attribute keys](https://developer.apple.com/documentation/foundation/nsmetadataitem#1681152),
 and it's not like I'm extending a quickly-evolving framework.
+
+---
+
+
+## `NSMetadataItem` Subscript
+
+### The Present
+
+Attribute keys are currently used as an argument in the `NSMetadataItem.value(forAttribute:)` function.
+```swift
+func readDisplayName(from metadataItem: MetadataItem) -> String? {
+	metadataItem.value(forAttribute: NSMetadataItemAttribute.DisplayNameKey.self)
+}
+```
+This is syntactically similar to the
+[original implementation](https://developer.apple.com/documentation/foundation/nsmetadataitem/1411721-value)
+in the Foundation module.
+
+### The (Potential<sup>\*</sup>) Future
+<sup>\* but unlikely</sup>
+
+I could declare subscripts in an extension for `NSMetadataItem` with the same arguments as the current functions.
+```swift
+func readDisplayName(from metadataItem: MetadataItem) -> String? {
+	metadataItem[NSMetadataItemAttribute.DisplayNameKey.self]
+}
+```
+This would add an API similar to SwiftUI's
+[`EnvironmentValues` subscript](https://developer.apple.com/documentation/swiftui/environmentvalues/subscript(_:))\.

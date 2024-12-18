@@ -1,5 +1,9 @@
 import Foundation
 
+// TODO: Validate Value type
+// https://developer.apple.com/documentation/coreservices/kmditemcontenttype
+// Documentation indicates that the value represents a UTI.
+// Should we `import UniformTypeIdentifiers` and set `Value = UTType`?
 @available(iOS 8, macCatalyst 13.1, macOS 10.9, tvOS 9, visionOS 1, watchOS 2, *)
 public extension NSMetadataItemAttribute {
 	/// The attribute key for

@@ -1,5 +1,5 @@
 # Metadata Query Toolbox
-Extensions and conveniences for [`NSMetadataQuery`](https://developer.apple.com/documentation/foundation/nsmetadataquery).
+Extensions and conveniences for [`NSMetadataQuery`](https://developer.apple.com/documentation/foundation/nsmetadataquery)\.
 
 ## Installation (Swift Package Manager)
 Add the following entry to your package dependencies...
@@ -101,7 +101,7 @@ func gatherMetadata(
 
 ## Documentation
 Most of this package is documented with
-[DocC](https://www.swift.org/documentation/docc/).
+[DocC](https://www.swift.org/documentation/docc/)\.
 <br/>
 In Xcode, select `Product > Build Documentation` from the menu bar.
 
@@ -112,4 +112,4 @@ In Xcode, select `Product > Build Documentation` from the menu bar.
 Feel free to
 [create an issue](https://github.com/ryanslikesocool/MetadataQueryToolbox/issues/new)
 or
-[open a pull request](https://github.com/ryanslikesocool/MetadataQueryToolbox/compare).
+[open a pull request](https://github.com/ryanslikesocool/MetadataQueryToolbox/compare)\.
