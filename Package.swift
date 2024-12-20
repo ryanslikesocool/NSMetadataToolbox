@@ -14,9 +14,14 @@ let package = Package(
 		.visionOS(.v1),
 	],
 	products: [
-		.library(name: "MetadataQueryToolbox", targets: ["MetadataQueryToolbox"]),
+		.library(
+			name: "MetadataQueryToolbox",
+			targets: ["MetadataQueryToolbox"]
+		),
 	],
 	targets: [
-		.target(name: "MetadataQueryToolbox"),
+		.target(
+			name: "MetadataQueryToolbox"
+		),
 	]
 )

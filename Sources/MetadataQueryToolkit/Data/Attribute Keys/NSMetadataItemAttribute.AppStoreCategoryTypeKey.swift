@@ -4,10 +4,12 @@ import Foundation
 @available(macOS 10.9, *)
 public extension NSMetadataItemAttribute {
 	/// The attribute key for ``kMDItemAppStoreCategoryType``.
-	enum AppStoreCategoryTypeKey: NSMetadataItemAttributeKey {
+	struct AppStoreCategoryTypeKey: NSMetadataItemAttributeKey {
 		public typealias Value = String
 
 		public static var attributeKey: String { kMDItemAppStoreCategoryType }
+
+		public init() { }
 	}
 
 	// MARK: Convenience
@@ -15,5 +17,15 @@ public extension NSMetadataItemAttribute {
 	/// The shorthand attribute key accessor for ``NSMetadataItemAttribute/AppStoreCategoryTypeKey``.
 	var appStoreCategoryType: AppStoreCategoryTypeKey.Type {
 		AppStoreCategoryTypeKey.self
+	}
+}
+
+@available(macOS 10.9, *)
+public extension NSMetadataItemAttributeProtocol where
+	Self == NSMetadataItemAttribute.AppStoreCategoryTypeKey
+{
+	/// The shorthand attribute key accessor for ``NSMetadataItemAttribute/AppStoreCategoryTypeKey``.
+	static var appStoreCategoryType: Self {
+		Self()
 	}
 }

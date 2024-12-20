@@ -1,7 +1,22 @@
 import Combine
 import Foundation
 
-@available(macOS 10.15, iOS 13, tvOS 13, watchOS 6, macCatalyst 13.1, *)
+@available(iOS 5, macCatalyst 13.1, macOS 10.4, tvOS 9, visionOS 1, watchOS 2, *)
+public extension NSMetadataQuery {
+	/// Returns an array containing the query’s results with each element cast to the given `resultType`.
+	/// Elements that can't be cast to the `resultType` are discarded.
+	///
+	/// - Parameter resultType: The type to cast each element to.
+	/// - Returns: An array containing the query's results with each element cast to the given `resultType`.
+	/// Elements that can't be cast to the `resultType` are discarded.
+	func results<Result>(as resultType: Result.Type) -> [Result] {
+		results.compactMap { (element: Any) -> Result? in
+			element as? Result
+		}
+	}
+}
+
+@available(iOS 13, macCatalyst 13.1, macOS 10.15, tvOS 13, visionOS 1, watchOS 6, *)
 public extension NSMetadataQuery {
 	/// Asynchronously start the query and wait for results.
 	///

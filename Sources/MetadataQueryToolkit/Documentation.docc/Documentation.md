@@ -2,7 +2,10 @@
 
 ## Overview
 
-Extensions and conveniences for [`NSMetadataQuery`](https://developer.apple.com/documentation/foundation/nsmetadataquery)\.
+Extensions and conveniences for
+[`NSMetadataQuery`](https://developer.apple.com/documentation/foundation/nsmetadataquery)
+and
+[`NSMetadataItem`](https://developer.apple.com/documentation/foundation/nsmetadataitem)\.
 
 
 ## Topics
@@ -14,10 +17,7 @@ Extensions and conveniences for [`NSMetadataQuery`](https://developer.apple.com/
 
 ### Accessing Attribute Values
 
-- ``Foundation/NSMetadataItem/value(forAttribute:)-2nmqa``
-- ``Foundation/NSMetadataItem/value(forAttribute:)-8k38x``
-- ``Foundation/NSMetadataItem/values(forAttributes:)-8hvk1``
-- ``Foundation/NSMetadataItem/values(forAttributes:)-3oqmg``
+- ``Foundation/NSMetadataItem/value(forAttribute:)``
 
 
 ### Declaring Attribute Keys

@@ -2,15 +2,14 @@
 
 ## Discussion
 
-An attribute key is declared similarly to a SwiftUI
+Attribute keys are declared similarly to a SwiftUI
 [`EnvironmentKey`](https://developer.apple.com/documentation/swiftui/environmentkey)\.
 In most cases, declaring a new attribute key is as simple as knowing the key string and value type.
-
 
 For example, the implementation for ``NSMetadataItemAttribute/DisplayNameKey`` looks like this:
 ```swift
 extension NSMetadataItemAttribute {
-	enum DisplayNameKey: NSMetadataItemAttributeKey {
+	struct DisplayNameKey: NSMetadataItemAttributeKey {
 		// The type of value that the key points to.
 		// In this case, a `String`.
 		public typealias Value = String
@@ -21,19 +20,23 @@ extension NSMetadataItemAttribute {
 			// so we can use that instead of declaring it manually.
 			NSMetadataItemDisplayNameKey
 		}
+
+		public init() { }
 	}
 }
 ```
 
 
+### Shorthand Attribute Key Accessors
+
 You can create shorthand attribute key accessors to greatly simplify accessing attribute values.
 The declaration for ``NSMetadataItemAttribute/displayName`` looks like this:
 ```swift
-extension NSMetadataItemAttribute {
-	// The enclosing type `NSMetadataItemAttribute` doesn't need to
-	// be qualified because the attribute key type was declared in an extension. 
-	var displayName: DisplayNameKey.Type {
-		DisplayNameKey.self
+extension NSMetadataItemAttributeProtocol where
+	Self == NSMetadataItemAttribute.DisplayNameKey
+{
+	static var displayName: Self {
+		Self()
 	}
 }
 ```
@@ -43,14 +46,14 @@ func readDisplayName(
 ) -> String? {
 	var result: String?
 
-	// With a fully qualified attribute key:
+	// With a fully qualified initializer:
 	result = metadataItem.value(
-		forKey: NSMetadataItemAttribute.DisplayNameKey.self
+		forAttribute: NSMetadataItemAttribute.DisplayNameKey()
 	)
 
 	// With a shorthand attribute key:
 	result = metadataItem.value(
-		forKey: \.displayName
+		forAttribute: .displayName
 	)
 
 	return result
