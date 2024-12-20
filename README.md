@@ -1,17 +1,28 @@
-# Metadata Query Toolbox
-Extensions and conveniences for [`NSMetadataQuery`](https://developer.apple.com/documentation/foundation/nsmetadataquery)\.
+# NSMetadataToolbox
+
+Extensions and conveniences for
+[`NSMetadataQuery`](https://developer.apple.com/documentation/foundation/nsmetadataquery)
+and
+[`NSMetadataItem`](https://developer.apple.com/documentation/foundation/nsmetadataitem)\.
+
+## NOTICE
+
+**This package is under development and not considered production-ready.**<br/>
+Breaking changes are common, documentation is incomplete, and support is limited.  Use at your own risk.
+
 
 ## Installation (Swift Package Manager)
+
 Add the following entry to your package dependencies...
 ```swift
-.package(url: "https://github.com/ryanslikesocool/MetadataQueryToolbox.git", from: "0.0.2"),
+.package(url: "https://github.com/ryanslikesocool/NSMetadataToolbox.git", from: "0.0.2"),
 ```
 ...and your target dependencies.
 ```swift
 .target(
 	name: "MyTarget",
 	dependencies: [
-		"MetadataQueryToolbox",
+		"NSMetadataToolbox",
 	]
 ),
 ```
@@ -22,57 +33,70 @@ Add the following entry to your package dependencies...
 ## Quick Start
 
 ### Using Attribute Keys
+
 This package provides a simple and type-safe way to access attribute values from
 [`NSMetadataItem`](https://developer.apple.com/documentation/foundation/nsmetadataitem)
-in the form of the `NSMetadataItemAttributeKey` protocol.
+in the form of the `NSMetadataAttributeKey` protocol.
 ```swift
 import Foundation
-import MetadataQueryToolbox
+import NSMetadataToolbox
 
 func readDisplayName(from metadataItem: NSMetadataItem) -> String? {
 	var result: String?
 
-	// With a fully qualified attribute key type...
+	// With a fully qualified attribute key initializer...
 	result = metadataItem.value(
-		forAttribute: NSMetadataItemAttribute.DisplayNameKey.self
+		forAttribute: NSMetadataAttributeKey<
+			NSMetadataAttribute.DisplayNameKey
+		>()
 	)
 
 	// ...or with a shorthand attribute key accessor.
 	result = metadataItem.value(
-		forAttribute: \.displayName
+		forAttribute: .displayName
 	)
 
 	return result
 }
 ```
 
+
 ### Custom Attribute Keys
+
 Multiple attribute keys are provided by the package,
 and more can be added with a simple declaration.
 ```swift
-import MetadataQueryToolbox
+import NSMetadataToolbox
 
-extension NSMetadataItemAttribute {
-	// Declare the attribute key...
-	enum MyCustomValueKey: NSMetadataItemAttributeKey {
+// Declare the attribute key...
+extension NSMetadataAttribute {
+	enum MyCustomValueKey: NSMetadataAttributeKey {
 		// The type of attribute value that the `attributeKey` points to.
 		typealias Value = String
 
 		// The key used to access the attribute value.
 		static let attributeKey: String = "MyCustomValueKey"
 	}
+}
 
-	// ...and (optionally) a shorthand attribute key accessor.
-	var myCustomValue: MyCustomValueKey.Type {
-		MyCustomValueKey.self
+// ...and (optionally) a shorthand attribute key accessor.
+extension NSMetadataAttributeProtocol where
+	Self == NSMetadataAttributeKey<
+		NSMetadataAttribute.MyCustomValueKey
+	>
+{
+	static var myCustomValue: Self {
+		Self()
 	}
 }
 ```
 
+
 ### Swift Concurrency
+
 ```swift
 import Foundation
-import MetadataQueryToolbox
+import NSMetadataToolbox
 import UniformTypeIdentifiers
 
 func gatherMetadata(
@@ -104,12 +128,3 @@ Most of this package is documented with
 [DocC](https://www.swift.org/documentation/docc/)\.
 <br/>
 In Xcode, select `Product > Build Documentation` from the menu bar.
-
----
-
-
-## Contribution
-Feel free to
-[create an issue](https://github.com/ryanslikesocool/MetadataQueryToolbox/issues/new)
-or
-[open a pull request](https://github.com/ryanslikesocool/MetadataQueryToolbox/compare)\.

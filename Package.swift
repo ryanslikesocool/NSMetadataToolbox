@@ -3,7 +3,7 @@
 import PackageDescription
 
 let package = Package(
-	name: "MetadataQueryToolbox",
+	name: "NSMetadataToolbox",
 	defaultLocalization: "en",
 	platforms: [
 		.macOS(.v10_13),
@@ -15,13 +15,13 @@ let package = Package(
 	],
 	products: [
 		.library(
-			name: "MetadataQueryToolbox",
-			targets: ["MetadataQueryToolbox"]
+			name: "NSMetadataToolbox",
+			targets: ["NSMetadataToolbox"]
 		),
 	],
 	targets: [
 		.target(
-			name: "MetadataQueryToolbox"
+			name: "NSMetadataToolbox"
 		),
 	]
 )

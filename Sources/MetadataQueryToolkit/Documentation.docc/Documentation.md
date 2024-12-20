@@ -1,4 +1,4 @@
-# ``MetadataQueryToolbox``
+# ``NSMetadataToolbox``
 
 ## Overview
 
