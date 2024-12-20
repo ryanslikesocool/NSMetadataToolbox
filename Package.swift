@@ -3,20 +3,25 @@
 import PackageDescription
 
 let package = Package(
-	name: "AsyncNSMetadataQuery",
+	name: "NSMetadataToolbox",
 	defaultLocalization: "en",
 	platforms: [
-		.macOS(.v10_15),
-		.iOS(.v13),
-		.tvOS(.v13),
-		.watchOS(.v6),
-		.macCatalyst("13.1"),
+		.macOS(.v10_13),
+		.iOS(.v12),
+		.tvOS(.v12),
+		.watchOS(.v4),
+		.macCatalyst(.v13),
 		.visionOS(.v1),
 	],
 	products: [
-		.library(name: "AsyncNSMetadataQuery", targets: ["AsyncNSMetadataQuery"]),
+		.library(
+			name: "NSMetadataToolbox",
+			targets: ["NSMetadataToolbox"]
+		),
 	],
 	targets: [
-		.target(name: "AsyncNSMetadataQuery"),
+		.target(
+			name: "NSMetadataToolbox"
+		),
 	]
 )
