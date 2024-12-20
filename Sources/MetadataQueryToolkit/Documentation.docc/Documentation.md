@@ -22,47 +22,48 @@ and
 
 ### Declaring Attribute Keys
 
-- ``NSMetadataItemAttributeKey``
+- ``NSMetadataAttributeKeyProtocol``
+- ``NSMetadataAttributeKey``
 
 
 ### Attribute Keys
 
-- ``NSMetadataItemAttribute/alternateNames``
-- ``NSMetadataItemAttribute/appStoreCategory``
-- ``NSMetadataItemAttribute/appStoreCategoryType``
-- ``NSMetadataItemAttribute/attributeChangeDate``
-- ``NSMetadataItemAttribute/cfBundleIdentifier``
-- ``NSMetadataItemAttribute/comment``
-- ``NSMetadataItemAttribute/contentCreationDate``
-- ``NSMetadataItemAttribute/contentModificationDate``
-- ``NSMetadataItemAttribute/contentType``
-- ``NSMetadataItemAttribute/copyright``
-- ``NSMetadataItemAttribute/dateAdded``
-- ``NSMetadataItemAttribute/description``
-- ``NSMetadataItemAttribute/displayName``
-- ``NSMetadataItemAttribute/downloadedDate``
-- ``NSMetadataItemAttribute/dueDate``
-- ``NSMetadataItemAttribute/executableArchitectures``
-- ``NSMetadataItemAttribute/executablePlatform``
-- ``NSMetadataItemAttribute/finderComment``
-- ``NSMetadataItemAttribute/fsContentChangeDate``
-- ``NSMetadataItemAttribute/fsCreationDate``
-- ``NSMetadataItemAttribute/fsHasCustomIcon``
-- ``NSMetadataItemAttribute/fsInvisible``
-- ``NSMetadataItemAttribute/fsIsExtensionHidden``
-- ``NSMetadataItemAttribute/fsIsStationery``
-- ``NSMetadataItemAttribute/fsName``
-- ``NSMetadataItemAttribute/fsSize``
-- ``NSMetadataItemAttribute/keywords``
-- ``NSMetadataItemAttribute/kind``
-- ``NSMetadataItemAttribute/lastUsedDate``
-- ``NSMetadataItemAttribute/logicalSize``
-- ``NSMetadataItemAttribute/path``
-- ``NSMetadataItemAttribute/physicalSize``
-- ``NSMetadataItemAttribute/url``
-- ``NSMetadataItemAttribute/useCount``
-- ``NSMetadataItemAttribute/usedDates``
-- ``NSMetadataItemAttribute/version``
+- ``NSMetadataAttributeProtocol/alternateNames``
+- ``NSMetadataAttributeProtocol/appStoreCategory``
+- ``NSMetadataAttributeProtocol/appStoreCategoryType``
+- ``NSMetadataAttributeProtocol/attributeChangeDate``
+- ``NSMetadataAttributeProtocol/cfBundleIdentifier``
+- ``NSMetadataAttributeProtocol/comment``
+- ``NSMetadataAttributeProtocol/contentCreationDate``
+- ``NSMetadataAttributeProtocol/contentModificationDate``
+- ``NSMetadataAttributeProtocol/contentType``
+- ``NSMetadataAttributeProtocol/copyright``
+- ``NSMetadataAttributeProtocol/dateAdded``
+- ``NSMetadataAttributeProtocol/description``
+- ``NSMetadataAttributeProtocol/displayName``
+- ``NSMetadataAttributeProtocol/downloadedDate``
+- ``NSMetadataAttributeProtocol/dueDate``
+- ``NSMetadataAttributeProtocol/executableArchitectures``
+- ``NSMetadataAttributeProtocol/executablePlatform``
+- ``NSMetadataAttributeProtocol/finderComment``
+- ``NSMetadataAttributeProtocol/fsContentChangeDate``
+- ``NSMetadataAttributeProtocol/fsCreationDate``
+- ``NSMetadataAttributeProtocol/fsHasCustomIcon``
+- ``NSMetadataAttributeProtocol/fsInvisible``
+- ``NSMetadataAttributeProtocol/fsIsExtensionHidden``
+- ``NSMetadataAttributeProtocol/fsIsStationery``
+- ``NSMetadataAttributeProtocol/fsName``
+- ``NSMetadataAttributeProtocol/fsSize``
+- ``NSMetadataAttributeProtocol/keywords``
+- ``NSMetadataAttributeProtocol/kind``
+- ``NSMetadataAttributeProtocol/lastUsedDate``
+- ``NSMetadataAttributeProtocol/logicalSize``
+- ``NSMetadataAttributeProtocol/path``
+- ``NSMetadataAttributeProtocol/physicalSize``
+- ``NSMetadataAttributeProtocol/url``
+- ``NSMetadataAttributeProtocol/useCount``
+- ``NSMetadataAttributeProtocol/usedDates``
+- ``NSMetadataAttributeProtocol/version``
 
 
 ### Constants

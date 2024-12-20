@@ -28,10 +28,12 @@ extension NSMetadataItemAttribute {
 ### Shorthand Attribute Key Accessors
 
 You can create shorthand attribute key accessors to greatly simplify accessing attribute values.
-The declaration for ``NSMetadataAttribute/displayName`` looks like this:
+The declaration for ``NSMetadataAttributeProtocol/displayName`` looks like this:
 ```swift
 extension NSMetadataAttributeProtocol where
-	Self == NSMetadataAttributeKey<NSMetadataAttribute.DisplayNameKey>
+	Self == NSMetadataAttributeKey<
+		NSMetadataAttribute.DisplayNameKey
+	>
 {
 	static var displayName: Self {
 		Self()
@@ -46,7 +48,9 @@ func readDisplayName(
 
 	// With a fully qualified initializer:
 	result = metadataItem.value(
-		forAttribute: NSMetadataAttributeKey<NSMetadataAttribute.DisplayNameKey>()
+		forAttribute: NSMetadataAttributeKey<
+			NSMetadataAttribute.DisplayNameKey
+		>()
 	)
 
 	// With a shorthand attribute key accessor:
