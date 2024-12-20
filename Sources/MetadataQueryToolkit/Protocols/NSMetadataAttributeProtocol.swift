@@ -8,9 +8,9 @@ public protocol NSMetadataAttributeProtocol<Input, Output> {
 // MARK: - Intrinsic
 
 public extension NSMetadataAttributeProtocol {
-	func modifier<Modifier>(_ modifier: Modifier) -> ModifiedNSMetadataAttribute<Self, Modifier> where
+	func modifier<Modifier>(_ modifier: Modifier) -> some NSMetadataAttributeProtocol<Self.Input, Modifier.Output> where
 		Modifier: NSMetadataAttributeProtocol,
-		Modifier.Input == Self.Output
+		Self.Output == Modifier.Input
 	{
 		ModifiedNSMetadataAttribute(upstream: self, downstream: modifier)
 	}

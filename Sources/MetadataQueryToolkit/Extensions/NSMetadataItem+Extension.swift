@@ -1,4 +1,4 @@
-import Foundation
+import class Foundation.NSMetadata.NSMetadataItem
 
 @available(iOS 5, macCatalyst 13.1, macOS 10.4, tvOS 9, visionOS 1, watchOS 2, *)
 public extension NSMetadataItem {

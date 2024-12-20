@@ -1,4 +1,4 @@
-public struct ModifiedNSMetadataAttribute<Upstream, Downstream> where
+internal struct ModifiedNSMetadataAttribute<Upstream, Downstream> where
 	Upstream: NSMetadataAttributeProtocol,
 	Downstream: NSMetadataAttributeProtocol,
 	Upstream.Output == Downstream.Input
