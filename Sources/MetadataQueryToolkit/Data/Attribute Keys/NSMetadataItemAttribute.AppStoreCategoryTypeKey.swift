@@ -1,30 +1,26 @@
-import Foundation
-
 // TODO: Should this key be available on other platforms?
 @available(macOS 10.9, *)
-public extension NSMetadataItemAttribute {
+public extension NSMetadataAttribute {
 	/// The attribute key for ``kMDItemAppStoreCategoryType``.
-	struct AppStoreCategoryTypeKey: NSMetadataItemAttributeKey {
+	enum AppStoreCategoryTypeKey: NSMetadataItemAttributeKey {
 		public typealias Value = String
 
 		public static var attributeKey: String { kMDItemAppStoreCategoryType }
-
-		public init() { }
 	}
 
 	// MARK: Convenience
 
-	/// The shorthand attribute key accessor for ``NSMetadataItemAttribute/AppStoreCategoryTypeKey``.
+	/// The shorthand attribute key accessor for ``NSMetadataAttribute/AppStoreCategoryTypeKey``.
 	var appStoreCategoryType: AppStoreCategoryTypeKey.Type {
 		AppStoreCategoryTypeKey.self
 	}
 }
 
 @available(macOS 10.9, *)
-public extension NSMetadataItemAttributeProtocol where
-	Self == NSMetadataItemAttribute.AppStoreCategoryTypeKey
+public extension NSMetadataAttributeProtocol where
+	Self == AnyNSMetadataAttributeKey<NSMetadataAttribute.AppStoreCategoryTypeKey>
 {
-	/// The shorthand attribute key accessor for ``NSMetadataItemAttribute/AppStoreCategoryTypeKey``.
+	/// The shorthand attribute key accessor for ``NSMetadataAttribute/AppStoreCategoryTypeKey``.
 	static var appStoreCategoryType: Self {
 		Self()
 	}

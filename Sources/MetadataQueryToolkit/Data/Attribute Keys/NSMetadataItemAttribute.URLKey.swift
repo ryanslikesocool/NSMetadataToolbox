@@ -1,30 +1,28 @@
 import Foundation
 
 @available(iOS 5, macCatalyst 13.1, macOS 10.7, tvOS 9, visionOS 1, watchOS 2, *)
-public extension NSMetadataItemAttribute {
+public extension NSMetadataAttribute {
 	/// The attribute key for
 	/// [`NSMetadataItemURLKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemurlkey)\.
-	struct URLKey: NSMetadataItemAttributeKey {
+	enum URLKey: NSMetadataItemAttributeKey {
 		public typealias Value = URL
 
 		public static var attributeKey: String { NSMetadataItemURLKey }
-
-		public init() { }
 	}
 
 	// MARK: Convenience
 
-	/// The shorthand attribute key accessor for ``NSMetadataItemAttribute/URLKey``.
+	/// The shorthand attribute key accessor for ``NSMetadataAttribute/URLKey``.
 	var url: URLKey.Type {
 		URLKey.self
 	}
 }
 
 @available(iOS 5, macCatalyst 13.1, macOS 10.7, tvOS 9, visionOS 1, watchOS 2, *)
-public extension NSMetadataItemAttributeProtocol where
-	Self == NSMetadataItemAttribute.URLKey
+public extension NSMetadataAttributeProtocol where
+	Self == AnyNSMetadataAttributeKey<NSMetadataAttribute.URLKey>
 {
-	/// The shorthand attribute key accessor for ``NSMetadataItemAttribute/URLKey``.
+	/// The shorthand attribute key accessor for ``NSMetadataAttribute/URLKey``.
 	static var url: Self {
 		Self()
 	}

@@ -1,6 +1,6 @@
-public struct ModifiedNSMetadataItemAttribute<Upstream, Downstream> where
-	Upstream: NSMetadataItemAttributeProtocol,
-	Downstream: NSMetadataItemAttributeProtocol,
+public struct ModifiedNSMetadataAttribute<Upstream, Downstream> where
+	Upstream: NSMetadataAttributeProtocol,
+	Downstream: NSMetadataAttributeProtocol,
 	Upstream.Output == Downstream.Input
 {
 	private let upstream: Upstream
@@ -12,9 +12,9 @@ public struct ModifiedNSMetadataItemAttribute<Upstream, Downstream> where
 	}
 }
 
-// MARK: - NSMetadataItemAttributeProtocol
+// MARK: - NSMetadataAttributeProtocol
 
-extension ModifiedNSMetadataItemAttribute: NSMetadataItemAttributeProtocol {
+extension ModifiedNSMetadataAttribute: NSMetadataAttributeProtocol {
 	public typealias Input = Upstream.Input
 	public typealias Output = Downstream.Output
 

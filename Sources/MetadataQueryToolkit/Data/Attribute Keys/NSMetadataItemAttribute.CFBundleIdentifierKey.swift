@@ -1,30 +1,28 @@
 import Foundation
 
 @available(macOS 10.9, *)
-public extension NSMetadataItemAttribute {
+public extension NSMetadataAttribute {
 	/// The attribute key for
 	/// [`NSMetadataItemCFBundleIdentifierKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemcfbundleidentifierkey)\.
-	struct CFBundleIdentifierKey: NSMetadataItemAttributeKey {
+	enum CFBundleIdentifierKey: NSMetadataItemAttributeKey {
 		public typealias Value = String
 
 		public static var attributeKey: String { NSMetadataItemCFBundleIdentifierKey }
-
-		public init() { }
 	}
 
 	// MARK: Convenience
 
-	/// The shorthand attribute key accessor for ``NSMetadataItemAttribute/CFBundleIdentifierKey``.
+	/// The shorthand attribute key accessor for ``NSMetadataAttribute/CFBundleIdentifierKey``.
 	var cfBundleIdentifier: CFBundleIdentifierKey.Type {
 		CFBundleIdentifierKey.self
 	}
 }
 
 @available(macOS 10.9, *)
-public extension NSMetadataItemAttributeProtocol where
-	Self == NSMetadataItemAttribute.CFBundleIdentifierKey
+public extension NSMetadataAttributeProtocol where
+	Self == AnyNSMetadataAttributeKey<NSMetadataAttribute.CFBundleIdentifierKey>
 {
-	/// The shorthand attribute key accessor for ``NSMetadataItemAttribute/CFBundleIdentifierKey``.
+	/// The shorthand attribute key accessor for ``NSMetadataAttribute/CFBundleIdentifierKey``.
 	static var cfBundleIdentifier: Self {
 		Self()
 	}

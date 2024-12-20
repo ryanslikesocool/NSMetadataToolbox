@@ -1,30 +1,28 @@
 import Foundation
 
 @available(macOS 10.9, *)
-public extension NSMetadataItemAttribute {
+public extension NSMetadataAttribute {
 	/// The attribute key for
 	/// [`NSMetadataItemLastUsedDateKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemlastuseddatekey)\.
-	struct LastUsedDateKey: NSMetadataItemAttributeKey {
+	enum LastUsedDateKey: NSMetadataItemAttributeKey {
 		public typealias Value = Date
 
 		public static var attributeKey: String { NSMetadataItemLastUsedDateKey }
-
-		public init() { }
 	}
 
 	// MARK: Convenience
 
-	/// The shorthand attribute key accessor for ``NSMetadataItemAttribute/LastUsedDateKey``.
+	/// The shorthand attribute key accessor for ``NSMetadataAttribute/LastUsedDateKey``.
 	var lastUsedDate: LastUsedDateKey.Type {
 		LastUsedDateKey.self
 	}
 }
 
 @available(macOS 10.9, *)
-public extension NSMetadataItemAttributeProtocol where
-	Self == NSMetadataItemAttribute.LastUsedDateKey
+public extension NSMetadataAttributeProtocol where
+	Self == AnyNSMetadataAttributeKey<NSMetadataAttribute.LastUsedDateKey>
 {
-	/// The shorthand attribute key accessor for ``NSMetadataItemAttribute/LastUsedDateKey``.
+	/// The shorthand attribute key accessor for ``NSMetadataAttribute/LastUsedDateKey``.
 	static var lastUsedDate: Self {
 		Self()
 	}

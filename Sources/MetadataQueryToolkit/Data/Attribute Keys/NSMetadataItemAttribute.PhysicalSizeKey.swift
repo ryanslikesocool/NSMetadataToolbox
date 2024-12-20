@@ -1,9 +1,7 @@
-import Foundation
-
 @available(macOS 10.9, *)
-public extension NSMetadataItemAttribute {
+public extension NSMetadataAttribute {
 	/// The attribute key for ``kMDItemPhysicalSize``.
-	struct PhysicalSizeKey: NSMetadataItemAttributeKey {
+	enum PhysicalSizeKey: NSMetadataItemAttributeKey {
 		// This type is assumed based on light testing.
 		// When `Value == CFNumber`, `CFNumberGetType` returns `.sInt64Type`.
 		// This could potentially be `Int32` on 32-bit machines, in which case `Value` should be `Int`.
@@ -11,23 +9,21 @@ public extension NSMetadataItemAttribute {
 		public typealias Value = Int64
 
 		public static var attributeKey: String { kMDItemPhysicalSize }
-
-		public init() { }
 	}
 
 	// MARK: Convenience
 
-	/// The shorthand attribute key accessor for ``NSMetadataItemAttribute/PhysicalSizeKey``.
+	/// The shorthand attribute key accessor for ``NSMetadataAttribute/PhysicalSizeKey``.
 	var physicalSize: PhysicalSizeKey.Type {
 		PhysicalSizeKey.self
 	}
 }
 
 @available(macOS 10.9, *)
-public extension NSMetadataItemAttributeProtocol where
-	Self == NSMetadataItemAttribute.PhysicalSizeKey
+public extension NSMetadataAttributeProtocol where
+	Self == AnyNSMetadataAttributeKey<NSMetadataAttribute.PhysicalSizeKey>
 {
-	/// The shorthand attribute key accessor for ``NSMetadataItemAttribute/PhysicalSizeKey``.
+	/// The shorthand attribute key accessor for ``NSMetadataAttribute/PhysicalSizeKey``.
 	static var physicalSize: Self {
 		Self()
 	}

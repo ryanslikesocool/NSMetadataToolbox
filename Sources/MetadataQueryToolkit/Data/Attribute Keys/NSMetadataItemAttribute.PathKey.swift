@@ -1,37 +1,35 @@
 import Foundation
 
 @available(iOS 5, macCatalyst 13.1, macOS 10.7, tvOS 9, visionOS 1, watchOS 2, *)
-public extension NSMetadataItemAttribute {
+public extension NSMetadataAttribute {
 	/// The attribute key for
 	/// [`NSMetadataItemPathKey`](https://developer.apple.com/documentation/foundation/nsmetadataitempathkey)\.
-	struct PathKey: NSMetadataItemAttributeKey {
+	enum PathKey: NSMetadataItemAttributeKey {
 		public typealias Value = String
 
 		public static var attributeKey: String { NSMetadataItemPathKey }
-
-		public init() { }
 	}
 
 	// MARK: Convenience
 
-	/// The shorthand attribute key accessor for ``NSMetadataItemAttribute/PathKey``.
+	/// The shorthand attribute key accessor for ``NSMetadataAttribute/PathKey``.
 	var path: PathKey.Type {
 		PathKey.self
 	}
 }
 
 @available(iOS 5, macCatalyst 13.1, macOS 10.7, tvOS 9, visionOS 1, watchOS 2, *)
-public extension NSMetadataItemAttributeProtocol where
-	Self == NSMetadataItemAttribute.PathKey
+public extension NSMetadataAttributeProtocol where
+	Self == AnyNSMetadataAttributeKey<NSMetadataAttribute.PathKey>
 {
-	/// The shorthand attribute key accessor for ``NSMetadataItemAttribute/PathKey``.
+	/// The shorthand attribute key accessor for ``NSMetadataAttribute/PathKey``.
 	static var path: Self {
 		Self()
 	}
 }
 
 @available(iOS 16, macCatalyst 16, macOS 13, tvOS 16, watchOS 9, *)
-public extension NSMetadataItemAttribute.PathKey {
+public extension AnyNSMetadataAttributeKey<NSMetadataAttribute.PathKey> {
 	/// Convert the path to a file URL using
 	/// [`init(filePath:directoryHint:relativeTo:)`](https://developer.apple.com/documentation/foundation/url/3988464-init)\.
 	///
@@ -41,7 +39,7 @@ public extension NSMetadataItemAttribute.PathKey {
 	func asFileURL(
 		directoryHint: URL.DirectoryHint = .inferFromPath,
 		relativeTo base: URL? = nil
-	) -> some NSMetadataItemAttributeProtocol<Self.Input, URL?> {
+	) -> some NSMetadataAttributeProtocol<Self.Input, URL?> {
 		map { (input: Output) -> URL? in
 			guard let input else {
 				return nil

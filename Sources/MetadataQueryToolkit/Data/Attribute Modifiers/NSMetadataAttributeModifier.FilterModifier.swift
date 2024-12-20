@@ -1,5 +1,5 @@
-public extension NSMetadataItemAttributeModifier {
-	struct FilterModifier<Input>: NSMetadataItemAttributeProtocol where
+public extension NSMetadataAttributeModifier {
+	struct FilterModifier<Input>: NSMetadataAttributeProtocol where
 		Input: Sequence
 	{
 		public typealias Output = [Input.Element]
@@ -16,15 +16,15 @@ public extension NSMetadataItemAttributeModifier {
 	}
 }
 
-// MARK: Convenience
+// MARK: - Convenience
 
-public extension NSMetadataItemAttributeProtocol {
+public extension NSMetadataAttributeProtocol {
 	func filter<Output>(
 		_ isIncluded: @escaping (Self.Output.Element) -> Bool
-	) -> some NSMetadataItemAttributeProtocol<Self.Input, [Self.Output.Element]> where
+	) -> some NSMetadataAttributeProtocol<Self.Input, [Self.Output.Element]> where
 		Self.Output: Sequence
 	{
-		let modifier = NSMetadataItemAttributeModifier.FilterModifier<Self.Output>(isIncluded)
+		let modifier = NSMetadataAttributeModifier.FilterModifier<Self.Output>(isIncluded)
 		return self.modifier(modifier)
 	}
 }

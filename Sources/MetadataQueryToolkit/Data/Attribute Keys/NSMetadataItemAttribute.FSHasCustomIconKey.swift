@@ -1,30 +1,28 @@
 import Foundation
 
 @available(macOS 10.4, *)
-public extension NSMetadataItemAttribute {
+public extension NSMetadataAttribute {
 	/// The attribute key for
 	/// [`kMDItemFSHasCustomIcon`](https://developer.apple.com/documentation/coreservices/kmditemhascustomicon)\.
-	struct FSHasCustomIconKey: NSMetadataItemAttributeKey {
+	enum FSHasCustomIconKey: NSMetadataItemAttributeKey {
 		public typealias Value = Bool
 
 		public static var attributeKey: String { kMDItemFSHasCustomIcon as String }
-
-		public init() { }
 	}
 
 	// MARK: Convenience
 
-	/// The shorthand attribute key accessor for ``NSMetadataItemAttribute/FSHasCustomIconKey``.
+	/// The shorthand attribute key accessor for ``NSMetadataAttribute/FSHasCustomIconKey``.
 	var fsHasCustomIcon: FSHasCustomIconKey.Type {
 		FSHasCustomIconKey.self
 	}
 }
 
 @available(macOS 10.4, *)
-public extension NSMetadataItemAttributeProtocol where
-	Self == NSMetadataItemAttribute.FSHasCustomIconKey
+public extension NSMetadataAttributeProtocol where
+	Self == AnyNSMetadataAttributeKey<NSMetadataAttribute.FSHasCustomIconKey>
 {
-	/// The shorthand attribute key accessor for ``NSMetadataItemAttribute/FSHasCustomIconKey``.
+	/// The shorthand attribute key accessor for ``NSMetadataAttribute/FSHasCustomIconKey``.
 	static var fsHasCustomIcon: Self {
 		Self()
 	}

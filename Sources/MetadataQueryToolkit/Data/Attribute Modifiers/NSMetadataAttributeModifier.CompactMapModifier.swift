@@ -1,5 +1,5 @@
-public extension NSMetadataItemAttributeModifier {
-	struct CompactMapModifier<Input, OutputElement>: NSMetadataItemAttributeProtocol where
+public extension NSMetadataAttributeModifier {
+	struct CompactMapModifier<Input, OutputElement>: NSMetadataAttributeProtocol where
 		Input: Sequence
 	{
 		private let transform: (Input.Element) -> OutputElement?
@@ -14,15 +14,15 @@ public extension NSMetadataItemAttributeModifier {
 	}
 }
 
-// MARK: Convenience
+// MARK: - Convenience
 
-public extension NSMetadataItemAttributeProtocol {
+public extension NSMetadataAttributeProtocol {
 	func compactMap<OutputElement>(
 		_ transform: @escaping (Self.Output.Element) -> OutputElement?
-	) -> some NSMetadataItemAttributeProtocol<Self.Input, [OutputElement]> where
+	) -> some NSMetadataAttributeProtocol<Self.Input, [OutputElement]> where
 		Self.Output: Sequence
 	{
-		let modifier = NSMetadataItemAttributeModifier.CompactMapModifier<Self.Output, OutputElement>(transform)
+		let modifier = NSMetadataAttributeModifier.CompactMapModifier<Self.Output, OutputElement>(transform)
 		return self.modifier(modifier)
 	}
 }

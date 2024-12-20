@@ -1,30 +1,28 @@
 import Foundation
 
 @available(macOS 10.9, *)
-public extension NSMetadataItemAttribute {
+public extension NSMetadataAttribute {
 	/// The attribute key for
 	/// [`NSMetadataItemContentModificationDateKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemcontentmodificationdatekey)\.
-	struct ContentModificationDateKey: NSMetadataItemAttributeKey {
+	enum ContentModificationDateKey: NSMetadataItemAttributeKey {
 		public typealias Value = Date
 
 		public static var attributeKey: String { NSMetadataItemContentModificationDateKey }
-
-		public init() { }
 	}
 
 	// MARK: Convenience
 
-	/// The shorthand attribute key accessor for ``NSMetadataItemAttribute/ContentModificationDateKey``.
+	/// The shorthand attribute key accessor for ``NSMetadataAttribute/ContentModificationDateKey``.
 	var contentModificationDate: ContentModificationDateKey.Type {
 		ContentModificationDateKey.self
 	}
 }
 
 @available(macOS 10.9, *)
-public extension NSMetadataItemAttributeProtocol where
-	Self == NSMetadataItemAttribute.ContentModificationDateKey
+public extension NSMetadataAttributeProtocol where
+	Self == AnyNSMetadataAttributeKey<NSMetadataAttribute.ContentModificationDateKey>
 {
-	/// The shorthand attribute key accessor for ``NSMetadataItemAttribute/ContentModificationDateKey``.
+	/// The shorthand attribute key accessor for ``NSMetadataAttribute/ContentModificationDateKey``.
 	static var contentModificationDate: Self {
 		Self()
 	}

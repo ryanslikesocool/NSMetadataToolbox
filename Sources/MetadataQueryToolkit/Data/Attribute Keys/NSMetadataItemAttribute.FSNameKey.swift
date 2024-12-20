@@ -1,30 +1,28 @@
 import Foundation
 
 @available(iOS 5, macCatalyst 13.1, macOS 10.7, tvOS 9, visionOS 1, watchOS 2, *)
-public extension NSMetadataItemAttribute {
+public extension NSMetadataAttribute {
 	/// The attribute key for
 	/// [`NSMetadataItemFSNameKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemfsnamekey)\.
-	struct FSNameKey: NSMetadataItemAttributeKey {
+	enum FSNameKey: NSMetadataItemAttributeKey {
 		public typealias Value = String
 
 		public static var attributeKey: String { NSMetadataItemFSNameKey }
-
-		public init() { }
 	}
 
 	// MARK: Convenience
 
-	/// The shorthand attribute key accessor for ``NSMetadataItemAttribute/FSNameKey``.
+	/// The shorthand attribute key accessor for ``NSMetadataAttribute/FSNameKey``.
 	var fsName: FSNameKey.Type {
 		FSNameKey.self
 	}
 }
 
 @available(iOS 5, macCatalyst 13.1, macOS 10.7, tvOS 9, visionOS 1, watchOS 2, *)
-public extension NSMetadataItemAttributeProtocol where
-	Self == NSMetadataItemAttribute.FSNameKey
+public extension NSMetadataAttributeProtocol where
+	Self == AnyNSMetadataAttributeKey<NSMetadataAttribute.FSNameKey>
 {
-	/// The shorthand attribute key accessor for ``NSMetadataItemAttribute/FSNameKey``.
+	/// The shorthand attribute key accessor for ``NSMetadataAttribute/FSNameKey``.
 	static var fsName: Self {
 		Self()
 	}
