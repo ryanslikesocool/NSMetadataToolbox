@@ -2,6 +2,8 @@
 
 ## Discussion
 
+- Remark: Elements that can't be cast to the `resultType` are discarded.
+
 The array is a proxy object that is primarily intended for use with Cocoa bindings.
 While it is possible to copy the proxy array and receive a “snapshot” of the complete current query results,
 it is generally not recommended due to performance and memory issues.

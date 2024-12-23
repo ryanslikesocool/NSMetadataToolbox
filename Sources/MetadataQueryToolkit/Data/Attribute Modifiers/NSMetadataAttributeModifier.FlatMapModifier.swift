@@ -18,6 +18,8 @@ public extension NSMetadataAttributeModifier {
 // MARK: - Convenience
 
 public extension NSMetadataAttributeProtocol {
+	/// Perform a `flatMap` operation on an attribute value using
+	/// ``NSMetadataAttributeModifier/FlatMapModifier``.
 	func flatMap<SegmentOfResult>(
 		_ transform: @escaping (Self.Output.Element) -> SegmentOfResult
 	) -> some NSMetadataAttributeProtocol<Self.Input, [SegmentOfResult.Element]> where

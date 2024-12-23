@@ -36,7 +36,7 @@ Add the following entry to your package dependencies...
 
 This package provides a simple and type-safe way to access attribute values from
 [`NSMetadataItem`](https://developer.apple.com/documentation/foundation/nsmetadataitem)
-in the form of the `NSMetadataAttributeKey` protocol.
+in the form of `NSMetadataAttributeKeyProtocol`.
 ```swift
 import Foundation
 import NSMetadataToolbox

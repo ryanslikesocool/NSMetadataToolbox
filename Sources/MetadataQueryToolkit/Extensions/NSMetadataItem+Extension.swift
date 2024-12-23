@@ -17,7 +17,7 @@ public extension NSMetadataItem {
 //	/// - Returns: For each tuple element, the value for the attribute name specified by the corresponding item in `keys`, if it could be found; `nil` otherwise.
 //	func values<each Key>(forAttributes keys: repeat each Key) -> (repeat (each Key).Output) where
 //		repeat each Key: NSMetadataAttributeProtocol,
-//		repeat (each Key).Input == NSMetadataItem
+//		repeat (each Key).Input == NSMetadataItem // NOTE: Parameter packs do not support this constraint yet.
 //	{
 //		(repeat value(forAttribute: each keys))
 //	}

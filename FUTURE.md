@@ -75,8 +75,9 @@ extension NSMetadataAttribute.DisplayNameKey: NSMetadataAttributeKeyProtocol {
 
 // The shorthand attribute key accessor might be an issue
 // if I'm not able to extend `NSMetadataAttributeProtocol`.
-// This could cause issues if the attribute key type name
+// This could also cause issues if the attribute key type name
 // doesn't follow a standard convention.
+// Shorthand attribute key accessors may need to be declared manually.
 extension NSMetadataAttributeProtocol where
 	Self == NSMetadataAttributeKey<
 		NSMetadataAttribute.DisplayNameKey
@@ -108,5 +109,7 @@ to do essentially the same thing.
 Package consumers would still have to write boilerplate.
 
 All that said, there's a finite number of
-[pre-defined attribute keys](https://developer.apple.com/documentation/foundation/nsmetadataitem#1681152),
+<ins>[pre-defined](https://developer.apple.com/documentation/foundation/nsmetadataitem#1681152)</ins>
+<ins>[attribute](https://developer.apple.com/documentation/coreservices/file_metadata/mditem#1658393)</ins>
+<ins>[keys](https://developer.apple.com/documentation/coreservices/file_metadata#2934150)</ins>,
 and it's not like I'm extending a quickly-evolving framework.

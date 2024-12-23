@@ -19,6 +19,8 @@ public extension NSMetadataAttributeModifier {
 // MARK: - Convenience
 
 public extension NSMetadataAttributeProtocol {
+	/// Perform a `filter` operation on an attribute value using
+	/// ``NSMetadataAttributeModifier/FilterModifier``.
 	func filter<Output>(
 		_ isIncluded: @escaping (Self.Output.Element) -> Bool
 	) -> some NSMetadataAttributeProtocol<Self.Input, [Self.Output.Element]> where

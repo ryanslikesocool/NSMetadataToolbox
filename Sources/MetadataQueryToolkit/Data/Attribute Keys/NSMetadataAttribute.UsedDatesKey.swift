@@ -9,14 +9,9 @@ public extension NSMetadataAttribute {
 
 		public static var attributeKey: String { kMDItemUsedDates }
 	}
-
-	// MARK: Convenience
-
-	/// The shorthand attribute key accessor for ``NSMetadataAttribute/UsedDatesKey``.
-	var usedDates: UsedDatesKey.Type {
-		UsedDatesKey.self
-	}
 }
+
+// MARK: - Convenience
 
 @available(macOS 10.9, *)
 public extension NSMetadataAttributeProtocol where
