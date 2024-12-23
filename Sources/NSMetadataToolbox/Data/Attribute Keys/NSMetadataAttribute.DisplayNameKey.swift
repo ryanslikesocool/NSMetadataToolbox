@@ -4,10 +4,12 @@ private import let Foundation.NSMetadataAttributes.NSMetadataItemDisplayNameKey
 public extension NSMetadataAttribute {
 	/// The attribute key for
 	/// [`NSMetadataItemDisplayNameKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemdisplaynamekey)\.
-	enum DisplayNameKey: NSMetadataAttributeKeyProtocol {
+	struct DisplayNameKey: NSMetadataAttributeKey {
 		public typealias Value = String
 
 		public static var attributeKey: String { NSMetadataItemDisplayNameKey }
+
+		public init() { }
 	}
 }
 
@@ -15,7 +17,7 @@ public extension NSMetadataAttribute {
 
 @available(iOS 5, macCatalyst 13.1, macOS 10.7, tvOS 9, visionOS 1, watchOS 2, *)
 public extension NSMetadataAttributeProtocol where
-	Self == NSMetadataAttributeKey<NSMetadataAttribute.DisplayNameKey>
+	Self == NSMetadataAttribute.DisplayNameKey
 {
 	/// The shorthand attribute key accessor for ``NSMetadataAttribute/DisplayNameKey``.
 	static var displayName: Self {

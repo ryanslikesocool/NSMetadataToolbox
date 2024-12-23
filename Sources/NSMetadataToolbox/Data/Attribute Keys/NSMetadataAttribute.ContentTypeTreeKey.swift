@@ -7,7 +7,7 @@ import struct UniformTypeIdentifiers.UTType
 public extension NSMetadataAttribute {
 	/// The attribute key for
 	/// [`NSMetadataItemContentTypeTreeKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemcontenttypetreekey)\.
-	enum ContentTypeTreeKey: NSMetadataAttributeKeyProtocol {
+	struct ContentTypeTreeKey: NSMetadataAttributeKey {
 		// TODO: Validate Value type
 		// https://developer.apple.com/documentation/coreservices/kmditemcontenttype
 		// Documentation indicates that the value represents a UTI.
@@ -15,6 +15,8 @@ public extension NSMetadataAttribute {
 		public typealias Value = [String]
 
 		public static var attributeKey: String { NSMetadataItemContentTypeTreeKey }
+
+		public init() { }
 	}
 }
 
@@ -22,7 +24,7 @@ public extension NSMetadataAttribute {
 
 @available(iOS 8, macCatalyst 13.1, macOS 10.9, tvOS 9, visionOS 1, watchOS 2, *)
 public extension NSMetadataAttributeProtocol where
-	Self == NSMetadataAttributeKey<NSMetadataAttribute.ContentTypeTreeKey>
+	Self == NSMetadataAttribute.ContentTypeTreeKey
 {
 	/// The shorthand attribute key accessor for ``NSMetadataAttribute/ContentTypeTreeKey``.
 	static var contentTypeTree: Self {
@@ -34,7 +36,7 @@ public extension NSMetadataAttributeProtocol where
 
 #if canImport(UniformTypeIdentifiers)
 @available(iOS 14, macCatalyst 14, macOS 11, tvOS 14, visionOS 1, watchOS 7, *)
-public extension NSMetadataAttributeKey<NSMetadataAttribute.ContentTypeTreeKey> {
+public extension NSMetadataAttribute.ContentTypeTreeKey {
 	/// Convert the content type string to a UTType using
 	/// [init(_:)](https://developer.apple.com/documentation/uniformtypeidentifiers/uttype-swift.struct/init(_:))\.
 	///

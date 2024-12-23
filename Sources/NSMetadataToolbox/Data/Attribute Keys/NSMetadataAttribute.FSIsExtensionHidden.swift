@@ -4,10 +4,12 @@ private import let CoreServices.Metadata.MDItem.kMDItemFSIsExtensionHidden
 public extension NSMetadataAttribute {
 	/// The attribute key for
 	/// [`kMDItemFSIsExtensionHidden`](https://developer.apple.com/documentation/coreservices/kmditemfsisextensionhidden)\.
-	enum FSIsExtensionHiddenKey: NSMetadataAttributeKeyProtocol {
+	struct FSIsExtensionHiddenKey: NSMetadataAttributeKey {
 		public typealias Value = Bool
 
 		public static var attributeKey: String { kMDItemFSIsExtensionHidden as String }
+
+		public init() { }
 	}
 }
 
@@ -15,7 +17,7 @@ public extension NSMetadataAttribute {
 
 @available(macOS 10.4, *)
 public extension NSMetadataAttributeProtocol where
-	Self == NSMetadataAttributeKey<NSMetadataAttribute.FSIsExtensionHiddenKey>
+	Self == NSMetadataAttribute.FSIsExtensionHiddenKey
 {
 	/// The shorthand attribute key accessor for ``NSMetadataAttribute/FSIsExtensionHiddenKey``.
 	static var fsIsExtensionHidden: Self {

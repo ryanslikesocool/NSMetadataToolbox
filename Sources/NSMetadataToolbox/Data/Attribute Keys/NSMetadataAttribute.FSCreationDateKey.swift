@@ -5,10 +5,12 @@ private import let Foundation.NSMetadataAttributes.NSMetadataItemFSCreationDateK
 public extension NSMetadataAttribute {
 	/// The attribute key for
 	/// [`NSMetadataItemFSCreationDateKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemfscreationdatekey)\.
-	enum FSCreationDateKey: NSMetadataAttributeKeyProtocol {
+	struct FSCreationDateKey: NSMetadataAttributeKey {
 		public typealias Value = Date
 
 		public static var attributeKey: String { NSMetadataItemFSCreationDateKey }
+
+		public init() { }
 	}
 }
 
@@ -16,7 +18,7 @@ public extension NSMetadataAttribute {
 
 @available(iOS 5, macCatalyst 13.1, macOS 10.7, tvOS 9, visionOS 1, watchOS 2, *)
 public extension NSMetadataAttributeProtocol where
-	Self == NSMetadataAttributeKey<NSMetadataAttribute.FSCreationDateKey>
+	Self == NSMetadataAttribute.FSCreationDateKey
 {
 	/// The shorthand attribute key accessor for ``NSMetadataAttribute/FSCreationDateKey``.
 	static var fsCreationDate: Self {

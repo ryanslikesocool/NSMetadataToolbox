@@ -1,4 +1,4 @@
-# ``NSMetadataAttributeKeyProtocol``
+# ``NSMetadataAttributeKey``
 
 ## Discussion
 
@@ -9,7 +9,7 @@ In most cases, declaring a new attribute key is as simple as knowing the key str
 For example, the implementation for ``NSMetadataAttribute/DisplayNameKey`` looks like this:
 ```swift
 extension NSMetadataItemAttribute {
-	enum DisplayNameKey: NSMetadataAttributeKeyProtocol {
+	struct DisplayNameKey: NSMetadataAttributeKey {
 		// The type of value that the key points to.
 		// In this case, a `String`.
 		public typealias Value = String
@@ -31,9 +31,7 @@ You can create shorthand attribute key accessors to greatly simplify accessing a
 The declaration for ``NSMetadataAttributeProtocol/displayName`` looks like this:
 ```swift
 extension NSMetadataAttributeProtocol where
-	Self == NSMetadataAttributeKey<
-		NSMetadataAttribute.DisplayNameKey
-	>
+	Self == NSMetadataAttribute.DisplayNameKey
 {
 	static var displayName: Self {
 		Self()
@@ -48,9 +46,7 @@ func readDisplayName(
 
 	// With a fully qualified initializer:
 	result = metadataItem.value(
-		forAttribute: NSMetadataAttributeKey<
-			NSMetadataAttribute.DisplayNameKey
-		>()
+		forAttribute: NSMetadataAttribute.DisplayNameKey()
 	)
 
 	// With a shorthand attribute key accessor:

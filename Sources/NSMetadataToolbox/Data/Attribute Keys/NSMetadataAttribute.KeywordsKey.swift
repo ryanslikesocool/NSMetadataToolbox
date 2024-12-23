@@ -4,10 +4,12 @@ private import let Foundation.NSMetadataAttributes.NSMetadataItemKeywordsKey
 public extension NSMetadataAttribute {
 	/// The attribute key for
 	/// [`NSMetadataItemKeywordsKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemkeywordskey)\.
-	enum KeywordsKey: NSMetadataAttributeKeyProtocol {
+	struct KeywordsKey: NSMetadataAttributeKey {
 		public typealias Value = String
 
 		public static var attributeKey: String { NSMetadataItemKeywordsKey }
+
+		public init() { }
 	}
 }
 
@@ -15,7 +17,7 @@ public extension NSMetadataAttribute {
 
 @available(macOS 10.9, *)
 public extension NSMetadataAttributeProtocol where
-	Self == NSMetadataAttributeKey<NSMetadataAttribute.KeywordsKey>
+	Self == NSMetadataAttribute.KeywordsKey
 {
 	/// The shorthand attribute key accessor for ``NSMetadataAttribute/KeywordsKey``.
 	static var keywords: Self {

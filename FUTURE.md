@@ -12,12 +12,14 @@ Notes and ideas about the future of this package.
 Declaring attribute keys currently requires a lot of boilerplate.
 ```swift
 extension NSMetadataAttribute {
-	enum DisplayNameKey: NSMetadataAttributeKeyProtocol {
+	struct DisplayNameKey: NSMetadataAttributeKey {
 		public typealias Value = String
 
 		public static var attributeKey: String {
 			NSMetadataItemDisplayNameKey
 		}
+		
+		public init() { }
 	}
 }
 
@@ -26,9 +28,7 @@ extension NSMetadataAttribute {
 // This extension is technically optional,
 // but always declared for attribute keys provided by the package.
 extension NSMetadataAttributeProtocol where
-	Self == NSMetadataAttributeKey<
-		NSMetadataAttribute.DisplayNameKey
-	>
+	Self == NSMetadataAttribute.DisplayNameKey
 { 
 	static var displayName: Self { 
 		Self()
@@ -50,7 +50,7 @@ macro.
 
 extension NSMetadataAttribute {
 	@AttributeKey(named: NSMetadataItemDisplayNameKey, ofType: String.self)
-	enum DisplayNameKey { }
+	struct DisplayNameKey { }
 }
 ```
 ```swift
@@ -58,30 +58,30 @@ extension NSMetadataAttribute {
 
 extension NSMetadataAttribute {
 	// A `MemberMacro` implementation could validate
-	// that the object is an `enum`
+	// that the object is a `struct`
 	// and doesn't contain any members.
-	enum DisplayNameKey { }
+	struct DisplayNameKey { }
 }
 
 // The standard boilerplate could be generated
 // from an `ExtensionMacro` implementation.
-extension NSMetadataAttribute.DisplayNameKey: NSMetadataAttributeKeyProtocol {
+extension NSMetadataAttribute.DisplayNameKey: NSMetadataAttributeKey {
 	public typealias Value = String
 
 	public static var attributeKey: String {
 		NSMetadataItemDisplayNameKey
 	}
+	
+	public init() { }
 }
 
 // The shorthand attribute key accessor might be an issue
-// if I'm not able to extend `NSMetadataAttributeProtocol`.
+// if I'm not able to extend `NSMetadataAttributeProtocol` from a macro.
 // This could also cause issues if the attribute key type name
 // doesn't follow a standard convention.
 // Shorthand attribute key accessors may need to be declared manually.
 extension NSMetadataAttributeProtocol where
-	Self == NSMetadataAttributeKey<
-		NSMetadataAttribute.DisplayNameKey
-	>
+	Self == NSMetadataAttribute.DisplayNameKey
 { 
 	static var displayName: Self {
 		Self()

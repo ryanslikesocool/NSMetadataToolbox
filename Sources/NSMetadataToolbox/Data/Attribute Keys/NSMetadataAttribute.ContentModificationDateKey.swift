@@ -5,10 +5,12 @@ private import let Foundation.NSMetadataAttributes.NSMetadataItemContentModifica
 public extension NSMetadataAttribute {
 	/// The attribute key for
 	/// [`NSMetadataItemContentModificationDateKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemcontentmodificationdatekey)\.
-	enum ContentModificationDateKey: NSMetadataAttributeKeyProtocol {
+	struct ContentModificationDateKey: NSMetadataAttributeKey {
 		public typealias Value = Date
 
 		public static var attributeKey: String { NSMetadataItemContentModificationDateKey }
+
+		public init() { }
 	}
 }
 
@@ -16,7 +18,7 @@ public extension NSMetadataAttribute {
 
 @available(macOS 10.9, *)
 public extension NSMetadataAttributeProtocol where
-	Self == NSMetadataAttributeKey<NSMetadataAttribute.ContentModificationDateKey>
+	Self == NSMetadataAttribute.ContentModificationDateKey
 {
 	/// The shorthand attribute key accessor for ``NSMetadataAttribute/ContentModificationDateKey``.
 	static var contentModificationDate: Self {

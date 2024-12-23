@@ -4,10 +4,12 @@ private import let Foundation.NSMetadataAttributes.NSMetadataItemExecutableArchi
 public extension NSMetadataAttribute {
 	/// The attribute key for
 	/// [`NSMetadataItemExecutableArchitecturesKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemexecutablearchitectureskey)\.
-	enum ExecutableArchitecturesKey: NSMetadataAttributeKeyProtocol {
+	struct ExecutableArchitecturesKey: NSMetadataAttributeKey {
 		public typealias Value = [String]
 
 		public static var attributeKey: String { NSMetadataItemExecutableArchitecturesKey }
+
+		public init() { }
 	}
 }
 
@@ -15,7 +17,7 @@ public extension NSMetadataAttribute {
 
 @available(macOS 10.9, *)
 public extension NSMetadataAttributeProtocol where
-	Self == NSMetadataAttributeKey<NSMetadataAttribute.ExecutableArchitecturesKey>
+	Self == NSMetadataAttribute.ExecutableArchitecturesKey
 {
 	/// The shorthand attribute key accessor for ``NSMetadataAttribute/ExecutableArchitecturesKey``.
 	static var executableArchitectures: Self {

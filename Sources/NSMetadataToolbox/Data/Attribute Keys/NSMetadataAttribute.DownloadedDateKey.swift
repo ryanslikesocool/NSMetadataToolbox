@@ -5,10 +5,12 @@ private import let Foundation.NSMetadataAttributes.NSMetadataItemDownloadedDateK
 public extension NSMetadataAttribute {
 	/// The attribute key for
 	/// [`NSMetadataItemDownloadedDateKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemdownloadeddatekey)\.
-	enum DownloadedDateKey: NSMetadataAttributeKeyProtocol {
+	struct DownloadedDateKey: NSMetadataAttributeKey {
 		public typealias Value = Date
 
 		public static var attributeKey: String { NSMetadataItemDownloadedDateKey }
+
+		public init() { }
 	}
 }
 
@@ -16,7 +18,7 @@ public extension NSMetadataAttribute {
 
 @available(macOS 10.9, *)
 public extension NSMetadataAttributeProtocol where
-	Self == NSMetadataAttributeKey<NSMetadataAttribute.DownloadedDateKey>
+	Self == NSMetadataAttribute.DownloadedDateKey
 {
 	/// The shorthand attribute key accessor for ``NSMetadataAttribute/DownloadedDateKey``.
 	static var downloadedDate: Self {

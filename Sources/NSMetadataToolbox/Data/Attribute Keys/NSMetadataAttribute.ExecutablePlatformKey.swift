@@ -4,10 +4,12 @@ private import let Foundation.NSMetadataAttributes.NSMetadataItemExecutablePlatf
 public extension NSMetadataAttribute {
 	/// The attribute key for
 	/// [`NSMetadataItemExecutablePlatformKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemexecutableplatformkey)\.
-	enum ExecutablePlatformKey: NSMetadataAttributeKeyProtocol {
+	struct ExecutablePlatformKey: NSMetadataAttributeKey {
 		public typealias Value = String
 
 		public static var attributeKey: String { NSMetadataItemExecutablePlatformKey }
+
+		public init() { }
 	}
 }
 
@@ -15,7 +17,7 @@ public extension NSMetadataAttribute {
 
 @available(macOS 10.9, *)
 public extension NSMetadataAttributeProtocol where
-	Self == NSMetadataAttributeKey<NSMetadataAttribute.ExecutablePlatformKey>
+	Self == NSMetadataAttribute.ExecutablePlatformKey
 {
 	/// The shorthand attribute key accessor for ``NSMetadataAttribute/ExecutablePlatformKey``.
 	static var executablePlatform: Self {

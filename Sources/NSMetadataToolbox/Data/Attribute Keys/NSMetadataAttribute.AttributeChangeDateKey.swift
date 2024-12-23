@@ -5,10 +5,12 @@ private import let Foundation.NSMetadataAttributes.NSMetadataItemAttributeChange
 public extension NSMetadataAttribute {
 	/// The attribute key for
 	/// [`NSMetadataItemAttributeChangeDateKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemattributechangedatekey)\.
-	enum AttributeChangeDateKey: NSMetadataAttributeKeyProtocol {
+	struct AttributeChangeDateKey: NSMetadataAttributeKey {
 		public typealias Value = Date
 
 		public static var attributeKey: String { NSMetadataItemAttributeChangeDateKey }
+
+		public init() { }
 	}
 }
 
@@ -16,7 +18,7 @@ public extension NSMetadataAttribute {
 
 @available(macOS 10.9, *)
 public extension NSMetadataAttributeProtocol where
-	Self == NSMetadataAttributeKey<NSMetadataAttribute.AttributeChangeDateKey>
+	Self == NSMetadataAttribute.AttributeChangeDateKey
 {
 	/// The shorthand attribute key accessor for ``NSMetadataAttribute/AttributeChangeDateKey``.
 	static var attributeChangeDate: Self {

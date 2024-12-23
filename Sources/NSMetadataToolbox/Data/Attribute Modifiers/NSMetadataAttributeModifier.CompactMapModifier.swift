@@ -17,8 +17,7 @@ public extension NSMetadataAttributeModifier {
 // MARK: - Convenience
 
 public extension NSMetadataAttributeProtocol {
-	/// Perform a `compactMap` operation on an attribute value using
-	/// ``NSMetadataAttributeModifier/CompactMapModifier``.
+	/// Perform a `compactMap` operation on an attribute value.
 	func compactMap<OutputElement>(
 		_ transform: @escaping (Self.Output.Element) -> OutputElement?
 	) -> some NSMetadataAttributeProtocol<Self.Input, [OutputElement]> where

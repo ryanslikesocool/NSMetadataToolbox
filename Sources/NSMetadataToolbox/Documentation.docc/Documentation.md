@@ -10,15 +10,7 @@ and
 
 ## Topics
 
+- <doc:QuickStart>
 - <doc:AttributeKeys>
 - <doc:AttributeModifiers>
-
-
-### Concurrency
-
-- ``Foundation/NSMetadataQuery/gatherResults(isolation:notificationCenter:)``
-
-
-### Accessing Attribute Values
-
-- ``Foundation/NSMetadataItem/value(forAttribute:)``
+- <doc:Queries>

@@ -5,10 +5,12 @@ private import let Foundation.NSMetadataAttributes.NSMetadataItemContentCreation
 public extension NSMetadataAttribute {
 	/// The attribute key for
 	/// [`NSMetadataItemContentCreationDateKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemcontentcreationdatekey)\.
-	enum ContentCreationDateKey: NSMetadataAttributeKeyProtocol {
+	struct ContentCreationDateKey: NSMetadataAttributeKey {
 		public typealias Value = Date
 
 		public static var attributeKey: String { NSMetadataItemContentCreationDateKey }
+
+		public init() { }
 	}
 }
 
@@ -16,7 +18,7 @@ public extension NSMetadataAttribute {
 
 @available(macOS 10.9, *)
 public extension NSMetadataAttributeProtocol where
-	Self == NSMetadataAttributeKey<NSMetadataAttribute.ContentCreationDateKey>
+	Self == NSMetadataAttribute.ContentCreationDateKey
 {
 	/// The shorthand attribute key accessor for ``NSMetadataAttribute/ContentCreationDateKey``.
 	static var contentCreationDate: Self {

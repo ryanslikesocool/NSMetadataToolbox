@@ -4,10 +4,12 @@ private import let Foundation.NSMetadataAttributes.NSMetadataItemCFBundleIdentif
 public extension NSMetadataAttribute {
 	/// The attribute key for
 	/// [`NSMetadataItemCFBundleIdentifierKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemcfbundleidentifierkey)\.
-	enum CFBundleIdentifierKey: NSMetadataAttributeKeyProtocol {
+	struct CFBundleIdentifierKey: NSMetadataAttributeKey {
 		public typealias Value = String
 
 		public static var attributeKey: String { NSMetadataItemCFBundleIdentifierKey }
+
+		public init() { }
 	}
 }
 
@@ -15,7 +17,7 @@ public extension NSMetadataAttribute {
 
 @available(macOS 10.9, *)
 public extension NSMetadataAttributeProtocol where
-	Self == NSMetadataAttributeKey<NSMetadataAttribute.CFBundleIdentifierKey>
+	Self == NSMetadataAttribute.CFBundleIdentifierKey
 {
 	/// The shorthand attribute key accessor for ``NSMetadataAttribute/CFBundleIdentifierKey``.
 	static var cfBundleIdentifier: Self {

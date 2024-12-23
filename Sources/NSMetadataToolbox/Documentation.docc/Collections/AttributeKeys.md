@@ -2,10 +2,14 @@
 
 ## Topics
 
+### Accessing Attribute Values
+
+- ``Foundation/NSMetadataItem/value(forAttribute:)``
+
+
 ### Declaring Attribute Keys
 
 - ``NSMetadataAttributeKey``
-- ``NSMetadataAttributeKeyProtocol``
 
 
 ### Attribute Keys
@@ -54,7 +58,7 @@
 - ``NSMetadataAttributeProtocol/version``
 
 
-### Additional Constants
+### Additional Attribute Key Constants
 
 - ``kMDItemAlternateNames``
 - ``kMDItemAppStoreCategory``

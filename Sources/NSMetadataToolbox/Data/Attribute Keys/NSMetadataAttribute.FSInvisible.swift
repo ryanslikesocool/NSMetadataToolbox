@@ -4,10 +4,12 @@ private import let CoreServices.Metadata.MDItem.kMDItemFSInvisible
 public extension NSMetadataAttribute {
 	/// The attribute key for
 	/// [`kMDItemFSInvisible`](https://developer.apple.com/documentation/coreservices/kmditemfsinvisible)\.
-	enum FSInvisibleKey: NSMetadataAttributeKeyProtocol {
+	struct FSInvisibleKey: NSMetadataAttributeKey {
 		public typealias Value = Bool
 
 		public static var attributeKey: String { kMDItemFSInvisible as String }
+
+		public init() { }
 	}
 }
 
@@ -15,7 +17,7 @@ public extension NSMetadataAttribute {
 
 @available(macOS 10.4, *)
 public extension NSMetadataAttributeProtocol where
-	Self == NSMetadataAttributeKey<NSMetadataAttribute.FSInvisibleKey>
+	Self == NSMetadataAttribute.FSInvisibleKey
 {
 	/// The shorthand attribute key accessor for ``NSMetadataAttribute/FSInvisibleKey``.
 	static var fsInvisible: Self {

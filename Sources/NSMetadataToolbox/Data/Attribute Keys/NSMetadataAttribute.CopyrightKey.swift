@@ -4,10 +4,12 @@ private import let Foundation.NSMetadataAttributes.NSMetadataItemCopyrightKey
 public extension NSMetadataAttribute {
 	/// The attribute key for
 	/// [`NSMetadataItemCopyrightKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemcopyrightkey)\.
-	enum CopyrightKey: NSMetadataAttributeKeyProtocol {
+	struct CopyrightKey: NSMetadataAttributeKey {
 		public typealias Value = String
 
 		public static var attributeKey: String { NSMetadataItemCopyrightKey }
+
+		public init() { }
 	}
 }
 
@@ -15,7 +17,7 @@ public extension NSMetadataAttribute {
 
 @available(macOS 10.9, *)
 public extension NSMetadataAttributeProtocol where
-	Self == NSMetadataAttributeKey<NSMetadataAttribute.CopyrightKey>
+	Self == NSMetadataAttribute.CopyrightKey
 {
 	/// The shorthand attribute key accessor for ``NSMetadataAttribute/CopyrightKey``.
 	static var copyright: Self {

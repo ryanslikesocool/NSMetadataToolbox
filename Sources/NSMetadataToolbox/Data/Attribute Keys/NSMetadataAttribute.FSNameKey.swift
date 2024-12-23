@@ -4,10 +4,12 @@ private import let Foundation.NSMetadataAttributes.NSMetadataItemFSNameKey
 public extension NSMetadataAttribute {
 	/// The attribute key for
 	/// [`NSMetadataItemFSNameKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemfsnamekey)\.
-	enum FSNameKey: NSMetadataAttributeKeyProtocol {
+	struct FSNameKey: NSMetadataAttributeKey {
 		public typealias Value = String
 
 		public static var attributeKey: String { NSMetadataItemFSNameKey }
+
+		public init() { }
 	}
 }
 
@@ -15,7 +17,7 @@ public extension NSMetadataAttribute {
 
 @available(iOS 5, macCatalyst 13.1, macOS 10.7, tvOS 9, visionOS 1, watchOS 2, *)
 public extension NSMetadataAttributeProtocol where
-	Self == NSMetadataAttributeKey<NSMetadataAttribute.FSNameKey>
+	Self == NSMetadataAttribute.FSNameKey
 {
 	/// The shorthand attribute key accessor for ``NSMetadataAttribute/FSNameKey``.
 	static var fsName: Self {

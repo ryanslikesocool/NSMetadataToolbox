@@ -4,10 +4,12 @@ private import let Foundation.NSMetadataAttributes.NSMetadataItemDescriptionKey
 public extension NSMetadataAttribute {
 	/// The attribute key for
 	/// [`NSMetadataItemDescriptionKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemdescriptionkey)\.
-	enum DescriptionKey: NSMetadataAttributeKeyProtocol {
+	struct DescriptionKey: NSMetadataAttributeKey {
 		public typealias Value = String
 
 		public static var attributeKey: String { NSMetadataItemDescriptionKey }
+
+		public init() { }
 	}
 }
 
@@ -15,7 +17,7 @@ public extension NSMetadataAttribute {
 
 @available(macOS 10.9, *)
 public extension NSMetadataAttributeProtocol where
-	Self == NSMetadataAttributeKey<NSMetadataAttribute.DescriptionKey>
+	Self == NSMetadataAttribute.DescriptionKey
 {
 	/// The shorthand attribute key accessor for ``NSMetadataAttribute/DescriptionKey``.
 	static var description: Self {

@@ -4,10 +4,12 @@ import struct Foundation.Date
 @available(macOS 10.9, *)
 public extension NSMetadataAttribute {
 	/// The attribute key for ``kMDItemUsedDates``.
-	enum UsedDatesKey: NSMetadataAttributeKeyProtocol {
+	struct UsedDatesKey: NSMetadataAttributeKey {
 		public typealias Value = [Date]
 
 		public static var attributeKey: String { kMDItemUsedDates }
+
+		public init() { }
 	}
 }
 
@@ -15,7 +17,7 @@ public extension NSMetadataAttribute {
 
 @available(macOS 10.9, *)
 public extension NSMetadataAttributeProtocol where
-	Self == NSMetadataAttributeKey<NSMetadataAttribute.UsedDatesKey>
+	Self == NSMetadataAttribute.UsedDatesKey
 {
 	/// The shorthand attribute key accessor for ``NSMetadataAttribute/UsedDatesKey``.
 	static var usedDates: Self {

@@ -15,8 +15,7 @@ public extension NSMetadataAttributeModifier {
 // MARK: - Convenience
 
 public extension NSMetadataAttributeProtocol {
-	/// Perform a `map` operation on an attribute value using
-	/// ``NSMetadataAttributeModifier/MapModifier``.
+	/// Perform a `map` operation on an attribute value.
 	func map<Output>(
 		_ transform: @escaping (Self.Output) -> Output
 	) -> some NSMetadataAttributeProtocol<Self.Input, Output> {
@@ -24,8 +23,7 @@ public extension NSMetadataAttributeProtocol {
 		return self.modifier(modifier)
 	}
 
-	/// Perform a `map` operation on the attribute value using
-	/// ``NSMetadataAttributeModifier/MapModifier``.
+	/// Perform a `map` operation on the attribute value.
 	func map<OutputElement>(
 		_ transform: @escaping (Self.Output.Element) -> OutputElement
 	) -> some NSMetadataAttributeProtocol<Self.Input, [OutputElement]> where

@@ -5,10 +5,12 @@ private import let Foundation.NSMetadataAttributes.NSMetadataItemFSContentChange
 public extension NSMetadataAttribute {
 	/// The attribute key for
 	/// [`NSMetadataItemFSContentChangeDateKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemfscontentchangedatekey)\.
-	enum FSContentChangeDateKey: NSMetadataAttributeKeyProtocol {
+	struct FSContentChangeDateKey: NSMetadataAttributeKey {
 		public typealias Value = Date
 
 		public static var attributeKey: String { NSMetadataItemFSContentChangeDateKey }
+
+		public init() { }
 	}
 }
 
@@ -16,7 +18,7 @@ public extension NSMetadataAttribute {
 
 @available(iOS 5, macCatalyst 13.1, macOS 10.7, tvOS 9, visionOS 1, watchOS 2, *)
 public extension NSMetadataAttributeProtocol where
-	Self == NSMetadataAttributeKey<NSMetadataAttribute.FSContentChangeDateKey>
+	Self == NSMetadataAttribute.FSContentChangeDateKey
 {
 	/// The shorthand attribute key accessor for ``NSMetadataAttribute/FSContentChangeDateKey``.
 	static var fsContentChangeDate: Self {

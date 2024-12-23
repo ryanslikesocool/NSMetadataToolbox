@@ -1,6 +1,11 @@
+import class Foundation.NSMetadata.NSMetadataItem
+
 /// A key for accessing attribute values in an
 /// [`NSMetadataItem`](https://developer.apple.com/documentation/foundation/nsmetadataitem)\.
-public protocol NSMetadataAttributeKeyProtocol {
+public protocol NSMetadataAttributeKey: NSMetadataAttributeProtocol where
+	Input == NSMetadataItem,
+	Output == Value?
+{
 	/// The expected type of the value returned by
 	/// [`value(forAttribute:)`](https://developer.apple.com/documentation/foundation/nsmetadataitem/1411721-value)\.
 	associatedtype Value
@@ -12,4 +17,12 @@ public protocol NSMetadataAttributeKeyProtocol {
 	/// [`MDItem`](https://developer.apple.com/documentation/coreservices/file_metadata/mditem#1658393), and
 	/// [File Metadata](https://developer.apple.com/documentation/coreservices/file_metadata#2934150)\.
 	static var attributeKey: String { get }
+}
+
+// MARK: - Default Implementation
+
+public extension NSMetadataAttributeKey {
+	func process(_ input: NSMetadataItem) -> Value? {
+		input.value(forAttribute: Self.attributeKey) as? Value
+	}
 }

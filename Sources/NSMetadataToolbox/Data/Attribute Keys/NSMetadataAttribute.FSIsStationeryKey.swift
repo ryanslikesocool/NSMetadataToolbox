@@ -4,10 +4,12 @@ private import let CoreServices.Metadata.MDItem.kMDItemFSIsStationery
 public extension NSMetadataAttribute {
 	/// The attribute key for
 	/// [`kMDItemFSIsStationery`](https://developer.apple.com/documentation/coreservices/kmditemfsisstationery)\.
-	enum FSIsStationeryKey: NSMetadataAttributeKeyProtocol {
+	struct FSIsStationeryKey: NSMetadataAttributeKey {
 		public typealias Value = Bool
 
 		public static var attributeKey: String { kMDItemFSIsStationery as String }
+
+		public init() { }
 	}
 }
 
@@ -15,7 +17,7 @@ public extension NSMetadataAttribute {
 
 @available(macOS 10.4, *)
 public extension NSMetadataAttributeProtocol where
-	Self == NSMetadataAttributeKey<NSMetadataAttribute.FSIsStationeryKey>
+	Self == NSMetadataAttribute.FSIsStationeryKey
 {
 	/// The shorthand attribute key accessor for ``NSMetadataAttribute/FSIsStationeryKey``.
 	static var fsIsStationery: Self {

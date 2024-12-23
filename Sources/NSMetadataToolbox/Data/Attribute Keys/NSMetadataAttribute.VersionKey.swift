@@ -4,10 +4,12 @@ private import let Foundation.NSMetadataAttributes.NSMetadataItemVersionKey
 public extension NSMetadataAttribute {
 	/// The attribute key for
 	/// [`NSMetadataItemVersionKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemversionkey)\.
-	enum VersionKey: NSMetadataAttributeKeyProtocol {
+	struct VersionKey: NSMetadataAttributeKey {
 		public typealias Value = String
 
 		public static var attributeKey: String { NSMetadataItemVersionKey }
+
+		public init() { }
 	}
 }
 
@@ -15,7 +17,7 @@ public extension NSMetadataAttribute {
 
 @available(macOS 10.9, *)
 public extension NSMetadataAttributeProtocol where
-	Self == NSMetadataAttributeKey<NSMetadataAttribute.VersionKey>
+	Self == NSMetadataAttribute.VersionKey
 {
 	/// The shorthand attribute key accessor for ``NSMetadataAttribute/VersionKey``.
 	static var version: Self {

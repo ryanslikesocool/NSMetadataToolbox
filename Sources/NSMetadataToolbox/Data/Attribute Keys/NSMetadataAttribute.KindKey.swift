@@ -4,10 +4,12 @@ private import let Foundation.NSMetadataAttributes.NSMetadataItemKindKey
 public extension NSMetadataAttribute {
 	/// The attribute key for
 	/// [`NSMetadataItemKindKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemkindkey)\.
-	enum KindKey: NSMetadataAttributeKeyProtocol {
+	struct KindKey: NSMetadataAttributeKey {
 		public typealias Value = String
 
 		public static var attributeKey: String { NSMetadataItemKindKey }
+
+		public init() { }
 	}
 }
 
@@ -15,7 +17,7 @@ public extension NSMetadataAttribute {
 
 @available(macOS 10.9, *)
 public extension NSMetadataAttributeProtocol where
-	Self == NSMetadataAttributeKey<NSMetadataAttribute.KindKey>
+	Self == NSMetadataAttribute.KindKey
 {
 	/// The shorthand attribute key accessor for ``NSMetadataAttribute/KindKey``.
 	static var kind: Self {
