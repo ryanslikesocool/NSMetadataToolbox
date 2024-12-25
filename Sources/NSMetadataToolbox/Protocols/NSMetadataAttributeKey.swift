@@ -13,7 +13,7 @@ public protocol NSMetadataAttributeKey: NSMetadataAttributeProtocol where
 	/// The underlying attribute key.
 	///
 	/// Attribute key constants can be found in the documentation for
-	/// [`NSMetadataItem`](https://developer.apple.com/documentation/foundation/nsmetadataitem#1681152),
+	/// [`NSMetadataItem`](https://developer.apple.com/documentation/foundation/nsmetadataitem#1681152)\,
 	/// [`MDItem`](https://developer.apple.com/documentation/coreservices/file_metadata/mditem#1658393), and
 	/// [File Metadata](https://developer.apple.com/documentation/coreservices/file_metadata#2934150)\.
 	static var attributeKey: String { get }
@@ -22,7 +22,7 @@ public protocol NSMetadataAttributeKey: NSMetadataAttributeProtocol where
 // MARK: - Default Implementation
 
 public extension NSMetadataAttributeKey {
-	func process(_ input: NSMetadataItem) -> Value? {
+	func process(_ input: Input) -> Value? {
 		input.value(forAttribute: Self.attributeKey) as? Value
 	}
 }

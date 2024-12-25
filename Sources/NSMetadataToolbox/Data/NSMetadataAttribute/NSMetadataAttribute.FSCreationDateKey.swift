@@ -1,5 +1,5 @@
-import struct Foundation.Date
 private import let Foundation.NSMetadataAttributes.NSMetadataItemFSCreationDateKey
+import struct Foundation.Date
 
 @available(iOS 5, macCatalyst 13.1, macOS 10.7, tvOS 9, visionOS 1, watchOS 2, *)
 public extension NSMetadataAttribute {

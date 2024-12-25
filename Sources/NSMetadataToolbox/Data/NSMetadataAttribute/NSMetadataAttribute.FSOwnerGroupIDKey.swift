@@ -1,4 +1,3 @@
-import class CoreFoundation.CFNumber
 private import let CoreServices.Metadata.MDItem.kMDItemFSOwnerGroupID
 
 @available(macOS 10.4, *)

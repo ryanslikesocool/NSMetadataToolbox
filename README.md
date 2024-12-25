@@ -5,11 +5,14 @@ Extensions and conveniences for
 and
 [`NSMetadataItem`](https://developer.apple.com/documentation/foundation/nsmetadataitem)\.
 
+
 ## NOTICE
 
 **This package is under development and not considered production-ready.**<br/>
 Breaking changes are common, documentation is incomplete, and support is limited.  Use at your own risk.
 
+
+---
 
 ## Installation (Swift Package Manager)
 

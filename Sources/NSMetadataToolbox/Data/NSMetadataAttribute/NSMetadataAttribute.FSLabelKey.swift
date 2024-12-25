@@ -1,4 +1,3 @@
-import class CoreFoundation.CFNumber
 private import let CoreServices.Metadata.MDItem.kMDItemFSLabel
 
 @available(macOS 10.4, *)

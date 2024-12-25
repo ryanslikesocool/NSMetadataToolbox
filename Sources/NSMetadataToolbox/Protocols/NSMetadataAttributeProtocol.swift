@@ -17,6 +17,6 @@ public extension NSMetadataAttributeProtocol {
 		Modifier: NSMetadataAttributeProtocol,
 		Self.Output == Modifier.Input
 	{
-		ModifiedNSMetadataAttribute(upstream: self, downstream: modifier)
+		ModifiedContent(upstream: self, downstream: modifier)
 	}
 }

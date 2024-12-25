@@ -74,17 +74,18 @@ func gatherMetadata(
 	forContent contentTypeIdentifier: UTType,
 	in searchScopes: [URL]
 ) async -> [NSMetadataItem] {
-	// Create a query like normal...
+	// Create a query as usual...
 	let query = NSMetadataQuery()
 	query.predicate = NSPredicate(
-		format: "\(NSMetadataItemContentTypeKey) == '\(contentTypeIdentifier.identifier)'"
+		format: "%K == %@",
+		NSMetadataItemContentTypeKey, contentTypeIdentifier.identifier
 	)
 	query.searchScopes = searchScopes
 
 	// ...await results...
 	await query.gatherResults()
 
-	// ...and use like normal.
+	// ...and use as usual.
 	return query.results.compactMap { item in
 		item as? NSMetadataItem
 	}
@@ -92,7 +93,7 @@ func gatherMetadata(
 ```
 
 ``Foundation/NSMetadataQuery/gatherResults(isolation:notificationCenter:)``
-also accepts arguments for actor `isolation` and the `notificationCenter` to use. 
+also accepts arguments for actor `isolation` and the `notificationCenter` to use.
 ```swift
 /* imports */
 
@@ -103,9 +104,9 @@ func gatherMetadata(
 	/* query creation */
 
 	let notificationCenter: NotificationCenter = .myNotificationCenter
-	
+
 	await query.gatherResults(
-		isolation: isolation, 
+		isolation: isolation,
 		notificationCenter: notificationCenter
 	)
 
