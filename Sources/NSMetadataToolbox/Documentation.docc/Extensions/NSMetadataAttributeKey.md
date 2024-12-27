@@ -6,10 +6,10 @@ Attribute keys are declared similarly to a SwiftUI
 [`EnvironmentKey`](https://developer.apple.com/documentation/swiftui/environmentkey)\.
 In most cases, declaring a new attribute key is as simple as knowing the key string and value type.
 
-For example, the implementation for ``NSMetadataAttribute/DisplayNameKey`` looks like this:
+For example, the implementation for ``NSMetadataAttributeKeys/DisplayName`` looks like this:
 ```swift
-extension NSMetadataItemAttribute {
-	struct DisplayNameKey: NSMetadataAttributeKey {
+extension NSMetadataAttributeKeys {
+	struct DisplayName: NSMetadataAttributeKey {
 		// The type of value that the key points to.
 		// In this case, a `String`.
 		public typealias Value = String
@@ -31,7 +31,7 @@ You can create shorthand attribute key accessors to greatly simplify accessing a
 The declaration for ``NSMetadataAttributeProtocol/displayName`` looks like this:
 ```swift
 extension NSMetadataAttributeProtocol where
-	Self == NSMetadataAttribute.DisplayNameKey
+	Self == NSMetadataAttributeKeys.DisplayName
 {
 	static var displayName: Self {
 		Self()
@@ -46,7 +46,7 @@ func readDisplayName(
 
 	// With a fully qualified initializer:
 	result = try metadataItem.value(
-		forAttribute: NSMetadataAttribute.DisplayNameKey()
+		forAttribute: NSMetadataAttributeKeys.DisplayName()
 	)
 
 	// With a shorthand attribute key accessor:

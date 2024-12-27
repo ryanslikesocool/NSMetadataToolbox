@@ -14,7 +14,7 @@ func readDisplayName(from metadataItem: NSMetadataItem) throws -> String {
 
 	// Read attribute values with a fully qualified attribute key initializer...
 	result = try metadataItem.value(
-		forAttribute: NSMetadataAttribute.DisplayNameKey()
+		forAttribute: NSMetadataAttributeKey.DisplayName()
 	)
 
 	// ...or with a shorthand attribute key accessor.

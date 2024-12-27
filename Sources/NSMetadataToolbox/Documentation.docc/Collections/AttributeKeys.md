@@ -14,7 +14,7 @@
 
 ### Attribute Keys
 
-- ``NSMetadataAttribute``
+- ``NSMetadataAttributeKeys``
 - ``NSMetadataAttributeProtocol/alternateNames``
 - ``NSMetadataAttributeProtocol/appStoreCategory``
 - ``NSMetadataAttributeProtocol/appStoreCategoryType``
