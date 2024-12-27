@@ -5,17 +5,20 @@ Extensions and conveniences for
 and
 [`NSMetadataItem`](https://developer.apple.com/documentation/foundation/nsmetadataitem)\.
 
+
 ## NOTICE
 
 **This package is under development and not considered production-ready.**<br/>
 Breaking changes are common, documentation is incomplete, and support is limited.  Use at your own risk.
 
 
+---
+
 ## Installation (Swift Package Manager)
 
 Add the following entry to your package dependencies...
 ```swift
-.package(url: "https://github.com/ryanslikesocool/NSMetadataToolbox.git", from: "0.0.3"),
+.package(url: "https://github.com/ryanslikesocool/NSMetadataToolbox.git", from: "0.0.4"),
 ```
 ...and your target dependencies.
 ```swift

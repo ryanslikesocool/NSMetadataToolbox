@@ -6,10 +6,10 @@ Attribute keys are declared similarly to a SwiftUI
 [`EnvironmentKey`](https://developer.apple.com/documentation/swiftui/environmentkey)\.
 In most cases, declaring a new attribute key is as simple as knowing the key string and value type.
 
-For example, the implementation for ``NSMetadataAttribute/DisplayNameKey`` looks like this:
+For example, the implementation for ``NSMetadataAttributeKeys/DisplayName`` looks like this:
 ```swift
-extension NSMetadataItemAttribute {
-	struct DisplayNameKey: NSMetadataAttributeKey {
+extension NSMetadataAttributeKeys {
+	struct DisplayName: NSMetadataAttributeKey {
 		// The type of value that the key points to.
 		// In this case, a `String`.
 		public typealias Value = String
@@ -28,10 +28,10 @@ extension NSMetadataItemAttribute {
 ### Shorthand Attribute Key Accessors
 
 You can create shorthand attribute key accessors to greatly simplify accessing attribute values.
-The declaration for ``NSMetadataAttributeProtocol/displayName`` looks like this:
+The declaration for ``NSMetadataAttributeObject/displayName`` looks like this:
 ```swift
-extension NSMetadataAttributeProtocol where
-	Self == NSMetadataAttribute.DisplayNameKey
+extension NSMetadataAttributeObject where
+	Self == NSMetadataAttributeKeys.DisplayName
 {
 	static var displayName: Self {
 		Self()
@@ -41,16 +41,16 @@ extension NSMetadataAttributeProtocol where
 ```swift
 func readDisplayName(
 	from metadataItem: NSMetadataItem
-) -> String? {
-	var result: String?
+) throws -> String {
+	var result: String
 
 	// With a fully qualified initializer:
-	result = metadataItem.value(
-		forAttribute: NSMetadataAttribute.DisplayNameKey()
+	result = try metadataItem.value(
+		forAttribute: NSMetadataAttributeKeys.DisplayName()
 	)
 
 	// With a shorthand attribute key accessor:
-	result = metadataItem.value(
+	result = try metadataItem.value(
 		forAttribute: .displayName
 	)
 
@@ -60,6 +60,6 @@ func readDisplayName(
 
 
 Additional attribute key constants can be found in the documentation for 
-[`NSMetadataItem`](https://developer.apple.com/documentation/foundation/nsmetadataitem#1681152),
+[`NSMetadataItem`](https://developer.apple.com/documentation/foundation/nsmetadataitem#1681152)\,
 [`MDItem`](https://developer.apple.com/documentation/coreservices/file_metadata/mditem#1658393), and
 [File Metadata](https://developer.apple.com/documentation/coreservices/file_metadata#2934150)\.

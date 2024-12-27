@@ -9,16 +9,16 @@ in the form of the ``NSMetadataAttributeKey`` protocol.
 import Foundation
 import NSMetadataToolbox
 
-func readDisplayName(from metadataItem: NSMetadataItem) -> String? {
-	var result: String?
+func readDisplayName(from metadataItem: NSMetadataItem) throws -> String {
+	var result: String
 
 	// Read attribute values with a fully qualified attribute key initializer...
-	result = metadataItem.value(
-		forAttribute: NSMetadataAttribute.DisplayNameKey()
+	result = try metadataItem.value(
+		forAttribute: NSMetadataAttributeKeys.DisplayName()
 	)
 
 	// ...or with a shorthand attribute key accessor.
-	result = metadataItem.value(
+	result = try metadataItem.value(
 		forAttribute: .displayName
 	)
 
@@ -37,22 +37,20 @@ and more can be added with a simple declaration.
 import NSMetadataToolbox
 
 // Declare the attribute key...
-extension NSMetadataAttribute {
-	struct MyCustomValueKey: NSMetadataAttributeKey {
-		// The type of attribute value that the `attributeKey` points to.
-		typealias Value = String
+struct MyCustomValueMetadataAttributeKey: NSMetadataAttributeKey {
+	// The type of attribute value that the `attributeKey` points to.
+	typealias Value = String
 
-		// The key used to access the attribute value.
-		static let attributeKey: String = "MyCustomValueKey"
-	}
+	// The key used to access the attribute value.
+	static let attributeKey: String = "MyCustomValueKey"
 }
 ```
 
 In cases where the fully-qualified key name is verbose or used frequently,
 it can be useful to declare a shorthand attribute key accessor.
 ```swift
-extension NSMetadataAttributeProtocol where
-	Self == NSMetadataAttribute.MyCustomValueKey
+extension NSMetadataAttributeObject where
+	Self == MyCustomValueMetadataAttributeKey
 {
 	static var myCustomValue: Self {
 		Self()
@@ -74,17 +72,18 @@ func gatherMetadata(
 	forContent contentTypeIdentifier: UTType,
 	in searchScopes: [URL]
 ) async -> [NSMetadataItem] {
-	// Create a query like normal...
+	// Create a query as usual...
 	let query = NSMetadataQuery()
 	query.predicate = NSPredicate(
-		format: "\(NSMetadataItemContentTypeKey) == '\(contentTypeIdentifier.identifier)'"
+		format: "%K == %@",
+		NSMetadataItemContentTypeKey, contentTypeIdentifier.identifier
 	)
 	query.searchScopes = searchScopes
 
 	// ...await results...
 	await query.gatherResults()
 
-	// ...and use like normal.
+	// ...and use as usual.
 	return query.results.compactMap { item in
 		item as? NSMetadataItem
 	}
@@ -92,7 +91,7 @@ func gatherMetadata(
 ```
 
 ``Foundation/NSMetadataQuery/gatherResults(isolation:notificationCenter:)``
-also accepts arguments for actor `isolation` and the `notificationCenter` to use. 
+also accepts arguments for actor `isolation` and the `notificationCenter` to use.
 ```swift
 /* imports */
 
@@ -103,9 +102,9 @@ func gatherMetadata(
 	/* query creation */
 
 	let notificationCenter: NotificationCenter = .myNotificationCenter
-	
+
 	await query.gatherResults(
-		isolation: isolation, 
+		isolation: isolation,
 		notificationCenter: notificationCenter
 	)
 
