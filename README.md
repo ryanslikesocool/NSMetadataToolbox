@@ -18,7 +18,7 @@ Breaking changes are common, documentation is incomplete, and support is limited
 
 Add the following entry to your package dependencies...
 ```swift
-.package(url: "https://github.com/ryanslikesocool/NSMetadataToolbox.git", from: "0.0.3"),
+.package(url: "https://github.com/ryanslikesocool/NSMetadataToolbox.git", from: "0.0.4"),
 ```
 ...and your target dependencies.
 ```swift
