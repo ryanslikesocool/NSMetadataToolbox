@@ -1,4 +1,4 @@
-private import let Foundation.NSMetadataAttributes.NSMetadataItemPathKey
+import let Foundation.NSMetadataAttributes.NSMetadataItemPathKey
 import struct Foundation.URL
 
 @available(iOS 5, macCatalyst 13.1, macOS 10.7, tvOS 9, visionOS 1, watchOS 2, *)
@@ -39,12 +39,9 @@ public extension NSMetadataAttribute.PathKey {
 	func asFileURL(
 		directoryHint: URL.DirectoryHint = .inferFromPath,
 		relativeTo base: URL? = nil
-	) -> some NSMetadataAttributeProtocol<Self.Input, URL?> {
-		map { (input: Output) -> URL? in
-			guard let input else {
-				return nil
-			}
-			return URL(filePath: input, directoryHint: directoryHint, relativeTo: base)
+	) -> some NSMetadataAttributeProtocol<Self.Input, URL> {
+		map { (input: Output) -> URL in
+			URL(filePath: input, directoryHint: directoryHint, relativeTo: base)
 		}
 	}
 }

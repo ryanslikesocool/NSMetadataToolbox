@@ -41,16 +41,16 @@ extension NSMetadataAttributeProtocol where
 ```swift
 func readDisplayName(
 	from metadataItem: NSMetadataItem
-) -> String? {
-	var result: String?
+) throws -> String {
+	var result: String
 
 	// With a fully qualified initializer:
-	result = metadataItem.value(
+	result = try metadataItem.value(
 		forAttribute: NSMetadataAttribute.DisplayNameKey()
 	)
 
 	// With a shorthand attribute key accessor:
-	result = metadataItem.value(
+	result = try metadataItem.value(
 		forAttribute: .displayName
 	)
 

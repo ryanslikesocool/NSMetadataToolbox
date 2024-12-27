@@ -1,4 +1,4 @@
-private import let CoreServices.Metadata.MDItem.kMDItemFSOwnerUserID
+import let CoreServices.Metadata.MDItem.kMDItemFSOwnerUserID
 
 @available(macOS 10.4, *)
 public extension NSMetadataAttribute {

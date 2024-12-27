@@ -1,4 +1,4 @@
-private import let Foundation.NSMetadataAttributes.NSMetadataItemVersionKey
+import let Foundation.NSMetadataAttributes.NSMetadataItemVersionKey
 
 @available(macOS 10.9, *)
 public extension NSMetadataAttribute {

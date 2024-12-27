@@ -1,4 +1,4 @@
-private import let CoreServices.Metadata.MDItem.kMDItemFSHasCustomIcon
+import let CoreServices.Metadata.MDItem.kMDItemFSHasCustomIcon
 
 @available(macOS 10.4, *)
 public extension NSMetadataAttribute {

@@ -1,4 +1,4 @@
-private import let Foundation.NSMetadataAttributes.NSMetadataItemContentTypeKey
+import let Foundation.NSMetadataAttributes.NSMetadataItemContentTypeKey
 #if canImport(UniformTypeIdentifiers)
 import struct UniformTypeIdentifiers.UTType
 #endif
@@ -41,10 +41,7 @@ public extension NSMetadataAttribute.ContentTypeKey {
 	/// [init(_:)](https://developer.apple.com/documentation/uniformtypeidentifiers/uttype-swift.struct/init(_:))\.
 	func asUTType() -> some NSMetadataAttributeProtocol<Self.Input, UTType?> {
 		map { (input: Output) -> UTType? in
-			guard let input else {
-				return nil
-			}
-			return UTType(input)
+			UTType(input)
 		}
 	}
 }

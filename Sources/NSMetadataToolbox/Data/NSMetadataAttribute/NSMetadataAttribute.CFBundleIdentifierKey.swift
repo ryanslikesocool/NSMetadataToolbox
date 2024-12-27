@@ -1,4 +1,4 @@
-private import let Foundation.NSMetadataAttributes.NSMetadataItemCFBundleIdentifierKey
+import let Foundation.NSMetadataAttributes.NSMetadataItemCFBundleIdentifierKey
 
 @available(macOS 10.9, *)
 public extension NSMetadataAttribute {

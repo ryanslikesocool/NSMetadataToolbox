@@ -1,4 +1,4 @@
-private import let CoreServices.Metadata.MDItem.kMDItemFSIsExtensionHidden
+import let CoreServices.Metadata.MDItem.kMDItemFSIsExtensionHidden
 
 @available(macOS 10.4, *)
 public extension NSMetadataAttribute {

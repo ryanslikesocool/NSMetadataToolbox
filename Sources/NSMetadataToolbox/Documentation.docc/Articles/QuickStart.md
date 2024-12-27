@@ -9,16 +9,16 @@ in the form of the ``NSMetadataAttributeKey`` protocol.
 import Foundation
 import NSMetadataToolbox
 
-func readDisplayName(from metadataItem: NSMetadataItem) -> String? {
-	var result: String?
+func readDisplayName(from metadataItem: NSMetadataItem) throws -> String {
+	var result: String
 
 	// Read attribute values with a fully qualified attribute key initializer...
-	result = metadataItem.value(
+	result = try metadataItem.value(
 		forAttribute: NSMetadataAttribute.DisplayNameKey()
 	)
 
 	// ...or with a shorthand attribute key accessor.
-	result = metadataItem.value(
+	result = try metadataItem.value(
 		forAttribute: .displayName
 	)
 
@@ -37,14 +37,12 @@ and more can be added with a simple declaration.
 import NSMetadataToolbox
 
 // Declare the attribute key...
-extension NSMetadataAttribute {
-	struct MyCustomValueKey: NSMetadataAttributeKey {
-		// The type of attribute value that the `attributeKey` points to.
-		typealias Value = String
+struct MyCustomValueMetadataAttributeKey: NSMetadataAttributeKey {
+	// The type of attribute value that the `attributeKey` points to.
+	typealias Value = String
 
-		// The key used to access the attribute value.
-		static let attributeKey: String = "MyCustomValueKey"
-	}
+	// The key used to access the attribute value.
+	static let attributeKey: String = "MyCustomValueKey"
 }
 ```
 
@@ -52,7 +50,7 @@ In cases where the fully-qualified key name is verbose or used frequently,
 it can be useful to declare a shorthand attribute key accessor.
 ```swift
 extension NSMetadataAttributeProtocol where
-	Self == NSMetadataAttribute.MyCustomValueKey
+	Self == MyCustomValueMetadataAttributeKey
 {
 	static var myCustomValue: Self {
 		Self()

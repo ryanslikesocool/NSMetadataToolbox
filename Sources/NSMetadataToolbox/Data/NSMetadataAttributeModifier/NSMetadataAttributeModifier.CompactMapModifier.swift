@@ -8,8 +8,8 @@ public extension NSMetadataAttributeModifier {
 			self.transform = transform
 		}
 
-		public func process(_ value: Input) -> [OutputElement] {
-			value.compactMap(transform)
+		public func process(_ input: Input) -> [OutputElement] {
+			input.compactMap(transform)
 		}
 	}
 }

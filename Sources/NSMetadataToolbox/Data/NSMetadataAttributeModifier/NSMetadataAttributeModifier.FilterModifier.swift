@@ -10,8 +10,8 @@ public extension NSMetadataAttributeModifier {
 			self.isIncluded = isIncluded
 		}
 
-		public func process(_ value: Input) -> Output {
-			value.filter(isIncluded)
+		public func process(_ input: Input) -> Output {
+			input.filter(isIncluded)
 		}
 	}
 }

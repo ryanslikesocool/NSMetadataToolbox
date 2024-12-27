@@ -1,4 +1,4 @@
-private import let CoreServices.Metadata.MDItem.kMDItemFSLabel
+import let CoreServices.Metadata.MDItem.kMDItemFSLabel
 
 @available(macOS 10.4, *)
 public extension NSMetadataAttribute {

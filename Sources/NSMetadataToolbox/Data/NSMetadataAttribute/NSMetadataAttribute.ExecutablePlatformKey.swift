@@ -1,4 +1,4 @@
-private import let Foundation.NSMetadataAttributes.NSMetadataItemExecutablePlatformKey
+import let Foundation.NSMetadataAttributes.NSMetadataItemExecutablePlatformKey
 
 @available(macOS 10.9, *)
 public extension NSMetadataAttribute {

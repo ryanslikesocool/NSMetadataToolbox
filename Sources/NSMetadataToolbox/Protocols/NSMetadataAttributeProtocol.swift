@@ -2,7 +2,7 @@ public protocol NSMetadataAttributeProtocol<Input, Output> {
 	associatedtype Input
 	associatedtype Output
 
-	func process(_ value: Input) -> Output
+	func process(_ input: Input) throws -> Output
 }
 
 // MARK: - Intrinsic

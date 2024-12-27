@@ -4,7 +4,7 @@ import class Foundation.NSMetadata.NSMetadataItem
 /// [`NSMetadataItem`](https://developer.apple.com/documentation/foundation/nsmetadataitem)\.
 public protocol NSMetadataAttributeKey: NSMetadataAttributeProtocol where
 	Input == NSMetadataItem,
-	Output == Value?
+	Output == Value
 {
 	/// The expected type of the value returned by
 	/// [`value(forAttribute:)`](https://developer.apple.com/documentation/foundation/nsmetadataitem/1411721-value)\.
@@ -22,7 +22,11 @@ public protocol NSMetadataAttributeKey: NSMetadataAttributeProtocol where
 // MARK: - Default Implementation
 
 public extension NSMetadataAttributeKey {
-	func process(_ input: Input) -> Value? {
-		input.value(forAttribute: Self.attributeKey) as? Value
+	func process(_ input: Input) throws -> Output {
+		let originalValue = input.value(forAttribute: Self.attributeKey)
+		guard let castValue = originalValue as? Output else {
+			throw NSMetadataAttributeError.castFailed(input: type(of: originalValue), output: Output.self)
+		}
+		return castValue
 	}
 }

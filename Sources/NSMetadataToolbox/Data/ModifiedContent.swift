@@ -18,8 +18,8 @@ extension ModifiedContent: NSMetadataAttributeProtocol where
 	typealias Input = Upstream.Input
 	typealias Output = Downstream.Output
 
-	func process(_ value: Input) -> Output {
-		let intermediate = upstream.process(value)
-		return downstream.process(intermediate)
+	func process(_ input: Input) throws -> Output {
+		let intermediate = try upstream.process(input)
+		return try downstream.process(intermediate)
 	}
 }

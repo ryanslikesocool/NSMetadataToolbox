@@ -1,4 +1,4 @@
-private import let Foundation.NSMetadataAttributes.NSMetadataItemFinderCommentKey
+import let Foundation.NSMetadataAttributes.NSMetadataItemFinderCommentKey
 
 @available(macOS 10.9, *)
 public extension NSMetadataAttribute {

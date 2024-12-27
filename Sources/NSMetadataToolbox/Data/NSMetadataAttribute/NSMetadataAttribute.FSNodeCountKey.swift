@@ -1,4 +1,4 @@
-private import let CoreServices.Metadata.MDItem.kMDItemFSNodeCount
+import let CoreServices.Metadata.MDItem.kMDItemFSNodeCount
 
 @available(macOS 10.4, *)
 public extension NSMetadataAttribute {

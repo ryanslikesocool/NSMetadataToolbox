@@ -1,4 +1,4 @@
-private import let Foundation.NSMetadataAttributes.NSMetadataItemDueDateKey
+import let Foundation.NSMetadataAttributes.NSMetadataItemDueDateKey
 import struct Foundation.Date
 
 @available(macOS 10.9, *)

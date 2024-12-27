@@ -1,4 +1,4 @@
-private import let CoreServices.Metadata.MDItem.kMDItemFSInvisible
+import let CoreServices.Metadata.MDItem.kMDItemFSInvisible
 
 @available(macOS 10.4, *)
 public extension NSMetadataAttribute {

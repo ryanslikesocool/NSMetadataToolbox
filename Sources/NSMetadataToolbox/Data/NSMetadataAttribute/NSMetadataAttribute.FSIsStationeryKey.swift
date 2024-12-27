@@ -1,4 +1,4 @@
-private import let CoreServices.Metadata.MDItem.kMDItemFSIsStationery
+import let CoreServices.Metadata.MDItem.kMDItemFSIsStationery
 
 @available(macOS 10.4, *)
 public extension NSMetadataAttribute {

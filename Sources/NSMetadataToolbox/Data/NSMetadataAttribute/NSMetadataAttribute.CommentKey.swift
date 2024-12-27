@@ -1,4 +1,4 @@
-private import let Foundation.NSMetadataAttributes.NSMetadataItemCommentKey
+import let Foundation.NSMetadataAttributes.NSMetadataItemCommentKey
 
 @available(macOS 10.9, *)
 public extension NSMetadataAttribute {

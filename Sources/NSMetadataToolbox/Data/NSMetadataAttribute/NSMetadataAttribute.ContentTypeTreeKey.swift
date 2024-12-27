@@ -1,4 +1,4 @@
-private import let Foundation.NSMetadataAttributes.NSMetadataItemContentTypeTreeKey
+import let Foundation.NSMetadataAttributes.NSMetadataItemContentTypeTreeKey
 #if canImport(UniformTypeIdentifiers)
 import struct UniformTypeIdentifiers.UTType
 #endif
@@ -43,7 +43,7 @@ public extension NSMetadataAttribute.ContentTypeTreeKey {
 	/// - Remark: Elements that cannot be initialized to a UTType are discarded.
 	func asUTTypes() -> some NSMetadataAttributeProtocol<Self.Input, [UTType]?> {
 		map { (input: Output) -> [UTType]? in
-			input?.compactMap(UTType.init)
+			input.compactMap(UTType.init)
 		}
 	}
 }

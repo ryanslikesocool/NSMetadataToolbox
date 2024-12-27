@@ -1,4 +1,4 @@
-private import let Foundation.NSMetadataAttributes.NSMetadataItemFSNameKey
+import let Foundation.NSMetadataAttributes.NSMetadataItemFSNameKey
 
 @available(iOS 5, macCatalyst 13.1, macOS 10.7, tvOS 9, visionOS 1, watchOS 2, *)
 public extension NSMetadataAttribute {
