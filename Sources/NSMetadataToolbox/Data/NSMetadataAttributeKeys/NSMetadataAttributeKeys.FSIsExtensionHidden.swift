@@ -16,7 +16,7 @@ public extension NSMetadataAttributeKeys {
 // MARK: - Convenience
 
 @available(macOS 10.4, *)
-public extension NSMetadataAttributeProtocol where
+public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.FSIsExtensionHidden
 {
 	/// The shorthand attribute key accessor for ``NSMetadataAttributeKeys/FSIsExtensionHidden``.

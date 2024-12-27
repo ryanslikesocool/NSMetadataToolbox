@@ -23,7 +23,7 @@ public extension NSMetadataAttributeKeys {
 // MARK: - Convenience
 
 @available(iOS 8, macCatalyst 13.1, macOS 10.9, tvOS 9, visionOS 1, watchOS 2, *)
-public extension NSMetadataAttributeProtocol where
+public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.ContentTypeTree
 {
 	/// The shorthand attribute key accessor for ``NSMetadataAttributeKeys/ContentTypeTree``.
@@ -41,7 +41,7 @@ public extension NSMetadataAttributeKeys.ContentTypeTree {
 	/// [init(_:)](https://developer.apple.com/documentation/uniformtypeidentifiers/uttype-swift.struct/init(_:))\.
 	///
 	/// - Remark: Elements that cannot be initialized to a UTType are discarded.
-	func asUTTypes() -> some NSMetadataAttributeProtocol<Self.Input, [UTType]?> {
+	func asUTTypes() -> some NSMetadataAttributeObject<Self.Input, [UTType]?> {
 		map { (input: Output) -> [UTType]? in
 			input.compactMap(UTType.init)
 		}

@@ -1,5 +1,5 @@
 public extension NSMetadataAttributeModifiers {
-	struct Filter<Input>: NSMetadataAttributeProtocol where
+	struct Filter<Input>: NSMetadataAttributeObject where
 		Input: Sequence
 	{
 		public typealias Output = [Input.Element]
@@ -18,11 +18,11 @@ public extension NSMetadataAttributeModifiers {
 
 // MARK: - Convenience
 
-public extension NSMetadataAttributeProtocol {
+public extension NSMetadataAttributeObject {
 	/// Perform a `filter` operation on an attribute object.
 	func filter<Output>(
 		_ isIncluded: @escaping (Self.Output.Element) -> Bool
-	) -> some NSMetadataAttributeProtocol<Self.Input, [Self.Output.Element]> where
+	) -> some NSMetadataAttributeObject<Self.Input, [Self.Output.Element]> where
 		Self.Output: Sequence
 	{
 		let modifier = NSMetadataAttributeModifiers.Filter<Self.Output>(isIncluded)

@@ -14,7 +14,7 @@ func readDisplayName(from metadataItem: NSMetadataItem) throws -> String {
 
 	// Read attribute values with a fully qualified attribute key initializer...
 	result = try metadataItem.value(
-		forAttribute: NSMetadataAttributeKey.DisplayName()
+		forAttribute: NSMetadataAttributeKeys.DisplayName()
 	)
 
 	// ...or with a shorthand attribute key accessor.
@@ -49,7 +49,7 @@ struct MyCustomValueMetadataAttributeKey: NSMetadataAttributeKey {
 In cases where the fully-qualified key name is verbose or used frequently,
 it can be useful to declare a shorthand attribute key accessor.
 ```swift
-extension NSMetadataAttributeProtocol where
+extension NSMetadataAttributeObject where
 	Self == MyCustomValueMetadataAttributeKey
 {
 	static var myCustomValue: Self {

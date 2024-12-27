@@ -23,7 +23,7 @@ public extension NSMetadataAttributeKeys {
 // MARK: - Convenience
 
 @available(iOS 8, macCatalyst 13.1, macOS 10.9, tvOS 9, visionOS 1, watchOS 2, *)
-public extension NSMetadataAttributeProtocol where
+public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.ContentType
 {
 	/// The shorthand attribute key accessor for ``NSMetadataAttributeKeys/ContentType``.
@@ -39,7 +39,7 @@ public extension NSMetadataAttributeProtocol where
 public extension NSMetadataAttributeKeys.ContentType {
 	/// Convert the content type string to a UTType using
 	/// [init(_:)](https://developer.apple.com/documentation/uniformtypeidentifiers/uttype-swift.struct/init(_:))\.
-	func asUTType() -> some NSMetadataAttributeProtocol<Self.Input, UTType?> {
+	func asUTType() -> some NSMetadataAttributeObject<Self.Input, UTType?> {
 		map { (input: Output) -> UTType? in
 			UTType(input)
 		}

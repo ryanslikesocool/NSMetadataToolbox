@@ -2,7 +2,7 @@ import class Foundation.NSMetadata.NSMetadataItem
 
 /// A key for accessing attribute values in an
 /// [`NSMetadataItem`](https://developer.apple.com/documentation/foundation/nsmetadataitem)\.
-public protocol NSMetadataAttributeKey: NSMetadataAttributeProtocol where
+public protocol NSMetadataAttributeKey: NSMetadataAttributeObject where
 	Input == NSMetadataItem,
 	Output == Value
 {

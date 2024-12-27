@@ -17,7 +17,7 @@ public extension NSMetadataAttributeKeys {
 // MARK: - Convenience
 
 @available(iOS 5, macCatalyst 13.1, macOS 10.7, tvOS 9, visionOS 1, watchOS 2, *)
-public extension NSMetadataAttributeProtocol where
+public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.Path
 {
 	/// The shorthand attribute key accessor for ``NSMetadataAttributeKeys/Path``.
@@ -39,7 +39,7 @@ public extension NSMetadataAttributeKeys.Path {
 	func asFileURL(
 		directoryHint: URL.DirectoryHint = .inferFromPath,
 		relativeTo base: URL? = nil
-	) -> some NSMetadataAttributeProtocol<Self.Input, URL> {
+	) -> some NSMetadataAttributeObject<Self.Input, URL> {
 		map { (input: Output) -> URL in
 			URL(filePath: input, directoryHint: directoryHint, relativeTo: base)
 		}

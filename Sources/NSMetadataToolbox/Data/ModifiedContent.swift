@@ -8,11 +8,11 @@ internal struct ModifiedContent<Upstream, Downstream> {
 	}
 }
 
-// MARK: - NSMetadataAttributeProtocol
+// MARK: - NSMetadataAttributeObject
 
-extension ModifiedContent: NSMetadataAttributeProtocol where
-	Upstream: NSMetadataAttributeProtocol,
-	Downstream: NSMetadataAttributeProtocol,
+extension ModifiedContent: NSMetadataAttributeObject where
+	Upstream: NSMetadataAttributeObject,
+	Downstream: NSMetadataAttributeObject,
 	Upstream.Output == Downstream.Input
 {
 	typealias Input = Upstream.Input

@@ -17,7 +17,7 @@ public extension NSMetadataAttributeKeys {
 // MARK: - Convenience
 
 @available(iOS 5, macCatalyst 13.1, macOS 10.7, tvOS 9, visionOS 1, watchOS 2, *)
-public extension NSMetadataAttributeProtocol where
+public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.URL
 {
 	/// The shorthand attribute key accessor for ``NSMetadataAttributeKeys/URL``.

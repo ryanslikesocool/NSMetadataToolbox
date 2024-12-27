@@ -17,7 +17,7 @@ public extension NSMetadataAttributeKeys {
 // MARK: - Convenience
 
 @available(macOS 10.9, *)
-public extension NSMetadataAttributeProtocol where
+public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.DownloadedDate
 {
 	/// The shorthand attribute key accessor for ``NSMetadataAttributeKeys/DownloadedDate``.

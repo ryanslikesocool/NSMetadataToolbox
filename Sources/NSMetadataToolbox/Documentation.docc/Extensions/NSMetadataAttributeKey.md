@@ -28,9 +28,9 @@ extension NSMetadataAttributeKeys {
 ### Shorthand Attribute Key Accessors
 
 You can create shorthand attribute key accessors to greatly simplify accessing attribute values.
-The declaration for ``NSMetadataAttributeProtocol/displayName`` looks like this:
+The declaration for ``NSMetadataAttributeObject/displayName`` looks like this:
 ```swift
-extension NSMetadataAttributeProtocol where
+extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.DisplayName
 {
 	static var displayName: Self {
