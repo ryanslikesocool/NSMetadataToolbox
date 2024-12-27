@@ -1,5 +1,5 @@
-public extension NSMetadataAttributeModifier {
-	struct FlatMapModifier<Input, SegmentOfResult>: NSMetadataAttributeProtocol where
+public extension NSMetadataAttributeModifiers {
+	struct FlatMap<Input, SegmentOfResult>: NSMetadataAttributeProtocol where
 		Input: Sequence,
 		SegmentOfResult: Sequence
 	{
@@ -18,14 +18,14 @@ public extension NSMetadataAttributeModifier {
 // MARK: - Convenience
 
 public extension NSMetadataAttributeProtocol {
-	/// Perform a `flatMap` operation on an attribute value.
+	/// Perform a `flatMap` operation on an attribute object.
 	func flatMap<SegmentOfResult>(
 		_ transform: @escaping (Self.Output.Element) -> SegmentOfResult
 	) -> some NSMetadataAttributeProtocol<Self.Input, [SegmentOfResult.Element]> where
 		Self.Output: Sequence,
 		SegmentOfResult: Sequence
 	{
-		let modifier = NSMetadataAttributeModifier.FlatMapModifier<Self.Output, SegmentOfResult>(transform)
+		let modifier = NSMetadataAttributeModifiers.FlatMap<Self.Output, SegmentOfResult>(transform)
 		return self.modifier(modifier)
 	}
 }

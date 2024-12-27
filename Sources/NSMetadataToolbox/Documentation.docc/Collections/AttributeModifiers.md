@@ -10,7 +10,7 @@
 
 ### Modifiers
 
-- ``NSMetadataAttributeModifier``
+- ``NSMetadataAttributeModifiers``
 - ``NSMetadataAttributeProtocol/map(_:)-84g0f``
 - ``NSMetadataAttributeProtocol/map(_:)-1lwoi``
 - ``NSMetadataAttributeProtocol/compactMap(_:)``
