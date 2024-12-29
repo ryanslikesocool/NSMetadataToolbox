@@ -1,9 +1,6 @@
-public protocol NSMetadataAttributeObject<Input, Output> {
-	associatedtype Input
-	associatedtype Output
+import DeclarativeCore
 
-	func process(_ input: Input) throws -> Output
-}
+public protocol NSMetadataAttributeObject<Input, Output>: ObjectProcessor { }
 
 // MARK: - Intrinsic
 
@@ -13,10 +10,10 @@ public extension NSMetadataAttributeObject {
 	/// - Returns: The attribute with the given `modifier` applied.
 	func modifier<Modifier>(
 		_ modifier: Modifier
-	) -> some NSMetadataAttributeObject<Self.Input, Modifier.Output> where
+	) -> ModifiedObject<Self, Modifier> where
 		Modifier: NSMetadataAttributeObject,
 		Self.Output == Modifier.Input
 	{
-		ModifiedContent(upstream: self, downstream: modifier)
+		ModifiedObject(upstream: self, downstream: modifier)
 	}
 }

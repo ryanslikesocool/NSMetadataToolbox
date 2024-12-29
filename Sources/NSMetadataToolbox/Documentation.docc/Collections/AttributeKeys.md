@@ -60,14 +60,4 @@
 - ``NSMetadataAttributeObject/usedDates``
 - ``NSMetadataAttributeObject/version``
 
-
-### Additional Attribute Key Constants
-
-- ``kMDItemAlternateNames``
-- ``kMDItemAppStoreCategory``
-- ``kMDItemAppStoreCategoryType``
-- ``kMDItemLogicalSize``
-- ``kMDItemPhysicalSize``
-- ``kMDItemSupportFileType``
-- ``kMDItemUseCount``
-- ``kMDItemUsedDates``
+- <doc:AdditionalAttributeKeyConstants>

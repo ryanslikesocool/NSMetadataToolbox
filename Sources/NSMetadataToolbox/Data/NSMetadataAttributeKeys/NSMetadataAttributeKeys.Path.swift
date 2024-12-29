@@ -1,3 +1,4 @@
+import DeclarativeCore
 import let Foundation.NSMetadataAttributes.NSMetadataItemPathKey
 import struct Foundation.URL
 

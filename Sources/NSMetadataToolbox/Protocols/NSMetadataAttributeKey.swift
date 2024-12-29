@@ -1,3 +1,4 @@
+import DeclarativeCore
 import class Foundation.NSMetadata.NSMetadataItem
 
 /// A key for accessing attribute values in an

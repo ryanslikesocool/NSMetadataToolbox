@@ -1,9 +1,6 @@
 # NSMetadataToolbox
 
-Extensions and conveniences for
-[`NSMetadataQuery`](https://developer.apple.com/documentation/foundation/nsmetadataquery)
-and
-[`NSMetadataItem`](https://developer.apple.com/documentation/foundation/nsmetadataitem)\.
+Extensions and conveniences for Apple's metadata APIs.
 
 
 ## NOTICE
@@ -41,3 +38,12 @@ Most of this package is documented with
 [DocC](https://www.swift.org/documentation/docc/)\.
 <br/>
 To view documentation in Xcode, select `Product > Build Documentation` from the menu bar.
+
+---
+
+
+## Dependencies
+
+| Dependency | Reason |
+| - | - |
+| [DeclarativeCore](https://github.com/ryanslikesocool/DeclarativeCore) | Shared declarative code. |

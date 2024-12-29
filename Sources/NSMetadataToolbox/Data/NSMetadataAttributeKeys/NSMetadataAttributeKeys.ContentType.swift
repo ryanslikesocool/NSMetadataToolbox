@@ -1,3 +1,4 @@
+import DeclarativeCore
 import let Foundation.NSMetadataAttributes.NSMetadataItemContentTypeKey
 #if canImport(UniformTypeIdentifiers)
 import struct UniformTypeIdentifiers.UTType
