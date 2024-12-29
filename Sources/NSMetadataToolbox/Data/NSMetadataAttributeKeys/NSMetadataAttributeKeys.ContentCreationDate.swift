@@ -5,8 +5,11 @@ import struct Foundation.Date
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
 	/// [`NSMetadataItemContentCreationDateKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemcontentcreationdatekey)\.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeObject/contentCreationDate``
 	struct ContentCreationDate: NSMetadataAttributeKey {
-		public typealias Value = Date
+		public typealias Output = Date
 
 		public static var attributeKey: String { NSMetadataItemContentCreationDateKey }
 
@@ -20,7 +23,11 @@ public extension NSMetadataAttributeKeys {
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.ContentCreationDate
 {
-	/// The shorthand attribute key accessor for ``NSMetadataAttributeKeys/ContentCreationDate``.
+	/// The attribute key for
+	/// [`NSMetadataItemContentCreationDateKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemcontentcreationdatekey)\.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeKeys/ContentCreationDate``
 	static var contentCreationDate: Self {
 		Self()
 	}

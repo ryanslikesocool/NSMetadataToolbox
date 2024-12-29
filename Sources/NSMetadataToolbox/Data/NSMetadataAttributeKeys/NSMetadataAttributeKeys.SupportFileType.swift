@@ -1,10 +1,11 @@
-import let CoreServices.Metadata.MDItem.kMDItemSupportFileType
-
 @available(macOS 10.5, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for ``kMDItemSupportFileType``.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeObject/supportFileType``
 	struct SupportFileType: NSMetadataAttributeKey {
-		public typealias Value = [String]
+		public typealias Output = [String]
 
 		public static var attributeKey: String { kMDItemSupportFileType }
 
@@ -18,7 +19,10 @@ public extension NSMetadataAttributeKeys {
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.SupportFileType
 {
-	/// The shorthand attribute key accessor for ``NSMetadataAttributeKeys/SupportFileType``.
+	/// The attribute key for ``kMDItemSupportFileType``.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeKeys/SupportFileType``
 	static var supportFileType: Self {
 		Self()
 	}

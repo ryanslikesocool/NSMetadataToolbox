@@ -12,7 +12,7 @@ extension NSMetadataAttributeKeys {
 	struct DisplayName: NSMetadataAttributeKey {
 		// The type of value that the key points to.
 		// In this case, a `String`.
-		public typealias Value = String
+		public typealias Output = String
 
 		// The underlying string for the attribute key.
 		public static var attributeKey: String {

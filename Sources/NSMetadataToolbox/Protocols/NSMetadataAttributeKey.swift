@@ -4,13 +4,8 @@ import class Foundation.NSMetadata.NSMetadataItem
 /// A key for accessing attribute values in an
 /// [`NSMetadataItem`](https://developer.apple.com/documentation/foundation/nsmetadataitem)\.
 public protocol NSMetadataAttributeKey: NSMetadataAttributeObject where
-	Input == NSMetadataItem,
-	Output == Value
+	Input == NSMetadataItem
 {
-	/// The expected type of the value returned by
-	/// [`value(forAttribute:)`](https://developer.apple.com/documentation/foundation/nsmetadataitem/1411721-value)\.
-	associatedtype Value
-
 	/// The underlying attribute key.
 	///
 	/// Attribute key constants can be found in the documentation for
@@ -24,6 +19,7 @@ public protocol NSMetadataAttributeKey: NSMetadataAttributeObject where
 // MARK: - Default Implementation
 
 public extension NSMetadataAttributeKey {
+	/// Retrieve and process the value for the attribute with the ``attributeKey``.
 	func process(_ input: Input) throws -> Output {
 		let attributeValue = input.value(forAttribute: Self.attributeKey)
 		guard let resultValue = attributeValue as? Output else {

@@ -4,8 +4,11 @@ import let Foundation.NSMetadataAttributes.NSMetadataItemCFBundleIdentifierKey
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
 	/// [`NSMetadataItemCFBundleIdentifierKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemcfbundleidentifierkey)\.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeObject/cfBundleIdentifier``
 	struct CFBundleIdentifier: NSMetadataAttributeKey {
-		public typealias Value = String
+		public typealias Output = String
 
 		public static var attributeKey: String { NSMetadataItemCFBundleIdentifierKey }
 
@@ -19,7 +22,11 @@ public extension NSMetadataAttributeKeys {
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.CFBundleIdentifier
 {
-	/// The shorthand attribute key accessor for ``NSMetadataAttributeKeys/CFBundleIdentifier``.
+	/// The attribute key for
+	/// [`NSMetadataItemCFBundleIdentifierKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemcfbundleidentifierkey)\.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeKeys/CFBundleIdentifier``
 	static var cfBundleIdentifier: Self {
 		Self()
 	}

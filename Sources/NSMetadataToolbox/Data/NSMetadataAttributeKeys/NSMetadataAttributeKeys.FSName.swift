@@ -4,8 +4,11 @@ import let Foundation.NSMetadataAttributes.NSMetadataItemFSNameKey
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
 	/// [`NSMetadataItemFSNameKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemfsnamekey)\.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeObject/fsName``
 	struct FSName: NSMetadataAttributeKey {
-		public typealias Value = String
+		public typealias Output = String
 
 		public static var attributeKey: String { NSMetadataItemFSNameKey }
 
@@ -19,7 +22,11 @@ public extension NSMetadataAttributeKeys {
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.FSName
 {
-	/// The shorthand attribute key accessor for ``NSMetadataAttributeKeys/FSName``.
+	/// The attribute key for
+	/// [`NSMetadataItemFSNameKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemfsnamekey)\.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeKeys/FSName``
 	static var fsName: Self {
 		Self()
 	}

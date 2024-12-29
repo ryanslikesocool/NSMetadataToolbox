@@ -8,12 +8,11 @@ import struct UniformTypeIdentifiers.UTType
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
 	/// [`NSMetadataItemContentTypeTreeKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemcontenttypetreekey)\.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeObject/contentTypeTree``
 	struct ContentTypeTree: NSMetadataAttributeKey {
-		// TODO: Validate Value type
-		// https://developer.apple.com/documentation/coreservices/kmditemcontenttype
-		// Documentation indicates that the value represents a UTI.
-		// Should we `import UniformTypeIdentifiers` and set `Value = [UTType]`?
-		public typealias Value = [String]
+		public typealias Output = [String]
 
 		public static var attributeKey: String { NSMetadataItemContentTypeTreeKey }
 
@@ -27,7 +26,11 @@ public extension NSMetadataAttributeKeys {
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.ContentTypeTree
 {
-	/// The shorthand attribute key accessor for ``NSMetadataAttributeKeys/ContentTypeTree``.
+	/// The attribute key for
+	/// [`NSMetadataItemContentTypeTreeKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemcontenttypetreekey)\.
+	/// 
+	/// ## See Also
+	/// - ``NSMetadataAttributeKeys/ContentTypeTree``
 	static var contentTypeTree: Self {
 		Self()
 	}

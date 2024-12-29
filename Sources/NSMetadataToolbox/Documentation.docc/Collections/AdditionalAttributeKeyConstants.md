@@ -1,4 +1,4 @@
-# Additional Attribute Key Constants
+# Additional Constants
 
 Constants for attribute keys that are not already declared by a system framework.
 

@@ -5,8 +5,11 @@ import struct Foundation.URL
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
 	/// [`NSMetadataItemURLKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemurlkey)\.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeObject/url``
 	struct URL: NSMetadataAttributeKey {
-		public typealias Value = Foundation.URL
+		public typealias Output = Foundation.URL
 
 		public static var attributeKey: String { NSMetadataItemURLKey }
 
@@ -20,7 +23,11 @@ public extension NSMetadataAttributeKeys {
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.URL
 {
-	/// The shorthand attribute key accessor for ``NSMetadataAttributeKeys/URL``.
+	/// The attribute key for
+	/// [`NSMetadataItemURLKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemurlkey)\.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeKeys/URL``
 	static var url: Self {
 		Self()
 	}

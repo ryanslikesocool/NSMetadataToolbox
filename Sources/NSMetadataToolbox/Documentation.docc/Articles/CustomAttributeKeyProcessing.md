@@ -1,17 +1,21 @@
-# Custom Attribute Key Processing
+# Custom Processing
 
-Process attribute values.
+Customize attribute key processing.
+
+
+## Overview
+
+In some circumstances, additional processing may be desired for an attribute key.
+
 
 ## Example
-
-In some circumstances, additional processing may be desired for attribute keys.
 
 This example converts the attribute value for the key
 [`NSMetadataItemContentTypeKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemcontenttypekey)
 to a
 [`UTType`](https://developer.apple.com/documentation/uniformtypeidentifiers/uttype-swift.struct)
 by declaring a custom implementation for
-``NSMetadataAttributeObject/process(_:)``.
+``NSMetadataAttributeKey/process(_:)``.
 ```swift
 import Foundation
 import UTType
@@ -22,10 +26,10 @@ extension NSMetadataAttributeKeys {
 			NSMetadataItemContentTypeKey
 		}
 
-		// The associated `Value` type is inferred from
-		// this function's return type.
+		// The associated `Output` type is inferred
+		// from the function's return type.
 		func process(_ input: NSMetadataItem) throws -> UTType {
-			// Retrieve the `attributeValue` from `NSMetadataItem`.
+			// Retrieve the `attributeValue` from the given `NSMetadataItem`.
 			guard 
 				let attributeValue: Any = input.value(forAttribute: Self.attributeKey)
 			else {
@@ -49,6 +53,7 @@ extension NSMetadataAttributeKeys {
 					.conversionFailed(from: rawValue, to: UTType.self)
 			}
 
+			// Return the processed `resultValue`.
 			return resultValue
 		}
 	}
@@ -60,6 +65,4 @@ extension NSMetadataAttributeKeys {
 
 ## See Also
 
-- ``NSMetadataAttributeKey``
-- ``NSMetadataAttributeObject/process(_:)``
-- ``NSMetadataAttributeKeys/ContentType/asUTType()``
+- ``NSMetadataAttributeKey/process(_:)``

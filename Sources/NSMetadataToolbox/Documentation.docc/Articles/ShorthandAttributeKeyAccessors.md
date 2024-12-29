@@ -1,10 +1,14 @@
-# Shorthand Attribute Key Accessors
+# Shorthand Accessors
 
 Simplify attribute key access.
 
-## Example
 
-You can create shorthand attribute key accessors to greatly simplify accessing attribute values.
+## Overview
+
+Shorthand attribute key accessors can greatly simplify accessing attribute values.
+
+
+## Example
 
 The declaration for ``NSMetadataAttributeObject/displayName`` looks like this:
 ```swift
@@ -28,7 +32,7 @@ func readDisplayName(
 		forAttribute: NSMetadataAttributeKeys.DisplayName()
 	)
 
-	// With a shorthand attribute key accessor:
+	// With a shorthand accessor:
 	result = try metadataItem.value(
 		forAttribute: .displayName
 	)

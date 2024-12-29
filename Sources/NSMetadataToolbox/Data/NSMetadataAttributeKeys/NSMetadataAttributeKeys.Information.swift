@@ -4,8 +4,11 @@ import let CoreServices.Metadata.MDItem.kMDItemInformation
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
 	/// [`kMDItemInformation`](https://developer.apple.com/documentation/coreservices/kmditeminformation)\.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeObject/information``
 	struct Information: NSMetadataAttributeKey {
-		public typealias Value = String
+		public typealias Output = String
 
 		public static var attributeKey: String { kMDItemInformation as String }
 
@@ -19,7 +22,11 @@ public extension NSMetadataAttributeKeys {
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.Information
 {
-	/// The shorthand attribute key accessor for ``NSMetadataAttributeKeys/Information``.
+	/// The attribute key for
+	/// [`kMDItemInformation`](https://developer.apple.com/documentation/coreservices/kmditeminformation)\.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeKeys/Information``
 	static var information: Self {
 		Self()
 	}

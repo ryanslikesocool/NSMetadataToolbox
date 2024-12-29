@@ -4,8 +4,11 @@ import let CoreServices.Metadata.MDItem.kMDItemFSIsStationery
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
 	/// [`kMDItemFSIsStationery`](https://developer.apple.com/documentation/coreservices/kmditemfsisstationery)\.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeObject/fsIsStationery``
 	struct FSIsStationery: NSMetadataAttributeKey {
-		public typealias Value = Bool
+		public typealias Output = Bool
 
 		public static var attributeKey: String { kMDItemFSIsStationery as String }
 
@@ -19,7 +22,11 @@ public extension NSMetadataAttributeKeys {
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.FSIsStationery
 {
-	/// The shorthand attribute key accessor for ``NSMetadataAttributeKeys/FSIsStationery``.
+	/// The attribute key for
+	/// [`kMDItemFSIsStationery`](https://developer.apple.com/documentation/coreservices/kmditemfsisstationery)\.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeKeys/FSIsStationery``
 	static var fsIsStationery: Self {
 		Self()
 	}
