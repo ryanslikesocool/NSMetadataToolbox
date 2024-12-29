@@ -4,14 +4,14 @@ public extension NSMetadataAttributeModifiers {
 	{
 		public typealias Output = [Input.Element]
 
-		private let isIncluded: (Input.Element) -> Bool
+		private let isIncluded: (Input.Element) throws -> Bool
 
-		public init(_ isIncluded: @escaping (Input.Element) -> Bool) {
+		public init(_ isIncluded: @escaping (Input.Element) throws -> Bool) {
 			self.isIncluded = isIncluded
 		}
 
-		public func process(_ input: Input) -> Output {
-			input.filter(isIncluded)
+		public func process(_ input: Input) throws -> Output {
+			try input.filter(isIncluded)
 		}
 	}
 }
@@ -21,7 +21,7 @@ public extension NSMetadataAttributeModifiers {
 public extension NSMetadataAttributeObject {
 	/// Perform a `filter` operation on an attribute object.
 	func filter<Output>(
-		_ isIncluded: @escaping (Self.Output.Element) -> Bool
+		_ isIncluded: @escaping (Self.Output.Element) throws -> Bool
 	) -> some NSMetadataAttributeObject<Self.Input, [Self.Output.Element]> where
 		Self.Output: Sequence
 	{

@@ -10,7 +10,8 @@
 ### Declaring Attribute Keys
 
 - ``NSMetadataAttributeKey``
-
+- <doc:ShorthandAttributeKeyAccessors>
+- <doc:CustomAttributeKeyProcessing>
 
 ### Attribute Keys
 
@@ -46,12 +47,14 @@
 - ``NSMetadataAttributeObject/fsOwnerGroupID``
 - ``NSMetadataAttributeObject/fsOwnerUserID``
 - ``NSMetadataAttributeObject/fsSize``
+- ``NSMetadataAttributeObject/information``
 - ``NSMetadataAttributeObject/keywords``
 - ``NSMetadataAttributeObject/kind``
 - ``NSMetadataAttributeObject/lastUsedDate``
 - ``NSMetadataAttributeObject/logicalSize``
 - ``NSMetadataAttributeObject/path``
 - ``NSMetadataAttributeObject/physicalSize``
+- ``NSMetadataAttributeObject/supportFileType``
 - ``NSMetadataAttributeObject/url``
 - ``NSMetadataAttributeObject/useCount``
 - ``NSMetadataAttributeObject/usedDates``
@@ -65,5 +68,6 @@
 - ``kMDItemAppStoreCategoryType``
 - ``kMDItemLogicalSize``
 - ``kMDItemPhysicalSize``
+- ``kMDItemSupportFileType``
 - ``kMDItemUseCount``
 - ``kMDItemUsedDates``

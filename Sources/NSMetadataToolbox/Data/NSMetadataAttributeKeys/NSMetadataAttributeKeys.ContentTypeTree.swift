@@ -37,13 +37,16 @@ public extension NSMetadataAttributeObject where
 #if canImport(UniformTypeIdentifiers)
 @available(iOS 14, macCatalyst 14, macOS 11, tvOS 14, visionOS 1, watchOS 7, *)
 public extension NSMetadataAttributeKeys.ContentTypeTree {
-	/// Convert the content type string to a UTType using
-	/// [init(_:)](https://developer.apple.com/documentation/uniformtypeidentifiers/uttype-swift.struct/init(_:))\.
-	///
-	/// - Remark: Elements that cannot be initialized to a UTType are discarded.
-	func asUTTypes() -> some NSMetadataAttributeObject<Self.Input, [UTType]?> {
-		map { (input: Output) -> [UTType]? in
-			input.compactMap(UTType.init)
+	/// Convert each element to a `UTType` using
+	/// [`init(_:)`](https://developer.apple.com/documentation/uniformtypeidentifiers/uttype-swift.struct/init(_:))\.
+	func asUTTypes() -> some NSMetadataAttributeObject<Self.Input, [Result<UTType, NSMetadataError>]> {
+		map { (input: Output) -> [Result<UTType, NSMetadataError>] in
+			input.map { (rawValue: Output.Element) -> Result<UTType, NSMetadataError> in
+				guard let result = UTType(rawValue) else {
+					return .failure(NSMetadataError.conversionFailed(from: rawValue, to: UTType.self))
+				}
+				return .success(result)
+			}
 		}
 	}
 }
