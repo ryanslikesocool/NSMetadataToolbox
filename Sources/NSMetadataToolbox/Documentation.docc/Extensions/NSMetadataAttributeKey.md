@@ -12,7 +12,7 @@ extension NSMetadataAttributeKeys {
 	struct DisplayName: NSMetadataAttributeKey {
 		// The type of value that the key points to.
 		// In this case, a `String`.
-		public typealias Value = String
+		public typealias Output = String
 
 		// The underlying string for the attribute key.
 		public static var attributeKey: String {
@@ -25,41 +25,10 @@ extension NSMetadataAttributeKeys {
 ```
 
 
-### Shorthand Attribute Key Accessors
-
-You can create shorthand attribute key accessors to greatly simplify accessing attribute values.
-The declaration for ``NSMetadataAttributeObject/displayName`` looks like this:
-```swift
-extension NSMetadataAttributeObject where
-	Self == NSMetadataAttributeKeys.DisplayName
-{
-	static var displayName: Self {
-		Self()
-	}
-}
-```
-```swift
-func readDisplayName(
-	from metadataItem: NSMetadataItem
-) throws -> String {
-	var result: String
-
-	// With a fully qualified initializer:
-	result = try metadataItem.value(
-		forAttribute: NSMetadataAttributeKeys.DisplayName()
-	)
-
-	// With a shorthand attribute key accessor:
-	result = try metadataItem.value(
-		forAttribute: .displayName
-	)
-
-	return result
-}
-```
-
+### Additional Attribute Key Constants
 
 Additional attribute key constants can be found in the documentation for 
 [`NSMetadataItem`](https://developer.apple.com/documentation/foundation/nsmetadataitem#1681152)\,
-[`MDItem`](https://developer.apple.com/documentation/coreservices/file_metadata/mditem#1658393), and
+[`MDItem`](https://developer.apple.com/documentation/coreservices/file_metadata/mditem#1658393)\,
+and
 [File Metadata](https://developer.apple.com/documentation/coreservices/file_metadata#2934150)\.

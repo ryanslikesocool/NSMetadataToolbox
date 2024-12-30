@@ -4,12 +4,15 @@ import let Foundation.NSMetadataAttributes.NSMetadataItemFSSizeKey
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
 	/// [`NSMetadataItemFSSizeKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemfssizekey)\.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeObject/fsSize``
 	struct FSSize: NSMetadataAttributeKey {
 		// This type is assumed based on light testing.
 		// When `Value == CFNumber`, `CFNumberGetType` returns `.sInt64Type`.
 		// This could potentially be `Int32` on 32-bit machines, in which case `Value` should be `Int`.
 		// `ByteCountFormatStyle` only supports `Int64`.
-		public typealias Value = Int64
+		public typealias Output = Int64
 
 		public static var attributeKey: String { NSMetadataItemFSSizeKey }
 
@@ -23,7 +26,11 @@ public extension NSMetadataAttributeKeys {
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.FSSize
 {
-	/// The shorthand attribute key accessor for ``NSMetadataAttributeKeys/FSSize``.
+	/// The attribute key for
+	/// [`NSMetadataItemFSSizeKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemfssizekey)\.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeKeys/FSSize``
 	static var fsSize: Self {
 		Self()
 	}

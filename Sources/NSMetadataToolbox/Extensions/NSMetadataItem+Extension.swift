@@ -1,3 +1,4 @@
+import DeclarativeCore
 import class Foundation.NSMetadata.NSMetadataItem
 
 @available(iOS 5, macCatalyst 13.1, macOS 10.4, tvOS 9, visionOS 1, watchOS 2, *)
@@ -9,6 +10,10 @@ public extension NSMetadataItem {
 		Key: NSMetadataAttributeObject,
 		Key.Input == NSMetadataItem
 	{
+		// TODO: Should we really be restricting `Key: NSMetadataAttributeObject`?
+		// Should we actually restrict it to `Key: ObjectProcessor`?
+		// A relaxed restriction may allow us to remove `NSMetadataAttributeObject` conformances for modifiers.
+
 		try attributeKey.process(self)
 	}
 

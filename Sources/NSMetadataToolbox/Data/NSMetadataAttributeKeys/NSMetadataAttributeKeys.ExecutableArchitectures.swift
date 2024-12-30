@@ -4,8 +4,11 @@ import let Foundation.NSMetadataAttributes.NSMetadataItemExecutableArchitectures
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
 	/// [`NSMetadataItemExecutableArchitecturesKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemexecutablearchitectureskey)\.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeObject/executableArchitectures``
 	struct ExecutableArchitectures: NSMetadataAttributeKey {
-		public typealias Value = [String]
+		public typealias Output = [String]
 
 		public static var attributeKey: String { NSMetadataItemExecutableArchitecturesKey }
 
@@ -19,7 +22,11 @@ public extension NSMetadataAttributeKeys {
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.ExecutableArchitectures
 {
-	/// The shorthand attribute key accessor for ``NSMetadataAttributeKeys/ExecutableArchitectures``.
+	/// The attribute key for
+	/// [`NSMetadataItemExecutableArchitecturesKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemexecutablearchitectureskey)\.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeKeys/ExecutableArchitectures``
 	static var executableArchitectures: Self {
 		Self()
 	}

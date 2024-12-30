@@ -9,15 +9,17 @@ in the form of the ``NSMetadataAttributeKey`` protocol.
 import Foundation
 import NSMetadataToolbox
 
-func readDisplayName(from metadataItem: NSMetadataItem) throws -> String {
+func readDisplayName(
+	from metadataItem: NSMetadataItem
+) throws -> String {
 	var result: String
 
-	// Read attribute values with a fully qualified attribute key initializer...
+	// Read the value with a fully qualified initializer...
 	result = try metadataItem.value(
 		forAttribute: NSMetadataAttributeKeys.DisplayName()
 	)
 
-	// ...or with a shorthand attribute key accessor.
+	// ...or with a shorthand accessor.
 	result = try metadataItem.value(
 		forAttribute: .displayName
 	)
@@ -39,7 +41,7 @@ import NSMetadataToolbox
 // Declare the attribute key...
 struct MyCustomValueMetadataAttributeKey: NSMetadataAttributeKey {
 	// The type of attribute value that the `attributeKey` points to.
-	typealias Value = String
+	typealias Output = String
 
 	// The key used to access the attribute value.
 	static let attributeKey: String = "MyCustomValueKey"

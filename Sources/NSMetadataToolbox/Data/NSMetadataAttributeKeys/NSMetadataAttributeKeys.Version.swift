@@ -4,8 +4,11 @@ import let Foundation.NSMetadataAttributes.NSMetadataItemVersionKey
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
 	/// [`NSMetadataItemVersionKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemversionkey)\.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeObject/version``
 	struct Version: NSMetadataAttributeKey {
-		public typealias Value = String
+		public typealias Output = String
 
 		public static var attributeKey: String { NSMetadataItemVersionKey }
 
@@ -19,7 +22,11 @@ public extension NSMetadataAttributeKeys {
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.Version
 {
-	/// The shorthand attribute key accessor for ``NSMetadataAttributeKeys/Version``.
+	/// The attribute key for
+	/// [`NSMetadataItemVersionKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemversionkey)\.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeKeys/Version``
 	static var version: Self {
 		Self()
 	}

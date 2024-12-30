@@ -1,11 +1,6 @@
 # ``NSMetadataToolbox``
 
-## Overview
-
-Extensions and conveniences for
-[`NSMetadataQuery`](https://developer.apple.com/documentation/foundation/nsmetadataquery)
-and
-[`NSMetadataItem`](https://developer.apple.com/documentation/foundation/nsmetadataitem)\.
+Extensions and conveniences for Apple's metadata APIs.
 
 
 ## Topics

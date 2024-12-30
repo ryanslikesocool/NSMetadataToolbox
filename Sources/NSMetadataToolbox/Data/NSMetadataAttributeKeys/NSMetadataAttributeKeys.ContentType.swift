@@ -7,12 +7,11 @@ import struct UniformTypeIdentifiers.UTType
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
 	/// [`NSMetadataItemContentTypeKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemcontenttypekey)\.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeObject/contentType``
 	struct ContentType: NSMetadataAttributeKey {
-		// TODO: Validate Value type
-		// https://developer.apple.com/documentation/coreservices/kmditemcontenttype
-		// Documentation indicates that the value represents a UTI.
-		// Should we `import UniformTypeIdentifiers` and set `Value = UTType`?
-		public typealias Value = String
+		public typealias Output = String
 
 		public static var attributeKey: String { NSMetadataItemContentTypeKey }
 
@@ -26,7 +25,11 @@ public extension NSMetadataAttributeKeys {
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.ContentType
 {
-	/// The shorthand attribute key accessor for ``NSMetadataAttributeKeys/ContentType``.
+	/// The attribute key for
+	/// [`NSMetadataItemContentTypeKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemcontenttypekey)\.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeKeys/ContentType``
 	static var contentType: Self {
 		Self()
 	}
@@ -37,11 +40,14 @@ public extension NSMetadataAttributeObject where
 #if canImport(UniformTypeIdentifiers)
 @available(iOS 14, macCatalyst 14, macOS 11, tvOS 14, visionOS 1, watchOS 7, *)
 public extension NSMetadataAttributeKeys.ContentType {
-	/// Convert the content type string to a UTType using
-	/// [init(_:)](https://developer.apple.com/documentation/uniformtypeidentifiers/uttype-swift.struct/init(_:))\.
-	func asUTType() -> some NSMetadataAttributeObject<Self.Input, UTType?> {
-		map { (input: Output) -> UTType? in
-			UTType(input)
+	/// Convert the content type string to a `UTType` using
+	/// [`init(_:)`](https://developer.apple.com/documentation/uniformtypeidentifiers/uttype-swift.struct/init(_:))\.
+	func asUTType() -> some NSMetadataAttributeObject<Self.Input, UTType> {
+		map { (input: Output) throws -> UTType in
+			guard let result = UTType(input) else {
+				throw NSMetadataError.conversionFailed(from: Output.self, to: UTType.self)
+			}
+			return result
 		}
 	}
 }

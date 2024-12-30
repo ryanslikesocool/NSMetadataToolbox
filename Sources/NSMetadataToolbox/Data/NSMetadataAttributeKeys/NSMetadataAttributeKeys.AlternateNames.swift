@@ -1,9 +1,11 @@
-// TODO: Should this key be available on other platforms?
 @available(macOS 10.9, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for ``kMDItemAlternateNames``.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeObject/alternateNames``
 	struct AlternateNames: NSMetadataAttributeKey {
-		public typealias Value = [String]
+		public typealias Output = [String]
 
 		public static var attributeKey: String { kMDItemAlternateNames }
 
@@ -17,7 +19,10 @@ public extension NSMetadataAttributeKeys {
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.AlternateNames
 {
-	/// The shorthand attribute key accessor for ``NSMetadataAttributeKeys/AlternateNames``.
+	/// The attribute key for ``kMDItemAlternateNames``.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeKeys/AlternateNames``
 	static var alternateNames: Self {
 		Self()
 	}

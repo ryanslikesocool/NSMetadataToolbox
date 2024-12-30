@@ -1,7 +1,15 @@
-public protocol NSMetadataAttributeObject<Input, Output> {
+import DeclarativeCore
+
+public protocol NSMetadataAttributeObject<Input, Output>: ObjectProcessor {
+	// Shadows `ObjectProcessor.Input`
+	/// The type of the argument for ``process(_:)``.
 	associatedtype Input
+
+	// Shadows `ObjectProcessor.Output`
+	/// The type of the value returned by ``process(_:)``.
 	associatedtype Output
 
+	// Shadows `ObjectProcessor.process(_:)`
 	func process(_ input: Input) throws -> Output
 }
 
@@ -13,10 +21,18 @@ public extension NSMetadataAttributeObject {
 	/// - Returns: The attribute with the given `modifier` applied.
 	func modifier<Modifier>(
 		_ modifier: Modifier
-	) -> some NSMetadataAttributeObject<Self.Input, Modifier.Output> where
+	) -> ModifiedObject<Self, Modifier> where
 		Modifier: NSMetadataAttributeObject,
 		Self.Output == Modifier.Input
 	{
-		ModifiedContent(upstream: self, downstream: modifier)
+		ModifiedObject(upstream: self, downstream: modifier)
 	}
 }
+
+// MARK: - Default Conformances
+
+extension ObjectProcessorModifiers.Map: NSMetadataAttributeObject { }
+extension ObjectProcessorModifiers.CompactMap: NSMetadataAttributeObject { }
+extension ObjectProcessorModifiers.FlatMap: NSMetadataAttributeObject { }
+extension ObjectProcessorModifiers.Filter: NSMetadataAttributeObject { }
+extension ObjectProcessorModifiers.Sort: NSMetadataAttributeObject { }

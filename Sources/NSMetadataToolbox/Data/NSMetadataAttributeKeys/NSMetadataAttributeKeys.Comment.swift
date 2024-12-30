@@ -4,8 +4,11 @@ import let Foundation.NSMetadataAttributes.NSMetadataItemCommentKey
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
 	/// [`NSMetadataItemCommentKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemcommentkey)\.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeObject/comment``
 	struct Comment: NSMetadataAttributeKey {
-		public typealias Value = String
+		public typealias Output = String
 
 		public static var attributeKey: String { NSMetadataItemCommentKey }
 
@@ -19,7 +22,11 @@ public extension NSMetadataAttributeKeys {
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.Comment
 {
-	/// The shorthand attribute key accessor for ``NSMetadataAttributeKeys/Comment``.
+	/// The attribute key for
+	/// [`NSMetadataItemCommentKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemcommentkey)\.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeKeys/Comment``
 	static var comment: Self {
 		Self()
 	}

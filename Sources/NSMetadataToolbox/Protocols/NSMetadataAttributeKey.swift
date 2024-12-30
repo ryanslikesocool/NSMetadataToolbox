@@ -3,18 +3,14 @@ import class Foundation.NSMetadata.NSMetadataItem
 /// A key for accessing attribute values in an
 /// [`NSMetadataItem`](https://developer.apple.com/documentation/foundation/nsmetadataitem)\.
 public protocol NSMetadataAttributeKey: NSMetadataAttributeObject where
-	Input == NSMetadataItem,
-	Output == Value
+	Input == NSMetadataItem
 {
-	/// The expected type of the value returned by
-	/// [`value(forAttribute:)`](https://developer.apple.com/documentation/foundation/nsmetadataitem/1411721-value)\.
-	associatedtype Value
-
 	/// The underlying attribute key.
 	///
 	/// Attribute key constants can be found in the documentation for
 	/// [`NSMetadataItem`](https://developer.apple.com/documentation/foundation/nsmetadataitem#1681152)\,
-	/// [`MDItem`](https://developer.apple.com/documentation/coreservices/file_metadata/mditem#1658393), and
+	/// [`MDItem`](https://developer.apple.com/documentation/coreservices/file_metadata/mditem#1658393)\,
+	/// and
 	/// [File Metadata](https://developer.apple.com/documentation/coreservices/file_metadata#2934150)\.
 	static var attributeKey: String { get }
 }
@@ -22,11 +18,12 @@ public protocol NSMetadataAttributeKey: NSMetadataAttributeObject where
 // MARK: - Default Implementation
 
 public extension NSMetadataAttributeKey {
+	/// Retrieve and process the value for the attribute with the ``attributeKey``.
 	func process(_ input: Input) throws -> Output {
-		let originalValue = input.value(forAttribute: Self.attributeKey)
-		guard let castValue = originalValue as? Output else {
-			throw NSMetadataAttributeError.castFailed(input: type(of: originalValue), output: Output.self)
+		let attributeValue = input.value(forAttribute: Self.attributeKey)
+		guard let resultValue = attributeValue as? Output else {
+			throw NSMetadataError.castFailed(from: attributeValue, to: Output.self)
 		}
-		return castValue
+		return resultValue
 	}
 }

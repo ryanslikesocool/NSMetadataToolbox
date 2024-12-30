@@ -13,7 +13,7 @@ Declaring attribute keys currently requires a lot of boilerplate.
 ```swift
 extension NSMetadataAttribute {
 	struct DisplayNameKey: NSMetadataAttributeKey {
-		public typealias Value = String
+		public typealias Output = String
 
 		public static var attributeKey: String {
 			NSMetadataItemDisplayNameKey
@@ -66,7 +66,7 @@ extension NSMetadataAttribute {
 // The standard boilerplate could be generated
 // from an `ExtensionMacro` implementation.
 extension NSMetadataAttribute.DisplayNameKey: NSMetadataAttributeKey {
-	public typealias Value = String
+	public typealias Output = String
 
 	public static var attributeKey: String {
 		NSMetadataItemDisplayNameKey

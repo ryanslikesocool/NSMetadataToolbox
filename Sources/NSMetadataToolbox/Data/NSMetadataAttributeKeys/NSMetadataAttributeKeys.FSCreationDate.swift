@@ -5,8 +5,11 @@ import struct Foundation.Date
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
 	/// [`NSMetadataItemFSCreationDateKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemfscreationdatekey)\.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeObject/fsCreationDate``
 	struct FSCreationDate: NSMetadataAttributeKey {
-		public typealias Value = Date
+		public typealias Output = Date
 
 		public static var attributeKey: String { NSMetadataItemFSCreationDateKey }
 
@@ -20,7 +23,11 @@ public extension NSMetadataAttributeKeys {
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.FSCreationDate
 {
-	/// The shorthand attribute key accessor for ``NSMetadataAttributeKeys/FSCreationDate``.
+	/// The attribute key for
+	/// [`NSMetadataItemFSCreationDateKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemfscreationdatekey)\.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeKeys/FSCreationDate``
 	static var fsCreationDate: Self {
 		Self()
 	}

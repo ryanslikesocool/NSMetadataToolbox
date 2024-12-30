@@ -5,8 +5,11 @@ import struct Foundation.Date
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
 	/// [`NSMetadataItemLastUsedDateKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemlastuseddatekey)\.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeObject/lastUsedDate``
 	struct LastUsedDate: NSMetadataAttributeKey {
-		public typealias Value = Date
+		public typealias Output = Date
 
 		public static var attributeKey: String { NSMetadataItemLastUsedDateKey }
 
@@ -20,7 +23,11 @@ public extension NSMetadataAttributeKeys {
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.LastUsedDate
 {
-	/// The shorthand attribute key accessor for ``NSMetadataAttributeKeys/LastUsedDate``.
+	/// The attribute key for
+	/// [`NSMetadataItemLastUsedDateKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemlastuseddatekey)\.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeKeys/LastUsedDate``
 	static var lastUsedDate: Self {
 		Self()
 	}

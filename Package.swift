@@ -19,9 +19,15 @@ let package = Package(
 			targets: ["NSMetadataToolbox"]
 		),
 	],
+	dependencies: [
+		.package(url: "https://github.com/ryanslikesocool/DeclarativeCore.git", from: "0.0.3"),
+	],
 	targets: [
 		.target(
-			name: "NSMetadataToolbox"
+			name: "NSMetadataToolbox",
+			dependencies: [
+				"DeclarativeCore"
+			]
 		),
 	]
 )

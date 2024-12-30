@@ -4,8 +4,11 @@ import let Foundation.NSMetadataAttributes.NSMetadataItemKindKey
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
 	/// [`NSMetadataItemKindKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemkindkey)\.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeObject/kind``
 	struct Kind: NSMetadataAttributeKey {
-		public typealias Value = String
+		public typealias Output = String
 
 		public static var attributeKey: String { NSMetadataItemKindKey }
 
@@ -19,7 +22,11 @@ public extension NSMetadataAttributeKeys {
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.Kind
 {
-	/// The shorthand attribute key accessor for ``NSMetadataAttributeKeys/Kind``.
+	/// The attribute key for
+	/// [`NSMetadataItemKindKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemkindkey)\.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeKeys/Kind``
 	static var kind: Self {
 		Self()
 	}

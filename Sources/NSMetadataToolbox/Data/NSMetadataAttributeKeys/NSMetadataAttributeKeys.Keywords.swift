@@ -4,8 +4,11 @@ import let Foundation.NSMetadataAttributes.NSMetadataItemKeywordsKey
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
 	/// [`NSMetadataItemKeywordsKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemkeywordskey)\.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeObject/keywords``
 	struct Keywords: NSMetadataAttributeKey {
-		public typealias Value = String
+		public typealias Output = String
 
 		public static var attributeKey: String { NSMetadataItemKeywordsKey }
 
@@ -19,7 +22,11 @@ public extension NSMetadataAttributeKeys {
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.Keywords
 {
-	/// The shorthand attribute key accessor for ``NSMetadataAttributeKeys/Keywords``.
+	/// The attribute key for
+	/// [`NSMetadataItemKeywordsKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemkeywordskey)\.
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeKeys/Keywords``
 	static var keywords: Self {
 		Self()
 	}
