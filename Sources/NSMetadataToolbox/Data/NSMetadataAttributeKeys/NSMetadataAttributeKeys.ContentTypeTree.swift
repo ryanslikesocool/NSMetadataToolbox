@@ -27,7 +27,7 @@ public extension NSMetadataAttributeObject where
 {
 	/// The attribute key for
 	/// [`NSMetadataItemContentTypeTreeKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemcontenttypetreekey)\.
-	/// 
+	///
 	/// ## See Also
 	/// - ``NSMetadataAttributeKeys/ContentTypeTree``
 	static var contentTypeTree: Self {
@@ -43,13 +43,11 @@ public extension NSMetadataAttributeKeys.ContentTypeTree {
 	/// Convert each element to a `UTType` using
 	/// [`init(_:)`](https://developer.apple.com/documentation/uniformtypeidentifiers/uttype-swift.struct/init(_:))\.
 	func asUTTypes() -> some NSMetadataAttributeObject<Self.Input, [Result<UTType, NSMetadataError>]> {
-		map { (input: Output) -> [Result<UTType, NSMetadataError>] in
-			input.map { (rawValue: Output.Element) -> Result<UTType, NSMetadataError> in
-				guard let result = UTType(rawValue) else {
-					return .failure(NSMetadataError.conversionFailed(from: rawValue, to: UTType.self))
-				}
-				return .success(result)
+		map { (input: Output.Element) -> Result<UTType, NSMetadataError> in
+			guard let result = UTType(input) else {
+				return .failure(NSMetadataError.conversionFailed(from: input, to: UTType.self))
 			}
+			return .success(result)
 		}
 	}
 }

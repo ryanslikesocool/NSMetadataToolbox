@@ -1,5 +1,14 @@
+/// ## Topics
+///
+/// ### Errors
+///
+/// - ``missingValue(forKey:)``
+/// - ``castFailed(from:to:)-7oyil``
+/// - ``castFailed(from:to:)-z28n``
+/// - ``conversionFailed(from:to:)-7xul0``
+/// - ``conversionFailed(from:to:)-3qv50``
 public struct NSMetadataError {
-	let rawValue: RawValue
+	private let rawValue: RawValue
 
 	private init(rawValue: RawValue) {
 		self.rawValue = rawValue
@@ -17,7 +26,9 @@ extension NSMetadataError: Error { }
 // MARK: - Convenience
 
 public extension NSMetadataError {
-	static let unexpectedNil: Self = Self(rawValue: .unexpectedNil)
+	static func missingValue(forKey attributeKey: String) -> Self {
+		Self(rawValue: .missingAttributeValue(key: attributeKey))
+	}
 
 	static func castFailed(from inputType: Any.Type, to outputType: Any.Type) -> Self {
 		Self(rawValue: .castFailed(input: inputType, output: outputType))
