@@ -2,12 +2,15 @@
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for ``kMDItemSupportFileType``.
 	///
-	/// ## See Also
+	/// ## Topics
+	/// ### Convenience
 	/// - ``NSMetadataAttributeObject/supportFileType``
 	struct SupportFileType: NSMetadataAttributeKey {
 		public typealias Output = [String]
 
-		public static var attributeKey: String { kMDItemSupportFileType }
+		public static var attributeKey: String {
+			kMDItemSupportFileType
+		}
 
 		public init() { }
 	}

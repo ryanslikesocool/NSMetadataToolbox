@@ -2,12 +2,15 @@
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for ``kMDItemAppStoreCategoryType``.
 	///
-	/// ## See Also
+	/// ## Topics
+	/// ### Convenience
 	/// - ``NSMetadataAttributeObject/appStoreCategoryType``
 	struct AppStoreCategoryType: NSMetadataAttributeKey {
 		public typealias Output = String
 
-		public static var attributeKey: String { kMDItemAppStoreCategoryType }
+		public static var attributeKey: String {
+			kMDItemAppStoreCategoryType
+		}
 
 		public init() { }
 	}

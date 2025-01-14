@@ -3,18 +3,14 @@
 ## Topics
 
 ### Accessing Attribute Values
-
 - ``Foundation/NSMetadataItem/value(forAttribute:)``
 
-
 ### Declaring Attribute Keys
-
 - ``NSMetadataAttributeKey``
 - <doc:ShorthandAttributeKeyAccessors>
 - <doc:CustomAttributeKeyProcessing>
 
 ### Attribute Keys
-
 - ``NSMetadataAttributeKeys``
 - ``NSMetadataAttributeObject/alternateNames``
 - ``NSMetadataAttributeObject/appStoreCategory``

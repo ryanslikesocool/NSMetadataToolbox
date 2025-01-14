@@ -4,12 +4,15 @@ import struct Foundation.Date
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for ``kMDItemUsedDates``.
 	///
-	/// ## See Also
+	/// ## Topics
+	/// ### Convenience
 	/// - ``NSMetadataAttributeObject/usedDates``
 	struct UsedDates: NSMetadataAttributeKey {
 		public typealias Output = [Date]
 
-		public static var attributeKey: String { kMDItemUsedDates }
+		public static var attributeKey: String {
+			kMDItemUsedDates
+		}
 
 		public init() { }
 	}

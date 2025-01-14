@@ -10,7 +10,5 @@ Extensions and conveniences for Apple's metadata APIs.
 - <doc:AttributeModifiers>
 - <doc:Queries>
 
-
 ### Errors
-
 - ``NSMetadataError``

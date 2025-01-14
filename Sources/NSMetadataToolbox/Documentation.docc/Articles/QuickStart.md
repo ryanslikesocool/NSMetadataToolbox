@@ -3,7 +3,7 @@
 ## Using Attribute Keys
 
 This package provides a simple and type-safe way to access attribute values from
-[`NSMetadataItem`](https://developer.apple.com/documentation/foundation/nsmetadataitem)
+[`NSMetadataItem`]( https://developer.apple.com/documentation/foundation/nsmetadataitem )
 in the form of the ``NSMetadataAttributeKey`` protocol.
 ```swift
 import Foundation

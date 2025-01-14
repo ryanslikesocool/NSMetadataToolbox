@@ -3,14 +3,17 @@ import let Foundation.NSMetadataAttributes.NSMetadataItemExecutableArchitectures
 @available(macOS 10.9, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
-	/// [`NSMetadataItemExecutableArchitecturesKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemexecutablearchitectureskey)\.
+	/// [`NSMetadataItemExecutableArchitecturesKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemexecutablearchitectureskey ).
 	///
-	/// ## See Also
+	/// ## Topics
+	/// ### Convenience
 	/// - ``NSMetadataAttributeObject/executableArchitectures``
 	struct ExecutableArchitectures: NSMetadataAttributeKey {
 		public typealias Output = [String]
 
-		public static var attributeKey: String { NSMetadataItemExecutableArchitecturesKey }
+		public static var attributeKey: String {
+			NSMetadataItemExecutableArchitecturesKey
+		}
 
 		public init() { }
 	}
@@ -23,7 +26,7 @@ public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.ExecutableArchitectures
 {
 	/// The attribute key for
-	/// [`NSMetadataItemExecutableArchitecturesKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemexecutablearchitectureskey)\.
+	/// [`NSMetadataItemExecutableArchitecturesKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemexecutablearchitectureskey ).
 	///
 	/// ## See Also
 	/// - ``NSMetadataAttributeKeys/ExecutableArchitectures``

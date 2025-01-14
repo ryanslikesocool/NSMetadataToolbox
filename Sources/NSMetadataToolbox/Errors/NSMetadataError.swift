@@ -1,7 +1,5 @@
 /// ## Topics
-///
 /// ### Errors
-///
 /// - ``missingValue(forKey:)``
 /// - ``castFailed(from:to:)-7oyil``
 /// - ``castFailed(from:to:)-z28n``
@@ -26,22 +24,35 @@ extension NSMetadataError: Error { }
 // MARK: - Convenience
 
 public extension NSMetadataError {
+	/// - Parameter attributeKey:
 	static func missingValue(forKey attributeKey: String) -> Self {
 		Self(rawValue: .missingAttributeValue(key: attributeKey))
 	}
 
+	/// - Parameters:
+	///   - inputType:
+	///   - outputType:
 	static func castFailed(from inputType: Any.Type, to outputType: Any.Type) -> Self {
 		Self(rawValue: .castFailed(input: inputType, output: outputType))
 	}
 
+	/// - Parameters:
+	///   - inputValue:
+	///   - outputType:
 	static func castFailed<Input>(from inputValue: borrowing Input, to outputType: Any.Type) -> Self {
 		castFailed(from: Input.self, to: outputType)
 	}
 
+	/// - Parameters:
+	///   - inputType:
+	///   - outputType:
 	static func conversionFailed(from inputType: Any.Type, to outputType: Any.Type) -> Self {
 		Self(rawValue: .conversionFailed(input: inputType, output: outputType))
 	}
 
+	/// - Parameters:
+	///   - inputValue:
+	///   - outputType:
 	static func conversionFailed<Input>(from inputValue: borrowing Input, to outputType: Any.Type) -> Self {
 		conversionFailed(from: Input.self, to: outputType)
 	}

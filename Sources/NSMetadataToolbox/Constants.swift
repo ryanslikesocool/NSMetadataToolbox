@@ -21,8 +21,8 @@ public let kMDItemPhysicalSize: String = "kMDItemPhysicalSize"
 /// A `CFArray` of `CFString`s.
 ///
 /// - Remark: The
-/// [`kMDItemSupportFileType`](https://developer.apple.com/documentation/coreservices/kmditemsupportfiletype)\
-/// constant declared in Core Services is deprecated as of macOS 10.5,
+/// [`kMDItemSupportFileType`]( https://developer.apple.com/documentation/coreservices/kmditemsupportfiletype )
+/// constant declared in the `CoreServices` module is deprecated as of macOS 10.5,
 /// but many metadata items still have values for the attribute.
 @available(macOS 10.5, *)
 public let kMDItemSupportFileType: String = "kMDItemSupportFileType"

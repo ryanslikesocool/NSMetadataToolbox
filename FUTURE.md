@@ -10,27 +10,39 @@ Notes and ideas about the future of this package.
 ### The Present
 
 Declaring attribute keys currently requires a lot of boilerplate.
+With documentation and availability attributes, these declarations can become even longer.
 ```swift
-extension NSMetadataAttribute {
-	struct DisplayNameKey: NSMetadataAttributeKey {
+@available(iOS 5, macCatalyst 13.1, macOS 10.7, tvOS 9, visionOS 1, watchOS 2, *)
+public extension NSMetadataAttributeKeys {
+	/// The attribute key for
+	/// [`NSMetadataItemDisplayNameKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemdisplaynamekey ).
+	///
+	/// ## Topics
+	/// ### Convenience
+	/// - ``NSMetadataAttributeObject/displayName``
+	struct DisplayName: NSMetadataAttributeKey {
 		public typealias Output = String
 
 		public static var attributeKey: String {
 			NSMetadataItemDisplayNameKey
 		}
-		
+
 		public init() { }
 	}
 }
 
 // MARK: - Convenience
 
-// This extension is technically optional,
-// but always declared for attribute keys provided by the package.
-extension NSMetadataAttributeProtocol where
-	Self == NSMetadataAttribute.DisplayNameKey
-{ 
-	static var displayName: Self { 
+@available(iOS 5, macCatalyst 13.1, macOS 10.7, tvOS 9, visionOS 1, watchOS 2, *)
+public extension NSMetadataAttributeObject where
+	Self == NSMetadataAttributeKeys.DisplayName
+{
+	/// The attribute key for
+	/// [`NSMetadataItemDisplayNameKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemdisplaynamekey ).
+	///
+	/// ## See Also
+	/// - ``NSMetadataAttributeKeys/DisplayName``
+	static var displayName: Self {
 		Self()
 	}
 }
@@ -41,31 +53,47 @@ extension NSMetadataAttributeProtocol where
 
 Ideally, this could be simplified with a single `@AttributeKey`<sup>\*</sup> macro,
 similar to SwiftUI's
-[`@Entry`](https://developer.apple.com/documentation/swiftui/entry())
+[`@Entry`]( https://developer.apple.com/documentation/swiftui/entry() )
 macro.
 <br/>
 <sup>\* name not final</sup>
 ```swift
 // ----- Before Macro Expansion -----
 
-extension NSMetadataAttribute {
-	@AttributeKey(named: NSMetadataItemDisplayNameKey, ofType: String.self)
-	struct DisplayNameKey { }
+extension NSMetadataAttributeKeys {
+	@AttributeKey(
+		named: NSMetadataItemDisplayNameKey,
+		ofType: String.self,
+		link: "[`NSMetadataItemDisplayNameKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemdisplaynamekey )" // optional
+	)
+	@available(iOS 5, macCatalyst 13.1, macOS 10.7, tvOS 9, visionOS 1, watchOS 2, *)
+	struct DisplayName { }
 }
 ```
 ```swift
 // ----- After Macro Expansion -----
 
-extension NSMetadataAttribute {
+public extension NSMetadataAttributeKeys {
 	// A `MemberMacro` implementation could validate
 	// that the object is a `struct`
 	// and doesn't contain any members.
-	struct DisplayNameKey { }
+
+	// If the macro's `link` argument is not `nil`:	
+	/// The attribute key for
+	/// [`NSMetadataItemDisplayNameKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemdisplaynamekey ).
+
+	/// ## Topics
+	/// ### Convenience
+	/// - ``NSMetadataAttributeObject/displayName``
+	@available(iOS 5, macCatalyst 13.1, macOS 10.7, tvOS 9, visionOS 1, watchOS 2, *)
+	struct DisplayName { }
 }
 
 // The standard boilerplate could be generated
 // from an `ExtensionMacro` implementation.
-extension NSMetadataAttribute.DisplayNameKey: NSMetadataAttributeKey {
+
+@available(iOS 5, macCatalyst 13.1, macOS 10.7, tvOS 9, visionOS 1, watchOS 2, *)
+extension NSMetadataAttributeKeys.DisplayName: NSMetadataAttributeKey {
 	public typealias Output = String
 
 	public static var attributeKey: String {
@@ -76,20 +104,29 @@ extension NSMetadataAttribute.DisplayNameKey: NSMetadataAttributeKey {
 }
 
 // The shorthand attribute key accessor might be an issue
-// if I'm not able to extend `NSMetadataAttributeProtocol` from a macro.
+// if I'm not able to extend `NSMetadataAttributeObject` from a macro.
 // This could also cause issues if the attribute key type name
 // doesn't follow a standard convention.
 // Shorthand attribute key accessors may need to be declared manually.
-extension NSMetadataAttributeProtocol where
-	Self == NSMetadataAttribute.DisplayNameKey
+
+@available(iOS 5, macCatalyst 13.1, macOS 10.7, tvOS 9, visionOS 1, watchOS 2, *)
+public extension NSMetadataAttributeObject where
+	Self == NSMetadataAttributeKeys.DisplayName
 { 
+	// If the macro's `link` argument is not `nil`:	
+	/// The attribute key for
+	/// [`NSMetadataItemDisplayNameKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemdisplaynamekey ).
+	
+	/// ## See Also
+	/// - ``NSMetadataAttributeKeys/DisplayName``
 	static var displayName: Self {
 		Self()
 	}
 }
 ```
+
 However, to use macros,
-[Swift Syntax](https://github.com/swiftlang/swift-syntax)
+[Swift Syntax]( https://github.com/swiftlang/swift-syntax )
 needs to be added as a dependency.
 <br/>
 Any consumers would have to depend on
@@ -99,17 +136,17 @@ and create issues if another package requires
 a different version of Swift Syntax.
 <br/>
 This is a
-<ins>[well](https://forums.swift.org/t/compilation-extremely-slow-since-macros-adoption/67921)</ins>
-<ins>[documented](https://forums.swift.org/t/macro-adoption-concerns-around-swiftsyntax/66588)</ins>
+<ins>[well]( https://forums.swift.org/t/compilation-extremely-slow-since-macros-adoption/67921 )</ins>
+<ins>[documented]( https://forums.swift.org/t/macro-adoption-concerns-around-swiftsyntax/66588 )</ins>
 headache for other developers.
 
 In the meantime, I could consider using
-[Sourcery](https://github.com/krzysztofzablocki/Sourcery)
+[Sourcery]( https://github.com/krzysztofzablocki/Sourcery )
 to do essentially the same thing.
 Package consumers would still have to write boilerplate.
 
 All that said, there's a finite number of
-<ins>[pre-defined](https://developer.apple.com/documentation/foundation/nsmetadataitem#1681152)</ins>
-<ins>[attribute](https://developer.apple.com/documentation/coreservices/file_metadata/mditem#1658393)</ins>
-<ins>[keys](https://developer.apple.com/documentation/coreservices/file_metadata#2934150)</ins>,
+<ins>[pre-defined]( https://developer.apple.com/documentation/foundation/nsmetadataitem#1681152 )</ins>
+<ins>[attribute]( https://developer.apple.com/documentation/coreservices/file_metadata/mditem#1658393 )</ins>
+<ins>[keys]( https://developer.apple.com/documentation/coreservices/file_metadata#2934150 )</ins>,
 and it's not like I'm extending a quickly-evolving framework.

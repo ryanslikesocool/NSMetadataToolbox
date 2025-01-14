@@ -11,9 +11,9 @@ In some circumstances, additional processing may be desired for an attribute key
 ## Example
 
 This example converts the attribute value for the key
-[`NSMetadataItemContentTypeKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemcontenttypekey)
+[`NSMetadataItemContentTypeKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemcontenttypekey )
 to a
-[`UTType`](https://developer.apple.com/documentation/uniformtypeidentifiers/uttype-swift.struct)
+[`UTType`]( https://developer.apple.com/documentation/uniformtypeidentifiers/uttype-swift.struct )
 by declaring a custom implementation for
 ``NSMetadataAttributeKey/process(_:)``.
 ```swift

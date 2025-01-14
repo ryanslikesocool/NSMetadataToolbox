@@ -6,14 +6,17 @@ import struct UniformTypeIdentifiers.UTType
 @available(iOS 8, macCatalyst 13.1, macOS 10.9, tvOS 9, visionOS 1, watchOS 2, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
-	/// [`NSMetadataItemContentTypeTreeKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemcontenttypetreekey)\.
+	/// [`NSMetadataItemContentTypeTreeKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemcontenttypetreekey ).
 	///
-	/// ## See Also
+	/// ## Topics
+	/// ### Convenience
 	/// - ``NSMetadataAttributeObject/contentTypeTree``
 	struct ContentTypeTree: NSMetadataAttributeKey {
 		public typealias Output = [String]
 
-		public static var attributeKey: String { NSMetadataItemContentTypeTreeKey }
+		public static var attributeKey: String {
+			NSMetadataItemContentTypeTreeKey
+		}
 
 		public init() { }
 	}
@@ -26,7 +29,7 @@ public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.ContentTypeTree
 {
 	/// The attribute key for
-	/// [`NSMetadataItemContentTypeTreeKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemcontenttypetreekey)\.
+	/// [`NSMetadataItemContentTypeTreeKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemcontenttypetreekey ).
 	///
 	/// ## See Also
 	/// - ``NSMetadataAttributeKeys/ContentTypeTree``
@@ -41,7 +44,7 @@ public extension NSMetadataAttributeObject where
 @available(iOS 14, macCatalyst 14, macOS 11, tvOS 14, visionOS 1, watchOS 7, *)
 public extension NSMetadataAttributeKeys.ContentTypeTree {
 	/// Convert each element to a `UTType` using
-	/// [`init(_:)`](https://developer.apple.com/documentation/uniformtypeidentifiers/uttype-swift.struct/init(_:))\.
+	/// [`init(_:)`]( https://developer.apple.com/documentation/uniformtypeidentifiers/uttype-swift.struct/init(_:) ).
 	func asUTTypes() -> some NSMetadataAttributeObject<Self.Input, [Result<UTType, NSMetadataError>]> {
 		map { (input: Output.Element) -> Result<UTType, NSMetadataError> in
 			guard let result = UTType(input) else {

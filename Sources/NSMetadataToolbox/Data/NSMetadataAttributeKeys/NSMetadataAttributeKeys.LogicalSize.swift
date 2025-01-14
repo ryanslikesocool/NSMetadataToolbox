@@ -2,7 +2,8 @@
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for ``kMDItemLogicalSize``.
 	///
-	/// ## See Also
+	/// ## Topics
+	/// ### Convenience
 	/// - ``NSMetadataAttributeObject/logicalSize``
 	struct LogicalSize: NSMetadataAttributeKey {
 		// This type is assumed based on light testing.
@@ -11,7 +12,9 @@ public extension NSMetadataAttributeKeys {
 		// `ByteCountFormatStyle` only supports `Int64`.
 		public typealias Output = Int64
 
-		public static var attributeKey: String { kMDItemLogicalSize }
+		public static var attributeKey: String {
+			kMDItemLogicalSize
+		}
 
 		public init() { }
 	}

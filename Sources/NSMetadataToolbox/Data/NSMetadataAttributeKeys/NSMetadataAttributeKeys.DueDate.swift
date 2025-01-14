@@ -4,14 +4,17 @@ import struct Foundation.Date
 @available(macOS 10.9, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
-	/// [`NSMetadataItemDueDateKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemduedatekey)\.
+	/// [`NSMetadataItemDueDateKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemduedatekey ).
 	///
-	/// ## See Also
+	/// ## Topics
+	/// ### Convenience
 	/// - ``NSMetadataAttributeObject/dueDate``
 	struct DueDate: NSMetadataAttributeKey {
 		public typealias Output = Date
 
-		public static var attributeKey: String { NSMetadataItemDueDateKey }
+		public static var attributeKey: String {
+			NSMetadataItemDueDateKey
+		}
 
 		public init() { }
 	}
@@ -24,7 +27,7 @@ public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.DueDate
 {
 	/// The attribute key for
-	/// [`NSMetadataItemDueDateKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemduedatekey)\.
+	/// [`NSMetadataItemDueDateKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemduedatekey ).
 	///
 	/// ## See Also
 	/// - ``NSMetadataAttributeKeys/DueDate``
