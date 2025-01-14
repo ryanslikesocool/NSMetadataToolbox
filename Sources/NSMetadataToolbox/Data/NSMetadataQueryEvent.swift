@@ -2,6 +2,15 @@ import struct Foundation.Notification
 import class Foundation.NSMetadataQuery
 
 public extension NSMetadataQuery {
+	/// Metadata query events returned by ``NSMetadataQuery/eventStream(isolation:notificationCenter:)``.
+	///
+	/// Each event is associated with an `NSMetadataQuery` notification.
+	/// | `NSMetadataQuery.Event` | `Notification.Name` |
+	/// | - | - |
+	/// | ``didStartGathering`` | [`NSMetadataQueryDidStartGathering`]( https://developer.apple.com/documentation/foundation/nsnotification/name/1416717-nsmetadataquerydidstartgathering ) |
+	/// | ``didFinishGathering`` | [`NSMetadataQueryDidFinishGathering`]( https://developer.apple.com/documentation/foundation/nsnotification/name/1414740-nsmetadataquerydidfinishgatherin ) |
+	/// | ``gatheringProgress`` | [`NSMetadataQueryGatheringProgress`]( https://developer.apple.com/documentation/foundation/nsnotification/name/1408041-nsmetadataquerygatheringprogress ) |
+	/// | ``didUpdate`` | [`NSMetadataQueryDidUpdate`]( https://developer.apple.com/documentation/foundation/nsnotification/name/1413406-nsmetadataquerydidupdate ). |
 	enum Event {
 		/// The event associated with
 		/// [`NSMetadataQueryDidStartGathering`]( https://developer.apple.com/documentation/foundation/nsnotification/name/1416717-nsmetadataquerydidstartgathering ).
