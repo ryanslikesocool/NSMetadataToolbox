@@ -9,3 +9,9 @@ Extensions and conveniences for Apple's metadata APIs.
 - <doc:AttributeKeys>
 - <doc:AttributeModifiers>
 - <doc:Queries>
+
+### Constants
+- ``Foundation/NSMetadataQuery/Event``
+
+### Errors
+- ``NSMetadataError``

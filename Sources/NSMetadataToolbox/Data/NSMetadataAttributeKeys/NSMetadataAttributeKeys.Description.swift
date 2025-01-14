@@ -3,14 +3,17 @@ import let Foundation.NSMetadataAttributes.NSMetadataItemDescriptionKey
 @available(macOS 10.9, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
-	/// [`NSMetadataItemDescriptionKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemdescriptionkey)\.
+	/// [`NSMetadataItemDescriptionKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemdescriptionkey ).
 	///
-	/// ## See Also
+	/// ## Topics
+	/// ### Convenience
 	/// - ``NSMetadataAttributeObject/description``
 	struct Description: NSMetadataAttributeKey {
 		public typealias Output = String
 
-		public static var attributeKey: String { NSMetadataItemDescriptionKey }
+		public static var attributeKey: String {
+			NSMetadataItemDescriptionKey
+		}
 
 		public init() { }
 	}
@@ -23,7 +26,7 @@ public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.Description
 {
 	/// The attribute key for
-	/// [`NSMetadataItemDescriptionKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemdescriptionkey)\.
+	/// [`NSMetadataItemDescriptionKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemdescriptionkey ).
 	///
 	/// ## See Also
 	/// - ``NSMetadataAttributeKeys/Description``

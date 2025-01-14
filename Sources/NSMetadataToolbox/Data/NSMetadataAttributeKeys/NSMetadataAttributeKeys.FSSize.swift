@@ -3,9 +3,10 @@ import let Foundation.NSMetadataAttributes.NSMetadataItemFSSizeKey
 @available(iOS 5, macCatalyst 13.1, macOS 10.7, tvOS 9, visionOS 1, watchOS 2, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
-	/// [`NSMetadataItemFSSizeKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemfssizekey)\.
+	/// [`NSMetadataItemFSSizeKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemfssizekey ).
 	///
-	/// ## See Also
+	/// ## Topics
+	/// ### Convenience
 	/// - ``NSMetadataAttributeObject/fsSize``
 	struct FSSize: NSMetadataAttributeKey {
 		// This type is assumed based on light testing.
@@ -14,7 +15,9 @@ public extension NSMetadataAttributeKeys {
 		// `ByteCountFormatStyle` only supports `Int64`.
 		public typealias Output = Int64
 
-		public static var attributeKey: String { NSMetadataItemFSSizeKey }
+		public static var attributeKey: String {
+			NSMetadataItemFSSizeKey
+		}
 
 		public init() { }
 	}
@@ -27,7 +30,7 @@ public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.FSSize
 {
 	/// The attribute key for
-	/// [`NSMetadataItemFSSizeKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemfssizekey)\.
+	/// [`NSMetadataItemFSSizeKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemfssizekey ).
 	///
 	/// ## See Also
 	/// - ``NSMetadataAttributeKeys/FSSize``

@@ -1,36 +1,5 @@
-import Combine
+@preconcurrency import Combine
 import Foundation
-
-@available(iOS 5, macCatalyst 13.1, macOS 10.4, tvOS 9, visionOS 1, watchOS 2, *)
-public extension NSMetadataQuery {
-	/// The name of the notification that is posted when the receiver begins with the initial result-gathering phase of the query.
-	///
-	/// This is equivalent to the
-	/// [`NSMetadataQueryDidStartGathering`](https://developer.apple.com/documentation/foundation/nsnotification/name/1416717-nsmetadataquerydidstartgathering)
-	/// notification name.
-	nonisolated static var didStartGathering: Notification.Name { .NSMetadataQueryDidStartGathering }
-
-	/// The name of the notification that is posted when the receiver has finished with the initial result-gathering phase of the query.
-	///
-	/// This is equivalent to the
-	/// [`NSMetadataQueryDidFinishGathering`](https://developer.apple.com/documentation/foundation/nsnotification/name/1414740-nsmetadataquerydidfinishgatherin)
-	/// notification name.
-	nonisolated static var didFinishGathering: Notification.Name { .NSMetadataQueryDidFinishGathering }
-
-	/// The name of the notification that is posted as the receiver is collecting results during the initial result-gathering phase of the query.
-	///
-	/// This is equivalent to the
-	/// [`NSMetadataQueryGatheringProgress`](https://developer.apple.com/documentation/foundation/nsnotification/name/1408041-nsmetadataquerygatheringprogress)
-	/// notification name.
-	nonisolated static var gatheringProgress: Notification.Name { .NSMetadataQueryGatheringProgress }
-
-	/// The name of the notification that is posted when the receiver’s results have changed during the live-update phase of the query.
-	///
-	/// This is equivalent to the
-	/// [`NSMetadataQueryDidUpdate`](https://developer.apple.com/documentation/foundation/nsnotification/name/1413406-nsmetadataquerydidupdate)
-	/// notification name.
-	nonisolated static var didUpdate: Notification.Name { .NSMetadataQueryDidUpdate }
-}
 
 @available(iOS 13, macCatalyst 13.1, macOS 10.15, tvOS 13, visionOS 1, watchOS 6, *)
 public extension NSMetadataQuery {
@@ -39,19 +8,22 @@ public extension NSMetadataQuery {
 	/// - Parameters:
 	///   - isolation: The actor isolation for the query.
 	///   The current
-	///   [`#isolation`](https://developer.apple.com/documentation/swift/isolation())
+	///   [`#isolation`]( https://developer.apple.com/documentation/swift/isolation() )
 	///   is used by default.
 	///   - notificationCenter: The notification center used to wait for the
-	///   [`.NSMetadataQueryDidFinishGathering`](https://developer.apple.com/documentation/foundation/nsnotification/name/1414740-nsmetadataquerydidfinishgathering)
+	///   [`NSMetadataQueryDidFinishGathering`]( https://developer.apple.com/documentation/foundation/nsnotification/name/1414740-nsmetadataquerydidfinishgathering )
 	///   notification.
+	///   The
+	///   [`default`]( https://developer.apple.com/documentation/foundation/notificationcenter/1414169-default )
+	///   notification center is used by default.
 	func gatherResults(
 		isolation: isolated (any Actor)? = #isolation,
-		notificationCenter: NotificationCenter = .default
+		notificationCenter: NotificationCenter = NotificationCenter.default
 	) async {
 		await withCheckedContinuation { continuation in
 			var subscriber: AnyCancellable?
 			subscriber = notificationCenter
-				.publisher(for: Self.didFinishGathering, object: self)
+				.publisher(for: Notification.Name.NSMetadataQueryDidFinishGathering, object: self)
 				.sink(receiveValue: sink(notification:))
 
 			// Subscribe to notifications before starting the query.
@@ -70,6 +42,48 @@ public extension NSMetadataQuery {
 				stop()
 				continuation.resume()
 			}
+		}
+	}
+
+	/// - Parameters:
+	///   - isolation: The actor isolation for the query.
+	///   The current
+	///   [`#isolation`]( https://developer.apple.com/documentation/swift/isolation() )
+	///   is used by default.
+	///   - notificationCenter: The notification center used to wait for events.
+	///   The
+	///   [`default`]( https://developer.apple.com/documentation/foundation/notificationcenter/1414169-default )
+	///   notification center is used by default.
+	func eventStream(
+		isolation: isolated (any Actor)? = #isolation,
+		notificationCenter: NotificationCenter = NotificationCenter.default
+	) -> AsyncStream<NSMetadataQuery.Event> {
+		return AsyncStream { continuation in
+			let subscriber: AnyCancellable = Publishers.MergeMany(createNotificationPublishers())
+				.compactMap(compactMapNotification(_:))
+				.sink(receiveValue: sink(event:))
+
+			continuation.onTermination = terminate(_:)
+
+			func sink(event: NSMetadataQuery.Event) {
+				continuation.yield(event)
+			}
+
+			@Sendable
+			func terminate(_ termination: AsyncStream<NSMetadataQuery.Event>.Continuation.Termination) {
+				subscriber.cancel()
+			}
+		}
+
+		func createNotificationPublishers() -> [NotificationCenter.Publisher] {
+			NSMetadataQuery.Event.allCases
+				.map { (event: NSMetadataQuery.Event) -> NotificationCenter.Publisher in
+					notificationCenter.publisher(for: event.notificationName, object: self)
+				}
+		}
+
+		func compactMapNotification(_ notification: Notification) -> NSMetadataQuery.Event? {
+			NSMetadataQuery.Event(notification.name)
 		}
 	}
 }

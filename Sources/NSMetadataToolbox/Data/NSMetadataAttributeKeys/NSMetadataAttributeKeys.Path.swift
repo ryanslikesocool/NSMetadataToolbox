@@ -4,14 +4,17 @@ import struct Foundation.URL
 @available(iOS 5, macCatalyst 13.1, macOS 10.7, tvOS 9, visionOS 1, watchOS 2, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
-	/// [`NSMetadataItemPathKey`](https://developer.apple.com/documentation/foundation/nsmetadataitempathkey)\.
+	/// [`NSMetadataItemPathKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitempathkey ).
 	///
-	/// ## See Also
+	/// ## Topics
+	/// ### Convenience
 	/// - ``NSMetadataAttributeObject/path``
 	struct Path: NSMetadataAttributeKey {
 		public typealias Output = String
 
-		public static var attributeKey: String { NSMetadataItemPathKey }
+		public static var attributeKey: String {
+			NSMetadataItemPathKey
+		}
 
 		public init() { }
 	}
@@ -24,7 +27,7 @@ public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.Path
 {
 	/// The attribute key for
-	/// [`NSMetadataItemPathKey`](https://developer.apple.com/documentation/foundation/nsmetadataitempathkey)\.
+	/// [`NSMetadataItemPathKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitempathkey ).
 	///
 	/// ## See Also
 	/// - ``NSMetadataAttributeKeys/Path``
@@ -37,7 +40,7 @@ public extension NSMetadataAttributeObject where
 
 public extension NSMetadataAttributeKeys.Path {
 	/// Convert the path to a file URL using
-	/// [`init(filePath:directoryHint:relativeTo:)`](https://developer.apple.com/documentation/foundation/url/3988464-init)\.
+	/// [`init(filePath:directoryHint:relativeTo:)`]( https://developer.apple.com/documentation/foundation/url/3988464-init ).
 	///
 	/// - Parameters:
 	///   - directoryHint: A hint to the initializer to indicate whether the path is a directory, or to instruct the initializer to make this determination.

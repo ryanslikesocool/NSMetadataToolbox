@@ -1,13 +1,16 @@
-@available(macOS 10.9, *)
+@available(macOS 10.6.6, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for ``kMDItemAppStoreCategory``.
 	///
-	/// ## See Also
+	/// ## Topics
+	/// ### Convenience
 	/// - ``NSMetadataAttributeObject/appStoreCategory``
 	struct AppStoreCategory: NSMetadataAttributeKey {
 		public typealias Output = String
 
-		public static var attributeKey: String { kMDItemAppStoreCategory }
+		public static var attributeKey: String {
+			kMDItemAppStoreCategory
+		}
 
 		public init() { }
 	}
@@ -15,7 +18,7 @@ public extension NSMetadataAttributeKeys {
 
 // MARK: - Convenience
 
-@available(macOS 10.9, *)
+@available(macOS 10.6.6, *)
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.AppStoreCategory
 {

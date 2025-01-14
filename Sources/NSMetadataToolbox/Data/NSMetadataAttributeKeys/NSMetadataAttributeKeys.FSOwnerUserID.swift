@@ -3,9 +3,10 @@ import let CoreServices.Metadata.MDItem.kMDItemFSOwnerUserID
 @available(macOS 10.4, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
-	/// [`kMDItemFSOwnerUserID`](https://developer.apple.com/documentation/coreservices/kmditemfsowneruserid)\.
+	/// [`kMDItemFSOwnerUserID`]( https://developer.apple.com/documentation/coreservices/kmditemfsowneruserid ).
 	///
-	/// ## See Also
+	/// ## Topics
+	/// ### Convenience
 	/// - ``NSMetadataAttributeObject/fsOwnerUserID``
 	struct FSOwnerUserID: NSMetadataAttributeKey {
 		// This type is assumed based on light testing.
@@ -13,7 +14,9 @@ public extension NSMetadataAttributeKeys {
 		// This could potentially be `Int32` on 32-bit machines, in which case `Value` should be `Int`.
 		public typealias Output = Int64
 
-		public static var attributeKey: String { kMDItemFSOwnerUserID as String }
+		public static var attributeKey: String {
+			kMDItemFSOwnerUserID as String
+		}
 
 		public init() { }
 	}
@@ -26,7 +29,7 @@ public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.FSOwnerUserID
 {
 	/// The attribute key for
-	/// [`kMDItemFSOwnerUserID`](https://developer.apple.com/documentation/coreservices/kmditemfsowneruserid)\.
+	/// [`kMDItemFSOwnerUserID`]( https://developer.apple.com/documentation/coreservices/kmditemfsowneruserid ).
 	///
 	/// ## See Also
 	/// - ``NSMetadataAttributeKeys/FSOwnerUserID``

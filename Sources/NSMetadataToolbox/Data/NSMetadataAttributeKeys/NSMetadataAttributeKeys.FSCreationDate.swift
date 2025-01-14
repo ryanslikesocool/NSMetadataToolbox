@@ -4,14 +4,17 @@ import struct Foundation.Date
 @available(iOS 5, macCatalyst 13.1, macOS 10.7, tvOS 9, visionOS 1, watchOS 2, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
-	/// [`NSMetadataItemFSCreationDateKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemfscreationdatekey)\.
+	/// [`NSMetadataItemFSCreationDateKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemfscreationdatekey ).
 	///
-	/// ## See Also
+	/// ## Topics
+	/// ### Convenience
 	/// - ``NSMetadataAttributeObject/fsCreationDate``
 	struct FSCreationDate: NSMetadataAttributeKey {
 		public typealias Output = Date
 
-		public static var attributeKey: String { NSMetadataItemFSCreationDateKey }
+		public static var attributeKey: String {
+			NSMetadataItemFSCreationDateKey
+		}
 
 		public init() { }
 	}
@@ -24,7 +27,7 @@ public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.FSCreationDate
 {
 	/// The attribute key for
-	/// [`NSMetadataItemFSCreationDateKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemfscreationdatekey)\.
+	/// [`NSMetadataItemFSCreationDateKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemfscreationdatekey ).
 	///
 	/// ## See Also
 	/// - ``NSMetadataAttributeKeys/FSCreationDate``

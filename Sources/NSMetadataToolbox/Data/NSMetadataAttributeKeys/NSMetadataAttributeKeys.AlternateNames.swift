@@ -2,12 +2,15 @@
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for ``kMDItemAlternateNames``.
 	///
-	/// ## See Also
+	/// ## Topics
+	/// ### Convenience
 	/// - ``NSMetadataAttributeObject/alternateNames``
 	struct AlternateNames: NSMetadataAttributeKey {
 		public typealias Output = [String]
 
-		public static var attributeKey: String { kMDItemAlternateNames }
+		public static var attributeKey: String {
+			kMDItemAlternateNames
+		}
 
 		public init() { }
 	}

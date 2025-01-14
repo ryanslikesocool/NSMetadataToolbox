@@ -3,14 +3,17 @@ import let Foundation.NSMetadataAttributes.NSMetadataItemCFBundleIdentifierKey
 @available(macOS 10.9, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
-	/// [`NSMetadataItemCFBundleIdentifierKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemcfbundleidentifierkey)\.
+	/// [`NSMetadataItemCFBundleIdentifierKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemcfbundleidentifierkey ).
 	///
-	/// ## See Also
+	/// ## Topics
+	/// ### Convenience
 	/// - ``NSMetadataAttributeObject/cfBundleIdentifier``
 	struct CFBundleIdentifier: NSMetadataAttributeKey {
 		public typealias Output = String
 
-		public static var attributeKey: String { NSMetadataItemCFBundleIdentifierKey }
+		public static var attributeKey: String {
+			NSMetadataItemCFBundleIdentifierKey
+		}
 
 		public init() { }
 	}
@@ -23,7 +26,7 @@ public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.CFBundleIdentifier
 {
 	/// The attribute key for
-	/// [`NSMetadataItemCFBundleIdentifierKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemcfbundleidentifierkey)\.
+	/// [`NSMetadataItemCFBundleIdentifierKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemcfbundleidentifierkey ).
 	///
 	/// ## See Also
 	/// - ``NSMetadataAttributeKeys/CFBundleIdentifier``

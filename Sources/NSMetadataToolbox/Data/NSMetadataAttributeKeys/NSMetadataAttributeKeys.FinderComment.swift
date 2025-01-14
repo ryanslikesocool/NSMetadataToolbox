@@ -3,14 +3,17 @@ import let Foundation.NSMetadataAttributes.NSMetadataItemFinderCommentKey
 @available(macOS 10.9, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
-	/// [`NSMetadataItemFinderCommentKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemfindercommentkey)\.
+	/// [`NSMetadataItemFinderCommentKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemfindercommentkey ).
 	///
-	/// ## See Also
+	/// ## Topics
+	/// ### Convenience
 	/// - ``NSMetadataAttributeObject/finderComment``
 	struct FinderComment: NSMetadataAttributeKey {
 		public typealias Output = String
 
-		public static var attributeKey: String { NSMetadataItemFinderCommentKey }
+		public static var attributeKey: String {
+			NSMetadataItemFinderCommentKey
+		}
 
 		public init() { }
 	}
@@ -23,7 +26,7 @@ public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.FinderComment
 {
 	/// The attribute key for
-	/// [`NSMetadataItemFinderCommentKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemfindercommentkey)\.
+	/// [`NSMetadataItemFinderCommentKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemfindercommentkey ).
 	///
 	/// ## See Also
 	/// - ``NSMetadataAttributeKeys/FinderComment``

@@ -2,7 +2,8 @@
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for ``kMDItemUseCount``.
 	///
-	/// ## See Also
+	/// ## Topics
+	/// ### Convenience
 	/// - ``NSMetadataAttributeObject/useCount``
 	struct UseCount: NSMetadataAttributeKey {
 		// This type is assumed based on light testing.
@@ -10,7 +11,9 @@ public extension NSMetadataAttributeKeys {
 		// This could potentially be `Int32` on 32-bit machines, in which case `Value` should be `Int`.
 		public typealias Output = Int64
 
-		public static var attributeKey: String { kMDItemUseCount }
+		public static var attributeKey: String {
+			kMDItemUseCount
+		}
 
 		public init() { }
 	}

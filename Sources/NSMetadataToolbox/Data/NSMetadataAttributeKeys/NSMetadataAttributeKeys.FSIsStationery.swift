@@ -3,14 +3,17 @@ import let CoreServices.Metadata.MDItem.kMDItemFSIsStationery
 @available(macOS 10.4, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
-	/// [`kMDItemFSIsStationery`](https://developer.apple.com/documentation/coreservices/kmditemfsisstationery)\.
+	/// [`kMDItemFSIsStationery`]( https://developer.apple.com/documentation/coreservices/kmditemfsisstationery ).
 	///
-	/// ## See Also
+	/// ## Topics
+	/// ### Convenience
 	/// - ``NSMetadataAttributeObject/fsIsStationery``
 	struct FSIsStationery: NSMetadataAttributeKey {
 		public typealias Output = Bool
 
-		public static var attributeKey: String { kMDItemFSIsStationery as String }
+		public static var attributeKey: String {
+			kMDItemFSIsStationery as String
+		}
 
 		public init() { }
 	}
@@ -23,7 +26,7 @@ public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.FSIsStationery
 {
 	/// The attribute key for
-	/// [`kMDItemFSIsStationery`](https://developer.apple.com/documentation/coreservices/kmditemfsisstationery)\.
+	/// [`kMDItemFSIsStationery`]( https://developer.apple.com/documentation/coreservices/kmditemfsisstationery ).
 	///
 	/// ## See Also
 	/// - ``NSMetadataAttributeKeys/FSIsStationery``

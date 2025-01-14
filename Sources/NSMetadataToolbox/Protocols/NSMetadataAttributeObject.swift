@@ -1,12 +1,16 @@
 import DeclarativeCore
 
+/// ## Topics
+/// ### Type-erased Objects
+/// - ``AnyNSMetadataAttributeObject``
+/// - ``PartialNSMetadataAttributeObject``
 public protocol NSMetadataAttributeObject<Input, Output>: ObjectProcessor {
-	// Shadows `ObjectProcessor.Input`
 	/// The type of the argument for ``process(_:)``.
+	// Shadows `ObjectProcessor.Input`
 	associatedtype Input
 
-	// Shadows `ObjectProcessor.Output`
 	/// The type of the value returned by ``process(_:)``.
+	// Shadows `ObjectProcessor.Output`
 	associatedtype Output
 
 	// Shadows `ObjectProcessor.process(_:)`
@@ -17,6 +21,7 @@ public protocol NSMetadataAttributeObject<Input, Output>: ObjectProcessor {
 
 public extension NSMetadataAttributeObject {
 	/// Apply the given `modifier` to the attribute.
+	/// 
 	/// - Parameter modifier: The modifier to apply to the attribute.
 	/// - Returns: The attribute with the given `modifier` applied.
 	func modifier<Modifier>(
@@ -31,6 +36,7 @@ public extension NSMetadataAttributeObject {
 
 // MARK: - Default Conformances
 
+extension AnyObjectProcessor: NSMetadataAttributeObject { }
 extension ObjectProcessorModifiers.Map: NSMetadataAttributeObject { }
 extension ObjectProcessorModifiers.CompactMap: NSMetadataAttributeObject { }
 extension ObjectProcessorModifiers.FlatMap: NSMetadataAttributeObject { }

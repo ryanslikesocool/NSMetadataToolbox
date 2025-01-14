@@ -3,14 +3,17 @@ import let CoreServices.Metadata.MDItem.kMDItemFSHasCustomIcon
 @available(macOS 10.4, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
-	/// [`kMDItemFSHasCustomIcon`](https://developer.apple.com/documentation/coreservices/kmditemfshascustomicon)\.
+	/// [`kMDItemFSHasCustomIcon`]( https://developer.apple.com/documentation/coreservices/kmditemfshascustomicon ).
 	///
-	/// ## See Also
+	/// ## Topics
+	/// ### Convenience
 	/// - ``NSMetadataAttributeObject/fsHasCustomIcon``
 	struct FSHasCustomIcon: NSMetadataAttributeKey {
 		public typealias Output = Bool
 
-		public static var attributeKey: String { kMDItemFSHasCustomIcon as String }
+		public static var attributeKey: String {
+			kMDItemFSHasCustomIcon as String
+		}
 
 		public init() { }
 	}
@@ -23,7 +26,7 @@ public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.FSHasCustomIcon
 {
 	/// The attribute key for
-	/// [`kMDItemFSHasCustomIcon`](https://developer.apple.com/documentation/coreservices/kmditemfshascustomicon)\.
+	/// [`kMDItemFSHasCustomIcon`]( https://developer.apple.com/documentation/coreservices/kmditemfshascustomicon ).
 	///
 	/// ## See Also
 	/// - ``NSMetadataAttributeKeys/FSHasCustomIcon``

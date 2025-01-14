@@ -4,6 +4,7 @@ import class Foundation.NSMetadata.NSMetadataItem
 @available(iOS 5, macCatalyst 13.1, macOS 10.4, tvOS 9, visionOS 1, watchOS 2, *)
 public extension NSMetadataItem {
 	/// Returns the value for the attribute name specified by the given key.
+	/// 
 	/// - Parameter attributeKey: The key that specifies the name of a metadata attribute.
 	/// - Returns: The value for the attribute name specified by `attributeKey`.
 	func value<Key>(forAttribute attributeKey: Key) throws -> Key.Output where
@@ -18,6 +19,7 @@ public extension NSMetadataItem {
 	}
 
 //	/// Returns the values for the attribute names specified by the given keys.
+//	///
 //	/// - Parameter attributeKeys: The keys that specify the names of metadata attributes.
 //	/// - Returns: For each element: the value for the attribute name specified by the corresponding item in `attributeKeys`, if it could be found; `nil` otherwise.
 //	func values<each Key>(forAttributes attributeKeys: repeat each Key) -> (repeat Result<(each Key).Output, any Error>) where

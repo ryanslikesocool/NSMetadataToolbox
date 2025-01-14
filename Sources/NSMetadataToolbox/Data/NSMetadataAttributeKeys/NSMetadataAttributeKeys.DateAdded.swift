@@ -4,14 +4,17 @@ import struct Foundation.Date
 @available(macOS 10.9, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
-	/// [`NSMetadataItemDateAddedKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemdateaddedkey)\.
+	/// [`NSMetadataItemDateAddedKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemdateaddedkey ).
 	///
-	/// ## See Also
+	/// ## Topics
+	/// ### Convenience
 	/// - ``NSMetadataAttributeObject/dateAdded``
 	struct DateAdded: NSMetadataAttributeKey {
 		public typealias Output = Date
 
-		public static var attributeKey: String { NSMetadataItemDateAddedKey }
+		public static var attributeKey: String {
+			NSMetadataItemDateAddedKey
+		}
 
 		public init() { }
 	}
@@ -24,7 +27,7 @@ public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.DateAdded
 {
 	/// The attribute key for
-	/// [`NSMetadataItemDateAddedKey`](https://developer.apple.com/documentation/foundation/nsmetadataitemdateaddedkey)\.
+	/// [`NSMetadataItemDateAddedKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemdateaddedkey ).
 	///
 	/// ## See Also
 	/// - ``NSMetadataAttributeKeys/DateAdded``

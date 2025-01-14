@@ -2,7 +2,8 @@
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for ``kMDItemPhysicalSize``.
 	/// 
-	/// ## See Also
+	/// ## Topics
+	/// ### Convenience
 	/// - ``NSMetadataAttributeObject/physicalSize``
 	struct PhysicalSize: NSMetadataAttributeKey {
 		// This type is assumed based on light testing.
@@ -11,7 +12,9 @@ public extension NSMetadataAttributeKeys {
 		// `ByteCountFormatStyle` only supports `Int64`.
 		public typealias Output = Int64
 
-		public static var attributeKey: String { kMDItemPhysicalSize }
+		public static var attributeKey: String {
+			kMDItemPhysicalSize
+		}
 
 		public init() { }
 	}
