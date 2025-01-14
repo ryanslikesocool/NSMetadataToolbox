@@ -9,6 +9,7 @@
 - ``NSMetadataAttributeKey``
 - <doc:ShorthandAttributeKeyAccessors>
 - <doc:CustomAttributeKeyProcessing>
+- <doc:AdditionalAttributeKeyConstants>
 
 ### Attribute Keys
 - ``NSMetadataAttributeKeys``
@@ -55,5 +56,3 @@
 - ``NSMetadataAttributeObject/useCount``
 - ``NSMetadataAttributeObject/usedDates``
 - ``NSMetadataAttributeObject/version``
-
-- <doc:AdditionalAttributeKeyConstants>

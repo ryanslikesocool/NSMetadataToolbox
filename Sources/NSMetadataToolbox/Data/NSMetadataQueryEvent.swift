@@ -57,12 +57,12 @@ extension NSMetadataQuery.Event {
 		// - Should `switch` cases be `case Self.<case>.notificationName:` for safety?
 		// - Should we implement this using `Self.allCases`?
 		//		```swift
-		//		guard let event = Self.allCases.first(where: { (element: Self) -> Bool in
+		//		guard let result = Self.allCases.first(where: { (element: Self) -> Bool in
 		//			element.notificationName == notificationName
 		//		}) else {
 		//			return nil
 		//		}
-		//		self = event
+		//		self = result
 		//		```
 
 		switch notificationName {

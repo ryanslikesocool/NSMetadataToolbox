@@ -3,11 +3,11 @@
 public let kMDItemAlternateNames: String = "kMDItemAlternateNames"
 
 /// A `CFString`.
-@available(macOS 10.9, *)
+@available(macOS 10.6.6, *)
 public let kMDItemAppStoreCategory: String = "kMDItemAppStoreCategory"
 
 /// A `CFString`.
-@available(macOS 10.9, *)
+@available(macOS 10.6.6, *)
 public let kMDItemAppStoreCategoryType: String = "kMDItemAppStoreCategoryType"
 
 /// A `CFNumber`.
