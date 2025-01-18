@@ -1,12 +1,12 @@
-import let Foundation.NSMetadataAttributes.NSMetadataItemContentTypeKey
+import let CoreServices.Metadata.MDItem.kMDItemContentType
 #if canImport(UniformTypeIdentifiers)
 import struct UniformTypeIdentifiers.UTType
 #endif
 
-@available(iOS 8, macCatalyst 13.1, macOS 10.9, tvOS 9, visionOS 1, watchOS 2, *)
+@available(macOS 10.4, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
-	/// [`NSMetadataItemContentTypeKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemcontenttypekey ).
+	/// [`kMDItemContentType`]( https://developer.apple.com/documentation/coreservices/kmditemcontenttype ).
 	///
 	/// ## Topics
 	/// ### Convenience
@@ -15,7 +15,7 @@ public extension NSMetadataAttributeKeys {
 		public typealias Output = String
 
 		public static var attributeKey: String {
-			NSMetadataItemContentTypeKey
+			kMDItemContentType as String
 		}
 
 		public init() { }
@@ -24,12 +24,12 @@ public extension NSMetadataAttributeKeys {
 
 // MARK: - Convenience
 
-@available(iOS 8, macCatalyst 13.1, macOS 10.9, tvOS 9, visionOS 1, watchOS 2, *)
+@available(macOS 10.4, *)
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.ContentType
 {
 	/// The attribute key for
-	/// [`NSMetadataItemContentTypeKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemcontenttypekey ).
+	/// [`kMDItemContentType`]( https://developer.apple.com/documentation/coreservices/kmditemcontenttype ).
 	///
 	/// ## See Also
 	/// - ``NSMetadataAttributeKeys/ContentType``
@@ -41,7 +41,7 @@ public extension NSMetadataAttributeObject where
 // MARK: - Modifiers
 
 #if canImport(UniformTypeIdentifiers)
-@available(iOS 14, macCatalyst 14, macOS 11, tvOS 14, visionOS 1, watchOS 7, *)
+@available(macOS 11, *)
 public extension NSMetadataAttributeKeys.ContentType {
 	/// Convert the content type string to a `UTType` using
 	/// [`init(_:)`]( https://developer.apple.com/documentation/uniformtypeidentifiers/uttype-swift.struct/init(_:) ).

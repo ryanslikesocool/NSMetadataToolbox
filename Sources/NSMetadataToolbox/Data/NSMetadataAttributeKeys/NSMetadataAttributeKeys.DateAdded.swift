@@ -1,10 +1,10 @@
-import let Foundation.NSMetadataAttributes.NSMetadataItemDateAddedKey
+import let CoreServices.Metadata.MDItem.kMDItemDateAdded
 import struct Foundation.Date
 
-@available(macOS 10.9, *)
+@available(macOS 10.7, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
-	/// [`NSMetadataItemDateAddedKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemdateaddedkey ).
+	/// [`kMDItemDateAdded`]( https://developer.apple.com/documentation/coreservices/kmditemdateadded ).
 	///
 	/// ## Topics
 	/// ### Convenience
@@ -13,7 +13,7 @@ public extension NSMetadataAttributeKeys {
 		public typealias Output = Date
 
 		public static var attributeKey: String {
-			NSMetadataItemDateAddedKey
+			kMDItemDateAdded as String
 		}
 
 		public init() { }
@@ -22,12 +22,12 @@ public extension NSMetadataAttributeKeys {
 
 // MARK: - Convenience
 
-@available(macOS 10.9, *)
+@available(macOS 10.7, *)
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.DateAdded
 {
 	/// The attribute key for
-	/// [`NSMetadataItemDateAddedKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemdateaddedkey ).
+	/// [`kMDItemDateAdded`]( https://developer.apple.com/documentation/coreservices/kmditemdateadded ).
 	///
 	/// ## See Also
 	/// - ``NSMetadataAttributeKeys/DateAdded``

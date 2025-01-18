@@ -1,9 +1,9 @@
-import let Foundation.NSMetadataAttributes.NSMetadataItemKindKey
+import let CoreServices.Metadata.MDItem.kMDItemKind
 
-@available(macOS 10.9, *)
+@available(macOS 10.4, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
-	/// [`NSMetadataItemKindKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemkindkey ).
+	/// [`kMDItemKind`]( https://developer.apple.com/documentation/coreservices/kmditemkind ).
 	///
 	/// ## Topics
 	/// ### Convenience
@@ -12,7 +12,7 @@ public extension NSMetadataAttributeKeys {
 		public typealias Output = String
 
 		public static var attributeKey: String {
-			NSMetadataItemKindKey
+			kMDItemKind as String
 		}
 
 		public init() { }
@@ -21,12 +21,12 @@ public extension NSMetadataAttributeKeys {
 
 // MARK: - Convenience
 
-@available(macOS 10.9, *)
+@available(macOS 10.4, *)
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.Kind
 {
 	/// The attribute key for
-	/// [`NSMetadataItemKindKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemkindkey ).
+	/// [`kMDItemKind`]( https://developer.apple.com/documentation/coreservices/kmditemkind ).
 	///
 	/// ## See Also
 	/// - ``NSMetadataAttributeKeys/Kind``

@@ -1,18 +1,18 @@
-import let Foundation.NSMetadataAttributes.NSMetadataItemKeywordsKey
+import let CoreServices.Metadata.MDItem.kMDItemKeywords
 
-@available(macOS 10.9, *)
+@available(macOS 10.4, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
-	/// [`NSMetadataItemKeywordsKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemkeywordskey ).
+	/// [`kMDItemKeywords`]( https://developer.apple.com/documentation/coreservices/kmditemkeywords ).
 	///
 	/// ## Topics
 	/// ### Convenience
 	/// - ``NSMetadataAttributeObject/keywords``
 	struct Keywords: NSMetadataAttributeKey {
-		public typealias Output = String
+		public typealias Output = [String]
 
 		public static var attributeKey: String {
-			NSMetadataItemKeywordsKey
+			kMDItemKeywords as String
 		}
 
 		public init() { }
@@ -21,12 +21,12 @@ public extension NSMetadataAttributeKeys {
 
 // MARK: - Convenience
 
-@available(macOS 10.9, *)
+@available(macOS 10.4, *)
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.Keywords
 {
 	/// The attribute key for
-	/// [`NSMetadataItemKeywordsKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemkeywordskey ).
+	/// [`kMDItemKeywords`]( https://developer.apple.com/documentation/coreservices/kmditemkeywords ).
 	///
 	/// ## See Also
 	/// - ``NSMetadataAttributeKeys/Keywords``

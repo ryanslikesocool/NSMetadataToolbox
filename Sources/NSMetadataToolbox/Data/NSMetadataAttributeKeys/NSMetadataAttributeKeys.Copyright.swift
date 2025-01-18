@@ -1,9 +1,9 @@
-import let Foundation.NSMetadataAttributes.NSMetadataItemCopyrightKey
+import let CoreServices.Metadata.MDItem.kMDItemCopyright
 
-@available(macOS 10.9, *)
+@available(macOS 10.4, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
-	/// [`NSMetadataItemCopyrightKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemcopyrightkey ).
+	/// [`kMDItemCopyright`]( https://developer.apple.com/documentation/coreservices/kmditemcopyright ).
 	///
 	/// ## Topics
 	/// ### Convenience
@@ -12,7 +12,7 @@ public extension NSMetadataAttributeKeys {
 		public typealias Output = String
 
 		public static var attributeKey: String {
-			NSMetadataItemCopyrightKey
+			kMDItemCopyright as String
 		}
 
 		public init() { }
@@ -21,12 +21,12 @@ public extension NSMetadataAttributeKeys {
 
 // MARK: - Convenience
 
-@available(macOS 10.9, *)
+@available(macOS 10.4, *)
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.Copyright
 {
 	/// The attribute key for
-	/// [`NSMetadataItemCopyrightKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemcopyrightkey ).
+	/// [`kMDItemCopyright`]( https://developer.apple.com/documentation/coreservices/kmditemcopyright ).
 	///
 	/// ## See Also
 	/// - ``NSMetadataAttributeKeys/Copyright``

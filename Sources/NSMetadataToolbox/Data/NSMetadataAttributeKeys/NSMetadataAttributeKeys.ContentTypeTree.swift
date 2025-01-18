@@ -1,12 +1,12 @@
-import let Foundation.NSMetadataAttributes.NSMetadataItemContentTypeTreeKey
+import let CoreServices.Metadata.MDItem.kMDItemContentTypeTree
 #if canImport(UniformTypeIdentifiers)
 import struct UniformTypeIdentifiers.UTType
 #endif
 
-@available(iOS 8, macCatalyst 13.1, macOS 10.9, tvOS 9, visionOS 1, watchOS 2, *)
+@available(macOS 10.5, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
-	/// [`NSMetadataItemContentTypeTreeKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemcontenttypetreekey ).
+	/// [`kMDItemContentTypeTree`]( https://developer.apple.com/documentation/coreservices/kmditemcontenttypetree ).
 	///
 	/// ## Topics
 	/// ### Convenience
@@ -15,7 +15,7 @@ public extension NSMetadataAttributeKeys {
 		public typealias Output = [String]
 
 		public static var attributeKey: String {
-			NSMetadataItemContentTypeTreeKey
+			kMDItemContentTypeTree as String
 		}
 
 		public init() { }
@@ -24,12 +24,12 @@ public extension NSMetadataAttributeKeys {
 
 // MARK: - Convenience
 
-@available(iOS 8, macCatalyst 13.1, macOS 10.9, tvOS 9, visionOS 1, watchOS 2, *)
+@available(macOS 10.5, *)
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.ContentTypeTree
 {
 	/// The attribute key for
-	/// [`NSMetadataItemContentTypeTreeKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemcontenttypetreekey ).
+	/// [`kMDItemContentTypeTree`]( https://developer.apple.com/documentation/coreservices/kmditemcontenttypetree ).
 	///
 	/// ## See Also
 	/// - ``NSMetadataAttributeKeys/ContentTypeTree``
@@ -41,7 +41,7 @@ public extension NSMetadataAttributeObject where
 // MARK: - Modifiers
 
 #if canImport(UniformTypeIdentifiers)
-@available(iOS 14, macCatalyst 14, macOS 11, tvOS 14, visionOS 1, watchOS 7, *)
+@available(macOS 11, *)
 public extension NSMetadataAttributeKeys.ContentTypeTree {
 	/// Convert each element to a `UTType` using
 	/// [`init(_:)`]( https://developer.apple.com/documentation/uniformtypeidentifiers/uttype-swift.struct/init(_:) ).

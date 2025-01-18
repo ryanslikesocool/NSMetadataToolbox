@@ -1,9 +1,9 @@
-import let Foundation.NSMetadataAttributes.NSMetadataItemFSSizeKey
+import let CoreServices.Metadata.MDItem.kMDItemFSSize
 
-@available(iOS 5, macCatalyst 13.1, macOS 10.7, tvOS 9, visionOS 1, watchOS 2, *)
+@available(macOS 10.4, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
-	/// [`NSMetadataItemFSSizeKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemfssizekey ).
+	/// [`kMDItemFSSize`]( https://developer.apple.com/documentation/coreservices/kmditemfssize ).
 	///
 	/// ## Topics
 	/// ### Convenience
@@ -16,7 +16,7 @@ public extension NSMetadataAttributeKeys {
 		public typealias Output = Int64
 
 		public static var attributeKey: String {
-			NSMetadataItemFSSizeKey
+			kMDItemFSSize as String
 		}
 
 		public init() { }
@@ -25,12 +25,12 @@ public extension NSMetadataAttributeKeys {
 
 // MARK: - Convenience
 
-@available(iOS 5, macCatalyst 13.1, macOS 10.7, tvOS 9, visionOS 1, watchOS 2, *)
+@available(macOS 10.4, *)
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.FSSize
 {
 	/// The attribute key for
-	/// [`NSMetadataItemFSSizeKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemfssizekey ).
+	/// [`kMDItemFSSize`]( https://developer.apple.com/documentation/coreservices/kmditemfssize ).
 	///
 	/// ## See Also
 	/// - ``NSMetadataAttributeKeys/FSSize``

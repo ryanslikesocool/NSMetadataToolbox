@@ -1,10 +1,10 @@
-import let Foundation.NSMetadataAttributes.NSMetadataItemDueDateKey
+import let CoreServices.Metadata.MDItem.kMDItemDueDate
 import struct Foundation.Date
 
-@available(macOS 10.9, *)
+@available(macOS 10.4, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
-	/// [`NSMetadataItemDueDateKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemduedatekey ).
+	/// [`kMDItemDueDate`]( https://developer.apple.com/documentation/coreservices/kmditemduedate ).
 	///
 	/// ## Topics
 	/// ### Convenience
@@ -13,7 +13,7 @@ public extension NSMetadataAttributeKeys {
 		public typealias Output = Date
 
 		public static var attributeKey: String {
-			NSMetadataItemDueDateKey
+			kMDItemDueDate as String
 		}
 
 		public init() { }
@@ -22,12 +22,12 @@ public extension NSMetadataAttributeKeys {
 
 // MARK: - Convenience
 
-@available(macOS 10.9, *)
+@available(macOS 10.4, *)
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.DueDate
 {
 	/// The attribute key for
-	/// [`NSMetadataItemDueDateKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemduedatekey ).
+	/// [`kMDItemDueDate`]( https://developer.apple.com/documentation/coreservices/kmditemduedate ).
 	///
 	/// ## See Also
 	/// - ``NSMetadataAttributeKeys/DueDate``

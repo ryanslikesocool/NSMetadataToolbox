@@ -5,7 +5,8 @@ Extensions and conveniences for Apple's metadata APIs.
 
 ## NOTICE
 
-**This package is under development and not considered production-ready.**<br/>
+**This package is under development and not considered production-ready.**
+<br/>
 Breaking changes are common, documentation is incomplete, and support is limited.  Use at your own risk.
 
 
@@ -15,7 +16,7 @@ Breaking changes are common, documentation is incomplete, and support is limited
 
 Add the following entry to your package dependencies...
 ```swift
-.package(url: "https://github.com/ryanslikesocool/NSMetadataToolbox.git", from: "0.0.6"),
+.package(url: "https://github.com/ryanslikesocool/NSMetadataToolbox.git", from: "0.0.7"),
 ```
 ...and your target dependencies.
 ```swift
@@ -32,10 +33,10 @@ Add the following entry to your package dependencies...
 
 ## Documentation
 
-[Quick Start Guide](Sources/NSMetadataToolbox/Documentation.docc/Articles/QuickStart.md)
+[Quick Start Guide]( Sources/NSMetadataToolbox/Documentation.docc/Articles/QuickStart.md )
 
 Most of this package is documented with
-[DocC](https://www.swift.org/documentation/docc/)\.
+[DocC]( https://www.swift.org/documentation/docc/ ).
 <br/>
 To view documentation in Xcode, select `Product > Build Documentation` from the menu bar.
 
@@ -46,4 +47,4 @@ To view documentation in Xcode, select `Product > Build Documentation` from the 
 
 | Dependency | Reason |
 | - | - |
-| [DeclarativeCore](https://github.com/ryanslikesocool/DeclarativeCore) | Shared declarative code. |
+| [DeclarativeCore]( https://github.com/ryanslikesocool/DeclarativeCore ) | Shared declarative code. |

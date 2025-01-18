@@ -1,9 +1,9 @@
-import let Foundation.NSMetadataAttributes.NSMetadataItemFinderCommentKey
+import let CoreServices.Metadata.MDItem.kMDItemFinderComment
 
-@available(macOS 10.9, *)
+@available(macOS 10.4, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
-	/// [`NSMetadataItemFinderCommentKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemfindercommentkey ).
+	/// [`kMDItemFinderComment`]( https://developer.apple.com/documentation/coreservices/kmditemfindercomment ).
 	///
 	/// ## Topics
 	/// ### Convenience
@@ -12,7 +12,7 @@ public extension NSMetadataAttributeKeys {
 		public typealias Output = String
 
 		public static var attributeKey: String {
-			NSMetadataItemFinderCommentKey
+			kMDItemFinderComment as String
 		}
 
 		public init() { }
@@ -21,12 +21,12 @@ public extension NSMetadataAttributeKeys {
 
 // MARK: - Convenience
 
-@available(macOS 10.9, *)
+@available(macOS 10.4, *)
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.FinderComment
 {
 	/// The attribute key for
-	/// [`NSMetadataItemFinderCommentKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemfindercommentkey ).
+	/// [`kMDItemFinderComment`]( https://developer.apple.com/documentation/coreservices/kmditemfindercomment ).
 	///
 	/// ## See Also
 	/// - ``NSMetadataAttributeKeys/FinderComment``

@@ -1,10 +1,10 @@
-import let Foundation.NSMetadataAttributes.NSMetadataItemFSCreationDateKey
+import let CoreServices.Metadata.MDItem.kMDItemFSCreationDate
 import struct Foundation.Date
 
-@available(iOS 5, macCatalyst 13.1, macOS 10.7, tvOS 9, visionOS 1, watchOS 2, *)
+@available(macOS 10.4, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
-	/// [`NSMetadataItemFSCreationDateKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemfscreationdatekey ).
+	/// [`kMDItemFSCreationDate`]( https://developer.apple.com/documentation/coreservices/kmditemfscreationdate ).
 	///
 	/// ## Topics
 	/// ### Convenience
@@ -13,7 +13,7 @@ public extension NSMetadataAttributeKeys {
 		public typealias Output = Date
 
 		public static var attributeKey: String {
-			NSMetadataItemFSCreationDateKey
+			kMDItemFSCreationDate as String
 		}
 
 		public init() { }
@@ -22,12 +22,12 @@ public extension NSMetadataAttributeKeys {
 
 // MARK: - Convenience
 
-@available(iOS 5, macCatalyst 13.1, macOS 10.7, tvOS 9, visionOS 1, watchOS 2, *)
+@available(macOS 10.4, *)
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.FSCreationDate
 {
 	/// The attribute key for
-	/// [`NSMetadataItemFSCreationDateKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemfscreationdatekey ).
+	/// [`kMDItemFSCreationDate`]( https://developer.apple.com/documentation/coreservices/kmditemfscreationdate ).
 	///
 	/// ## See Also
 	/// - ``NSMetadataAttributeKeys/FSCreationDate``

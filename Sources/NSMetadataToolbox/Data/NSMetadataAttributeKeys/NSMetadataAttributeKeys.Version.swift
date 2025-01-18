@@ -1,9 +1,9 @@
-import let Foundation.NSMetadataAttributes.NSMetadataItemVersionKey
+import let CoreServices.Metadata.MDItem.kMDItemVersion
 
-@available(macOS 10.9, *)
+@available(macOS 10.4, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
-	/// [`NSMetadataItemVersionKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemversionkey ).
+	/// [`kMDItemVersion`]( https://developer.apple.com/documentation/coreservices/kmditemversion ).
 	///
 	/// ## Topics
 	/// ### Convenience
@@ -12,7 +12,7 @@ public extension NSMetadataAttributeKeys {
 		public typealias Output = String
 
 		public static var attributeKey: String {
-			NSMetadataItemVersionKey
+			kMDItemVersion as String
 		}
 
 		public init() { }
@@ -21,12 +21,12 @@ public extension NSMetadataAttributeKeys {
 
 // MARK: - Convenience
 
-@available(macOS 10.9, *)
+@available(macOS 10.4, *)
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.Version
 {
 	/// The attribute key for
-	/// [`NSMetadataItemVersionKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemversionkey ).
+	/// [`kMDItemVersion`]( https://developer.apple.com/documentation/coreservices/kmditemversion ).
 	///
 	/// ## See Also
 	/// - ``NSMetadataAttributeKeys/Version``

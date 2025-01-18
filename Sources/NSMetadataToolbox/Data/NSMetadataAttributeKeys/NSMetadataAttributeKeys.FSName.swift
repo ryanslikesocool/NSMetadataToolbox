@@ -1,9 +1,9 @@
-import let Foundation.NSMetadataAttributes.NSMetadataItemFSNameKey
+import let CoreServices.Metadata.MDItem.kMDItemFSName
 
-@available(iOS 5, macCatalyst 13.1, macOS 10.7, tvOS 9, visionOS 1, watchOS 2, *)
+@available(macOS 10.4, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
-	/// [`NSMetadataItemFSNameKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemfsnamekey ).
+	/// [`kMDItemFSName`]( https://developer.apple.com/documentation/coreservices/kmditemfsname ).
 	///
 	/// ## Topics
 	/// ### Convenience
@@ -12,7 +12,7 @@ public extension NSMetadataAttributeKeys {
 		public typealias Output = String
 
 		public static var attributeKey: String {
-			NSMetadataItemFSNameKey
+			kMDItemFSName as String
 		}
 
 		public init() { }
@@ -21,12 +21,12 @@ public extension NSMetadataAttributeKeys {
 
 // MARK: - Convenience
 
-@available(iOS 5, macCatalyst 13.1, macOS 10.7, tvOS 9, visionOS 1, watchOS 2, *)
+@available(macOS 10.4, *)
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.FSName
 {
 	/// The attribute key for
-	/// [`NSMetadataItemFSNameKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemfsnamekey ).
+	/// [`kMDItemFSName`]( https://developer.apple.com/documentation/coreservices/kmditemfsname ).
 	///
 	/// ## See Also
 	/// - ``NSMetadataAttributeKeys/FSName``

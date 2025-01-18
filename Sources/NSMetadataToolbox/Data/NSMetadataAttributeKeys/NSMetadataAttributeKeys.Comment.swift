@@ -1,9 +1,9 @@
-import let Foundation.NSMetadataAttributes.NSMetadataItemCommentKey
+import let CoreServices.Metadata.MDItem.kMDItemComment
 
-@available(macOS 10.9, *)
+@available(macOS 10.4, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
-	/// [`NSMetadataItemCommentKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemcommentkey ).
+	/// [`kMDItemComment`]( https://developer.apple.com/documentation/coreservices/kmditemcomment ).
 	///
 	/// ## Topics
 	/// ### Convenience
@@ -12,7 +12,7 @@ public extension NSMetadataAttributeKeys {
 		public typealias Output = String
 
 		public static var attributeKey: String {
-			NSMetadataItemCommentKey
+			kMDItemComment as String
 		}
 
 		public init() { }
@@ -21,12 +21,12 @@ public extension NSMetadataAttributeKeys {
 
 // MARK: - Convenience
 
-@available(macOS 10.9, *)
+@available(macOS 10.4, *)
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.Comment
 {
 	/// The attribute key for
-	/// [`NSMetadataItemCommentKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemcommentkey ).
+	/// [`kMDItemComment`]( https://developer.apple.com/documentation/coreservices/kmditemcomment ).
 	///
 	/// ## See Also
 	/// - ``NSMetadataAttributeKeys/Comment``

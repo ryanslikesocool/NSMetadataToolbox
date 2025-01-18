@@ -8,6 +8,9 @@ Constants for attribute keys that are not already declared by a system framework
 - ``kMDItemAlternateNames``
 - ``kMDItemAppStoreCategory``
 - ``kMDItemAppStoreCategoryType``
+- ``kMDItemFSIsReadable``
+- ``kMDItemFSIsWriteable``
+- ``kMDItemIsQuarantined``
 - ``kMDItemLogicalSize``
 - ``kMDItemPhysicalSize``
 - ``kMDItemSupportFileType``

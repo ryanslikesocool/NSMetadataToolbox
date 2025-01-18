@@ -1,9 +1,9 @@
-import let Foundation.NSMetadataAttributes.NSMetadataItemCFBundleIdentifierKey
+import let CoreServices.Metadata.MDItem.kMDItemCFBundleIdentifier
 
-@available(macOS 10.9, *)
+@available(macOS 10.5, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
-	/// [`NSMetadataItemCFBundleIdentifierKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemcfbundleidentifierkey ).
+	/// [`kMDItemCFBundleIdentifier`]( https://developer.apple.com/documentation/coreservices/kmditemcfbundleidentifier ).
 	///
 	/// ## Topics
 	/// ### Convenience
@@ -12,7 +12,7 @@ public extension NSMetadataAttributeKeys {
 		public typealias Output = String
 
 		public static var attributeKey: String {
-			NSMetadataItemCFBundleIdentifierKey
+			kMDItemCFBundleIdentifier as String
 		}
 
 		public init() { }
@@ -21,12 +21,12 @@ public extension NSMetadataAttributeKeys {
 
 // MARK: - Convenience
 
-@available(macOS 10.9, *)
+@available(macOS 10.5, *)
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.CFBundleIdentifier
 {
 	/// The attribute key for
-	/// [`NSMetadataItemCFBundleIdentifierKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemcfbundleidentifierkey ).
+	/// [`kMDItemCFBundleIdentifier`]( https://developer.apple.com/documentation/coreservices/kmditemcfbundleidentifier ).
 	///
 	/// ## See Also
 	/// - ``NSMetadataAttributeKeys/CFBundleIdentifier``

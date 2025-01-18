@@ -1,9 +1,9 @@
-import let Foundation.NSMetadataAttributes.NSMetadataItemExecutablePlatformKey
+import let CoreServices.Metadata.MDItem.kMDItemExecutablePlatform
 
-@available(macOS 10.9, *)
+@available(macOS 10.7, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
-	/// [`NSMetadataItemExecutablePlatformKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemexecutableplatformkey ).
+	/// [`kMDItemExecutablePlatform`]( https://developer.apple.com/documentation/coreservices/kmditemexecutableplatform ).
 	///
 	/// ## Topics
 	/// ### Convenience
@@ -12,7 +12,7 @@ public extension NSMetadataAttributeKeys {
 		public typealias Output = String
 
 		public static var attributeKey: String {
-			NSMetadataItemExecutablePlatformKey
+			kMDItemExecutablePlatform as String
 		}
 
 		public init() { }
@@ -21,12 +21,12 @@ public extension NSMetadataAttributeKeys {
 
 // MARK: - Convenience
 
-@available(macOS 10.9, *)
+@available(macOS 10.7, *)
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.ExecutablePlatform
 {
 	/// The attribute key for
-	/// [`NSMetadataItemExecutablePlatformKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemexecutableplatformkey ).
+	/// [`kMDItemExecutablePlatform`]( https://developer.apple.com/documentation/coreservices/kmditemexecutableplatform ).
 	///
 	/// ## See Also
 	/// - ``NSMetadataAttributeKeys/ExecutablePlatform``

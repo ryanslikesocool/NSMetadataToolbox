@@ -1,10 +1,10 @@
-import let Foundation.NSMetadataAttributes.NSMetadataItemContentCreationDateKey
+import let CoreServices.Metadata.MDItem.kMDItemContentCreationDate
 import struct Foundation.Date
 
-@available(macOS 10.9, *)
+@available(macOS 10.4, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
-	/// [`NSMetadataItemContentCreationDateKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemcontentcreationdatekey ).
+	/// [`kMDItemContentCreationDate`]( https://developer.apple.com/documentation/coreservices/kmditemcontentcreationdate ).
 	///
 	/// ## Topics
 	/// ### Convenience
@@ -13,7 +13,7 @@ public extension NSMetadataAttributeKeys {
 		public typealias Output = Date
 
 		public static var attributeKey: String {
-			NSMetadataItemContentCreationDateKey
+			kMDItemContentCreationDate as String
 		}
 
 		public init() { }
@@ -22,12 +22,12 @@ public extension NSMetadataAttributeKeys {
 
 // MARK: - Convenience
 
-@available(macOS 10.9, *)
+@available(macOS 10.4, *)
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.ContentCreationDate
 {
 	/// The attribute key for
-	/// [`NSMetadataItemContentCreationDateKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemcontentcreationdatekey ).
+	/// [`kMDItemContentCreationDate`]( https://developer.apple.com/documentation/coreservices/kmditemcontentcreationdate ).
 	///
 	/// ## See Also
 	/// - ``NSMetadataAttributeKeys/ContentCreationDate``

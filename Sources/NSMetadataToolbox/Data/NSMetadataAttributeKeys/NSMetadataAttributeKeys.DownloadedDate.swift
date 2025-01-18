@@ -1,6 +1,10 @@
 import let Foundation.NSMetadataAttributes.NSMetadataItemDownloadedDateKey
 import struct Foundation.Date
 
+// NOTE: The value for `NSMetadataItemDownloadedDateKey` is not equal to the known key `kMDItemUserDownloadedDate`.
+// Additionally, the value for `NSMetadataItemDownloadedDateKey` is not known by the system.
+// What's up with that?
+
 @available(macOS 10.9, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for

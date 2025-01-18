@@ -1,10 +1,10 @@
-import let Foundation.NSMetadataAttributes.NSMetadataItemLastUsedDateKey
+import let CoreServices.Metadata.MDItem.kMDItemLastUsedDate
 import struct Foundation.Date
 
-@available(macOS 10.9, *)
+@available(macOS 10.4, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
-	/// [`NSMetadataItemLastUsedDateKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemlastuseddatekey ).
+	/// [`kMDItemLastUsedDate`]( https://developer.apple.com/documentation/coreservices/kmditemlastuseddate ).
 	///
 	/// ## Topics
 	/// ### Convenience
@@ -13,7 +13,7 @@ public extension NSMetadataAttributeKeys {
 		public typealias Output = Date
 
 		public static var attributeKey: String {
-			NSMetadataItemLastUsedDateKey
+			kMDItemLastUsedDate as String
 		}
 
 		public init() { }
@@ -22,12 +22,12 @@ public extension NSMetadataAttributeKeys {
 
 // MARK: - Convenience
 
-@available(macOS 10.9, *)
+@available(macOS 10.4, *)
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.LastUsedDate
 {
 	/// The attribute key for
-	/// [`NSMetadataItemLastUsedDateKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemlastuseddatekey ).
+	/// [`kMDItemLastUsedDate`]( https://developer.apple.com/documentation/coreservices/kmditemlastuseddate ).
 	///
 	/// ## See Also
 	/// - ``NSMetadataAttributeKeys/LastUsedDate``

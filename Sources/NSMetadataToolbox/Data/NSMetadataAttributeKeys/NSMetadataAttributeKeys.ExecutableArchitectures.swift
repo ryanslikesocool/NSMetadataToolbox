@@ -1,9 +1,9 @@
-import let Foundation.NSMetadataAttributes.NSMetadataItemExecutableArchitecturesKey
+import let CoreServices.Metadata.MDItem.kMDItemExecutableArchitectures
 
-@available(macOS 10.9, *)
+@available(macOS 10.7, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
-	/// [`NSMetadataItemExecutableArchitecturesKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemexecutablearchitectureskey ).
+	/// [`kMDItemExecutableArchitectures`]( https://developer.apple.com/documentation/coreservices/kmditemexecutablearchitectures ).
 	///
 	/// ## Topics
 	/// ### Convenience
@@ -12,7 +12,7 @@ public extension NSMetadataAttributeKeys {
 		public typealias Output = [String]
 
 		public static var attributeKey: String {
-			NSMetadataItemExecutableArchitecturesKey
+			kMDItemExecutableArchitectures as String
 		}
 
 		public init() { }
@@ -21,12 +21,12 @@ public extension NSMetadataAttributeKeys {
 
 // MARK: - Convenience
 
-@available(macOS 10.9, *)
+@available(macOS 10.7, *)
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.ExecutableArchitectures
 {
 	/// The attribute key for
-	/// [`NSMetadataItemExecutableArchitecturesKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemexecutablearchitectureskey ).
+	/// [`kMDItemExecutableArchitectures`]( https://developer.apple.com/documentation/coreservices/kmditemexecutablearchitectures ).
 	///
 	/// ## See Also
 	/// - ``NSMetadataAttributeKeys/ExecutableArchitectures``

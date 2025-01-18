@@ -13,9 +13,14 @@ public protocol NSMetadataAttributeKey: NSMetadataAttributeObject where
 	/// and
 	/// [File Metadata]( https://developer.apple.com/documentation/coreservices/file_metadata#2934150 ).
 	///
-	/// The following terminal command can be used to inspect metadata attribute keys and values for a specific file or directory:
+	/// The following terminal commands can be used to gather additional information:
 	/// ```bash
+	/// # Inspect metadata attributes for a specific file or directory.
 	/// mdls /path/to/file
+	/// ```
+	/// ```bash
+	/// # Print out all metadata attributes known by the system.
+	/// mdimport -A
 	/// ```
 	static var attributeKey: String { get }
 

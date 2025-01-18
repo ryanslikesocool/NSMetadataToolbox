@@ -1,10 +1,10 @@
-import let Foundation.NSMetadataAttributes.NSMetadataItemFSContentChangeDateKey
+import let CoreServices.Metadata.MDItem.kMDItemFSContentChangeDate
 import struct Foundation.Date
 
-@available(iOS 5, macCatalyst 13.1, macOS 10.7, tvOS 9, visionOS 1, watchOS 2, *)
+@available(macOS 10.4, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
-	/// [`NSMetadataItemFSContentChangeDateKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemfscontentchangedatekey ).
+	/// [`kMDItemFSContentChangeDate`]( https://developer.apple.com/documentation/coreservices/kmditemfscontentchangedate ).
 	///
 	/// ## Topics
 	/// ### Convenience
@@ -13,7 +13,7 @@ public extension NSMetadataAttributeKeys {
 		public typealias Output = Date
 
 		public static var attributeKey: String {
-			NSMetadataItemFSContentChangeDateKey
+			kMDItemFSContentChangeDate as String
 		}
 
 		public init() { }
@@ -22,12 +22,12 @@ public extension NSMetadataAttributeKeys {
 
 // MARK: - Convenience
 
-@available(iOS 5, macCatalyst 13.1, macOS 10.7, tvOS 9, visionOS 1, watchOS 2, *)
+@available(macOS 10.4, *)
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.FSContentChangeDate
 {
 	/// The attribute key for
-	/// [`NSMetadataItemFSContentChangeDateKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemfscontentchangedatekey ).
+	/// [`kMDItemFSContentChangeDate`]( https://developer.apple.com/documentation/coreservices/kmditemfscontentchangedate ).
 	///
 	/// ## See Also
 	/// - ``NSMetadataAttributeKeys/FSContentChangeDate``

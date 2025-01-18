@@ -1,9 +1,9 @@
-import let Foundation.NSMetadataAttributes.NSMetadataItemDescriptionKey
+import let CoreServices.Metadata.MDItem.kMDItemDescription
 
-@available(macOS 10.9, *)
+@available(macOS 10.4, *)
 public extension NSMetadataAttributeKeys {
 	/// The attribute key for
-	/// [`NSMetadataItemDescriptionKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemdescriptionkey ).
+	/// [`kMDItemDescription`]( https://developer.apple.com/documentation/coreservices/kmditemdescription ).
 	///
 	/// ## Topics
 	/// ### Convenience
@@ -12,7 +12,7 @@ public extension NSMetadataAttributeKeys {
 		public typealias Output = String
 
 		public static var attributeKey: String {
-			NSMetadataItemDescriptionKey
+			kMDItemDescription as String
 		}
 
 		public init() { }
@@ -21,12 +21,12 @@ public extension NSMetadataAttributeKeys {
 
 // MARK: - Convenience
 
-@available(macOS 10.9, *)
+@available(macOS 10.4, *)
 public extension NSMetadataAttributeObject where
 	Self == NSMetadataAttributeKeys.Description
 {
 	/// The attribute key for
-	/// [`NSMetadataItemDescriptionKey`]( https://developer.apple.com/documentation/foundation/nsmetadataitemdescriptionkey ).
+	/// [`kMDItemDescription`]( https://developer.apple.com/documentation/coreservices/kmditemdescription ).
 	///
 	/// ## See Also
 	/// - ``NSMetadataAttributeKeys/Description``
